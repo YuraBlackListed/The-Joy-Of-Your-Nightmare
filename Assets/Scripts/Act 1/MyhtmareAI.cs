@@ -14,6 +14,12 @@ public class MyhtmareAI : MonoBehaviour
     private bool closetDelayed = false;
     #endregion
 
+    #region [Resets]
+    private bool windowReset = false;
+    private bool closetReset = false;
+    private bool doorReset = false;
+    #endregion
+
     #region [Timers]
     private float windowTimeLeft = 2f;
     private bool windowTimerIsActive = false;
@@ -47,6 +53,8 @@ public class MyhtmareAI : MonoBehaviour
         ClampValues();
 
         CheckProgress();
+
+        TryReset();
 
         TryStartTimersCountdown();
     }
@@ -93,6 +101,8 @@ public class MyhtmareAI : MonoBehaviour
     {
         windowTimerIsActive = true;
 
+        Debug.Log("Close da fukin window");
+
         if(windowTimeLeft <= 0f && !Window.IsClosed)
         {
             //do jumpscare
@@ -100,12 +110,7 @@ public class MyhtmareAI : MonoBehaviour
         }
         else if (windowTimeLeft <= 0 && Window.IsClosed)
         {
-            WindowProgress = 0f;
-
-            windowTimerIsActive = false;
-            windowTimeLeft = 2f;
-
-            calmModifier -= 1.5f;
+            windowReset = true;
         }
     }
     private void ClosetJumpscare()
@@ -127,6 +132,37 @@ public class MyhtmareAI : MonoBehaviour
         }
     }
     #endregion
+
+    #region [Reset methods]
+    private void TryReset()
+    {
+        if (windowReset)
+        {
+            WindowReset();
+        }
+        if (closetReset)
+        {
+            //do closet reset
+        }
+        if (doorReset)
+        {
+            //do door reset
+        }
+    }
+    private void WindowReset()
+    {
+        windowReset = false;
+
+        WindowProgress = 0f;
+
+        windowTimerIsActive = false;
+        windowTimeLeft = 2f;
+
+        calmModifier -= 1.5f;
+        calmModifier = Mathf.Clamp(calmModifier, 1f, 20f);
+    }
+    #endregion
+
     private void ClampValues()
     {
         WindowProgress = Mathf.Clamp(WindowProgress, 0f, 100f);
