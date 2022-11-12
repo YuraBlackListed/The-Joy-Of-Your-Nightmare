@@ -27,6 +27,6 @@ public class ClockScript : MonoBehaviour
     }
     private void ChangeClock()
     {
-        ClockText.text = $"{hours}:{minutesFirst}{minutesSecond}";
+        ClockText.text = $"0{hours}:{minutesFirst}{minutesSecond}";
     }
 }

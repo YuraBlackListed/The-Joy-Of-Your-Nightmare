@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class WindowScript : MonoBehaviour
 {
-    public bool IsClosed { get; private set; }
     public bool IsUsed;
+    public bool IsClosed = false;
 
-    private Animator animator;
+    [SerializeField] private Animator leftCurtain;
+    [SerializeField] private Animator rightCurtain;
 
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     private void Update()
     {
@@ -22,13 +19,15 @@ public class WindowScript : MonoBehaviour
     {
         IsClosed = false;
 
-        animator.SetBool("CloseWindow", false);
+        leftCurtain.SetBool("Opened", true);
+        rightCurtain.SetBool("Opened", true);
     }
 
     public void Close()
     {
         IsClosed = true;
 
-        animator.SetBool("CloseWindow", true);
+        leftCurtain.SetBool("Opened", false);
+        rightCurtain.SetBool("Opened", false);
     }
 }

@@ -27,7 +27,19 @@ public class EnviromentInteraction : MonoBehaviour
             case "Window":
                 interactable.GetComponent<WindowScript>().IsUsed = Input.GetKey(InteractButton);
                 break;
-            //You guys can do your interactables here
+            case "Lamp":
+                if(Input.GetKeyDown(InteractButton))
+                {
+                    if(interactable.GetComponent<LampScript>().Active)
+                    {
+                        interactable.GetComponent<LampScript>().Active = false;
+                    }
+                    else
+                    {
+                        interactable.GetComponent<LampScript>().Active = true;
+                    }
+                }
+                break;
         }
     }
 }

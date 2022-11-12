@@ -15,9 +15,8 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        anim.SetBool("GoForward", Input.GetKey(ForwardButton));
-        anim.SetBool("GoRight", Input.GetKey(RightButton));
-        anim.SetBool("GoLeft", Input.GetKey(LeftButton));
-        anim.SetBool("GoBackward", Input.GetKey(BackwardButton));
+        anim.SetBool("Forward", Input.GetKey(ForwardButton));
+        anim.SetBool("Right", Input.GetKey(RightButton));
+        anim.SetBool("Back", Input.GetKey(BackwardButton));
     }
 }

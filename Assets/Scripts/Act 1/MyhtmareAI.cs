@@ -39,8 +39,8 @@ public class MyhtmareAI : MonoBehaviour
 
     private float calmModifier = 1f;
     private float progressLimit = 100f;
-    private float spotsCDByDoor = 5.5f;
-    private float roomEnterDelay = 2.25f;
+    //private float spotsCDByDoor = 5.5f;
+    //private float roomEnterDelay = 2.25f;
 
     private void Start()
     {
