@@ -1,21 +1,26 @@
 using UnityEngine;
 
-public class EnviromentInteraction : MonoBehaviour
+public class EnviromentInteractionAct2 : MonoBehaviour
 {
     public KeyCode InteractButton;
 
     [SerializeField] private Transform MainCamera;
 
+    [SerializeField] private LayerMask InteractableLayer;
+
     void Update()
     {
-        TryInteract();
+        if(Input.GetKeyDown(InteractButton))
+        {
+            TryInteract();
+        }
     }
 
     private void TryInteract()
     {
         RaycastHit interactRay;
 
-        if (Physics.Raycast(MainCamera.position, MainCamera.forward, out interactRay, 500f))
+        if (Physics.Raycast(MainCamera.position, MainCamera.forward, out interactRay, 100f, InteractableLayer))
         {
             Interact(interactRay.collider.gameObject);
         }
@@ -24,8 +29,8 @@ public class EnviromentInteraction : MonoBehaviour
     {
         switch (interactable.tag)
         {
-            case "Window":
-                interactable.GetComponent<WindowScript>().IsUsed = Input.GetKey(InteractButton);
+            case "Shelter":
+                interactable.GetComponent<ShelterScript>().Interact();
                 break;
             //You guys can do your interactables here
         }
