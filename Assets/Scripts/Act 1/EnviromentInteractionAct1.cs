@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class EnviromentInteraction : MonoBehaviour
+public class EnviromentInteractionAct1 : MonoBehaviour
 {
     public KeyCode InteractButton;
 
     [SerializeField] private Transform MainCamera;
+
+    [SerializeField] private LayerMask InteractableLayer;
 
     void Update()
     {
@@ -15,7 +17,7 @@ public class EnviromentInteraction : MonoBehaviour
     {
         RaycastHit interactRay;
 
-        if (Physics.Raycast(MainCamera.position, MainCamera.forward, out interactRay, 500f))
+        if (Physics.Raycast(MainCamera.position, MainCamera.forward, out interactRay, 500f, InteractableLayer))
         {
             Interact(interactRay.collider.gameObject);
         }
