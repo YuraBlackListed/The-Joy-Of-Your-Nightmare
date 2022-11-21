@@ -11,6 +11,8 @@ public class WindowStages : MonoBehaviour
 
     [SerializeField] private GameObject MyhtmareTransform;
 
+    [SerializeField] private Animator Animator;
+
     private int level;
 
     private void Update()
@@ -18,6 +20,8 @@ public class WindowStages : MonoBehaviour
         GetLevel();
 
         SetPosition();
+
+        Animator.SetInteger("StageLevel", level);
     }
     private void GetLevel()
     {
