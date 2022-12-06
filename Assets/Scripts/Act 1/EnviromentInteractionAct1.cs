@@ -51,8 +51,4 @@ public class EnviromentInteractionAct1 : MonoBehaviour
                 break;
         }
     }
-    private void HandleSpecials()
-    {
-        Window.IsUsed = false;
-    }
 }
