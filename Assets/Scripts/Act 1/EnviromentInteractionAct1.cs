@@ -8,6 +8,8 @@ public class EnviromentInteractionAct1 : MonoBehaviour
 
     [SerializeField] private LayerMask InteractableLayer;
 
+    [SerializeField] private WindowScript Window;
+
     void Update()
     {
         TryInteract();
@@ -21,6 +23,7 @@ public class EnviromentInteractionAct1 : MonoBehaviour
         {
             Interact(interactRay.collider.gameObject);
         }
+
     }
     private void Interact(GameObject interactable)
     {
@@ -28,6 +31,10 @@ public class EnviromentInteractionAct1 : MonoBehaviour
         {
             case "Window":
                 interactable.GetComponent<WindowScript>().IsUsed = Input.GetKey(InteractButton);
+                break;
+            //There must be 2 diff objects with colliders. One of them with tag "Window" and second one with "WindowExit" which is child of "Window" tagged one
+            case "WindowExit":
+                interactable.GetComponentInParent<WindowScript>().IsUsed = false;
                 break;
             case "Lamp":
                 if(Input.GetKeyDown(InteractButton))
@@ -43,5 +50,9 @@ public class EnviromentInteractionAct1 : MonoBehaviour
                 }
                 break;
         }
+    }
+    private void HandleSpecials()
+    {
+        Window.IsUsed = false;
     }
 }
