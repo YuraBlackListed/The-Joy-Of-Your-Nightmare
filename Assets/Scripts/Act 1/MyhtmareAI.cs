@@ -34,13 +34,14 @@ public class MyhtmareAI : MonoBehaviour
     #region [Spots]
     [SerializeField] private WindowScript Window;
     //Needed closet here
-    //Needed door here
+    [SerializeField] private LampScript Lamp;
+    [SerializeField] private DoorStages DoorStages;
     #endregion
 
     private float calmModifier = 1f;
     private float progressLimit = 100f;
-    //private float spotsCDByDoor = 5.5f;
-    //private float roomEnterDelay = 2.25f;
+    private float spotsCDByDoor = 5.5f;
+    private float roomEnterDelay = 2.25f;
 
     private void Start()
     {
@@ -60,16 +61,16 @@ public class MyhtmareAI : MonoBehaviour
     }
     private void CheckProgress()
     {
-        //if(DoorProgress >= progressLimit)
-        //{
-            //isInRoom = true;
+        if(DoorProgress >= progressLimit)
+        {
+            isInRoom = true;
 
-            //ChangeMyhtmareSpots(true, true, false);
+            ChangeMyhtmareSpots(true, true, false);
 
-            //Invoke(nameof(EnterRoom), roomEnterDelay);
+            Invoke(nameof(EnterRoom), roomEnterDelay);
 
-            //Invoke(nameof(UnblockMyhtmare), spotsCDByDoor);
-        //}
+            Invoke(nameof(UnblockMyhtmare), spotsCDByDoor);
+        }
         if(WindowProgress >= progressLimit && !isInRoom)
         {
             WindowJumpscare();
@@ -82,11 +83,11 @@ public class MyhtmareAI : MonoBehaviour
     #region [Jumpscares]
     private void EnterRoom()
     {
-        if(inRoomTimeLeft <= 0f) // and player is not sleeping
+        if(inRoomTimeLeft > 0f && Lamp.Active)
         {
             //do jumpscare
         }
-        else if (inRoomTimeLeft <= 0) // and player is sleeping
+        else if (inRoomTimeLeft <= 0 && !Lamp.Active)
         {
             //leave
             DoorProgress = 0f;
@@ -95,6 +96,8 @@ public class MyhtmareAI : MonoBehaviour
             inRoomTimeLeft = 6.5f;
 
             calmModifier -= 1f;
+
+            DoorStages.DoResetDoorSounds = true;
         }
     }
     private void WindowJumpscare()
@@ -255,6 +258,6 @@ public class MyhtmareAI : MonoBehaviour
     }
     private float RandomIncreasement()
     {
-        return (Time.deltaTime * Random.value * 10f) / calmModifier;
+        return (Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / calmModifier;
     }
 }
