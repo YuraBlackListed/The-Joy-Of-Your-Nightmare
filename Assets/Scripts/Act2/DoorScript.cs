@@ -7,23 +7,20 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private Vector3 OpenRotation;
     [SerializeField] private Vector3 ClosedRotation;
 
-    [SerializeField] private Animator DoorAnimator;
 
-    public void TryInteract()
+    private void Update()
     {
-        if(IsOpened)
+        if (IsOpened)
         {
-            Interact("Close");
+            transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, OpenRotation, Time.deltaTime * 5f));
         }
         else
         {
-            Interact("Open");
+            transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, ClosedRotation, Time.deltaTime * 5f));
         }
     }
-    private void Interact(string triggerName)
+    public void Interact()
     {
-        DoorAnimator.SetTrigger(triggerName);
-
         IsOpened = !IsOpened;
     }
 }
