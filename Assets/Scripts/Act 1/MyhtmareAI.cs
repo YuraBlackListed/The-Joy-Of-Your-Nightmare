@@ -2,30 +2,25 @@ using UnityEngine;
 
 public class MyhtmareAI : MonoBehaviour
 {
+    //DO NOT USE THIS SCRIPT IT TEMPORARLY BROKEN AND BEING SEPARETED TO OTHER SCRIPTS!!!!
     #region [Progresses]
     public float WindowProgress { get; private set; }
-    public float DoorProgress { get; private set; }
     public float ClosetProgress { get; private set; }
     #endregion
 
     #region [Delays]
     private bool windowDelayed = false;
-    private bool doorDelayed = false;
     private bool closetDelayed = false;
     #endregion
 
     #region [Resets]
     private bool windowReset = false;
     private bool closetReset = false;
-    private bool doorReset = false;
     #endregion
 
     #region [Timers]
     private float windowTimeLeft = 2f;
     private bool windowTimerIsActive = false;
-
-    private float inRoomTimeLeft = 6.5f;
-    private bool isInRoom = false;
 
     private float closetTimeLeft = 2f;
     private bool closetTimerIsActive = false;
@@ -34,14 +29,10 @@ public class MyhtmareAI : MonoBehaviour
     #region [Spots]
     [SerializeField] private WindowScript Window;
     //Needed closet here
-    [SerializeField] private LampScript Lamp;
-    [SerializeField] private DoorStages DoorStages;
     #endregion
 
     private float calmModifier = 1f;
     private float progressLimit = 100f;
-    private float spotsCDByDoor = 5.5f;
-    private float roomEnterDelay = 2.25f;
 
     private void Start()
     {
@@ -61,45 +52,16 @@ public class MyhtmareAI : MonoBehaviour
     }
     private void CheckProgress()
     {
-        if(DoorProgress >= progressLimit)
-        {
-            isInRoom = true;
-
-            ChangeMyhtmareSpots(true, true, false);
-
-            Invoke(nameof(EnterRoom), roomEnterDelay);
-
-            Invoke(nameof(UnblockMyhtmare), spotsCDByDoor);
-        }
-        if(WindowProgress >= progressLimit && !isInRoom)
+        if(WindowProgress >= progressLimit)
         {
             WindowJumpscare();
         }
-        if(ClosetProgress >= progressLimit && !isInRoom)
+        if(ClosetProgress >= progressLimit)
         {
             //ClosetJumpscare();
         }
     }
     #region [Jumpscares]
-    private void EnterRoom()
-    {
-        if(inRoomTimeLeft > 0f && Lamp.Active)
-        {
-            //do jumpscare
-        }
-        else if (inRoomTimeLeft <= 0 && !Lamp.Active)
-        {
-            //leave
-            DoorProgress = 0f;
-
-            isInRoom = false;
-            inRoomTimeLeft = 6.5f;
-
-            calmModifier -= 1f;
-
-            DoorStages.DoResetDoorSounds = true;
-        }
-    }
     private void WindowJumpscare()
     {
         windowTimerIsActive = true;
@@ -147,10 +109,6 @@ public class MyhtmareAI : MonoBehaviour
         {
             //do closet reset
         }
-        if (doorReset)
-        {
-            //do door reset
-        }
     }
     private void WindowReset()
     {
@@ -169,7 +127,6 @@ public class MyhtmareAI : MonoBehaviour
     private void ClampValues()
     {
         WindowProgress = Mathf.Clamp(WindowProgress, 0f, 100f);
-        DoorProgress = Mathf.Clamp(DoorProgress, 0f, 100f);
         ClosetProgress = Mathf.Clamp(ClosetProgress, 0f, 100f);
     }
     private void TryBlock()
@@ -226,16 +183,11 @@ public class MyhtmareAI : MonoBehaviour
         {
             closetTimeLeft -= Time.deltaTime;
         }
-        if(isInRoom)
-        {
-            inRoomTimeLeft -= Time.deltaTime;
-        }
     }
     private void ChangeMyhtmareSpots(bool window, bool closet, bool door)
     {
         windowDelayed = window;
         closetDelayed = closet;
-        doorDelayed = door;
     }
     private void UnblockMyhtmare()
     {
@@ -250,10 +202,6 @@ public class MyhtmareAI : MonoBehaviour
         if (!closetDelayed)
         {
             ClosetProgress += RandomIncreasement();
-        }
-        if (!doorDelayed)
-        {
-            DoorProgress += RandomIncreasement();
         }
     }
     private float RandomIncreasement()

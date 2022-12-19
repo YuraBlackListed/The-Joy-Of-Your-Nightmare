@@ -4,7 +4,7 @@ public class DoorStages : MonoBehaviour
 {
     public bool DoResetDoorSounds = false;
 
-    [SerializeField] private MyhtmareAI AI;
+    [SerializeField] private DoorMonsterAI AI;
 
     [SerializeField] private AudioSourceID DoorSoundID;
 
