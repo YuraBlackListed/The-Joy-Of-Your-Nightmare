@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -22,7 +20,7 @@ public class FearScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(lamp.Active == false)
+        if(lamp.active == false)
         {
             strength+=0.002f;
             filmGrain.intensity.Override(strength);

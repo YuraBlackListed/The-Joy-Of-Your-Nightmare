@@ -1,0 +1,73 @@
+# Blender MTL File: 'BonBon.blend'
+# Material Count: 6
+
+newmtl Default_Material
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures\\bump_map.jpg
+
+newmtl body_color
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures\\e_VRayMtl4_BaseColor.jpg
+map_Ns Textures\\e_VRayMtl4_Roughness.jpg
+
+newmtl pasted__VRayMtl2
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures\\e_VRayMtl3_Roughness.jpg
+map_Ns Textures\\e_VRayMtl3_Roughness.jpg
+
+newmtl pasted__VRayMtl3
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures\\e_VRayMtl3_BaseColor.jpg
+map_Ns Textures\\e_VRayMtl3_Roughness.jpg
+refl textures\\e_VRayMtl3_Metallic.jpg
+
+newmtl pasted__pasted__VRayMtl5
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures\\e_VRayMtl5_BaseColor.jpg
+
+newmtl strings
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures\\e_VRayMtl5_BaseColor.jpg
+map_Ns Textures\\e_VRayMtl5_Roughness.jpg

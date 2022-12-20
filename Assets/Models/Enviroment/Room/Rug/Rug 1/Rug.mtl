@@ -1,0 +1,24 @@
+# Blender MTL File: 'Bess Arabian Gallery Kilim I Runner.blend'
+# Material Count: 2
+
+newmtl VELVET-GREEN__Budapest_
+Ns 2.250001
+Ka 1.000000 1.000000 1.000000
+Kd 0.285576 0.220304 0.131242
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl kilim
+Ns 35.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd BaseColor.jpeg
+map_Ns Roughness.jpeg.png

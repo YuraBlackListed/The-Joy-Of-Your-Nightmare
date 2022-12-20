@@ -33,7 +33,7 @@ public class EnviromentInteractionAct2 : MonoBehaviour
                 interactable.GetComponent<ShelterScript>().Interact();
                 break;
             case "Door":
-                interactable.GetComponent<DoorScript>().TryInteract();
+                interactable.GetComponent<DoorScript>().Interact();
                 break;
             //You guys can do your interactables here
         }

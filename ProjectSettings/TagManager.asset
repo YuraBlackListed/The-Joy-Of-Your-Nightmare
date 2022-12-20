@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Lamp
   - Window
+  - Drawer
+  - WindowExit
+  - FlashLight
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Usable
   - Water
   - UI
   - 
@@ -42,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: DropsCamera
+    uniqueID: 3568358887
     locked: 0

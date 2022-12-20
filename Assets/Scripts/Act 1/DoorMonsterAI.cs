@@ -73,11 +73,11 @@ public class DoorMonsterAI : MonoBehaviour
     }
     private void EnterRoom()
     {
-        if (Lamp.Active && inRoomTimeLeft > 0f)
+        if (Lamp.active && inRoomTimeLeft > 0f)
         {
             //Jumpscare here (needed)
         }
-        else if (inRoomTimeLeft <= 0f && !Lamp.Active) ;
+        else if (inRoomTimeLeft <= 0f && !Lamp.active);
         {
             DoorProgress = 0f;
 

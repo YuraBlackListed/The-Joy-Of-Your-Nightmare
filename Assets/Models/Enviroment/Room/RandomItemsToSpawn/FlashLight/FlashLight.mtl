@@ -1,0 +1,43 @@
+# Blender MTL File: 'FlashLight.blend'
+# Material Count: 3
+
+newmtl bulb1
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures\\bulb1_albedo.jpg
+map_Ns Textures\\bulb1_roughness.jpg
+map_d Textures\\bulb1_opacity.jpg
+refl Textures\\bulb1_metallic.jpg
+
+newmtl glass
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures\\glass_albedo.jpg
+map_Ns Textures\\glass_roughness.jpg
+map_d Textures\\glass_opacity.jpg
+refl Textures\\glass_metallic.jpg
+
+newmtl lambert1
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures\\lambert1_albedo.jpg
+map_Ns Textures\\lambert1_roughness.jpg
+refl Textures\\lambert1_metallic.jpg

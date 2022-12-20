@@ -2,18 +2,15 @@ using UnityEngine;
 
 public class LampScript : MonoBehaviour
 {
-    public bool Active;
     [SerializeField] private GameObject lightning;
-    private Animator animator;
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private AudioSource onSound;
+    
+    public bool active;
+    private bool played = true;
 
     private void Update()
     {
-        if (Active) 
+        if (active) 
         {
             TurnOff();
         }
@@ -25,11 +22,21 @@ public class LampScript : MonoBehaviour
 
     public void TurnOn()
     {
+        if(!played)
+        {
+            played = true;
+            onSound.Play();
+        }
         lightning.SetActive(false);
     }
 
     public void TurnOff()
     {
+        if(played)
+        {
+            played = false;
+            onSound.Play();
+        }
         lightning.SetActive(true);
     }
 }
