@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ClockScript : MonoBehaviour
 {
-    [SerializeField] private TimeCounter Time;
-
     [SerializeField] private TMP_Text ClockText;
+
+    private TimeCounter time;
 
     private int hours;
     private int minutesReal;
@@ -14,9 +14,13 @@ public class ClockScript : MonoBehaviour
     private int minutesFirst;
     private int minutesSecond;
 
+    private void Start()
+    {
+        time = TimeCounter.instance;
+    }
     private void Update()
     {
-        minutesReal = (int)Time.GameTime / 60;
+        minutesReal = (int)time.GameTime / 60;
         hours = minutesReal / 60;
 
         minutes = minutesReal - hours * 60;
