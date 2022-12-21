@@ -21,9 +21,7 @@ public class AudioSystem : MonoBehaviour
     {
         CreateAudioSourceLibrary();
         CreateAudioClipLibrary();
-    }
-    private void Start()
-    {
+
         instance = this;
     }
     private void CreateAudioClipLibrary()
@@ -54,9 +52,9 @@ public class AudioSystem : MonoBehaviour
     }
 
     #region ControlMethods
-    public void PlaySoundOnce(string name, AudioType type, AudioClip sound)
+    public static void PlaySoundOnce(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.loop = false;
 
@@ -64,9 +62,9 @@ public class AudioSystem : MonoBehaviour
 
         source.Play();
     }
-    public void PlaySoundLooped(string name, AudioType type, AudioClip sound)
+    public static void PlaySoundLooped(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.loop = true;
 
@@ -74,15 +72,15 @@ public class AudioSystem : MonoBehaviour
 
         source.Play();
     }
-    public void StopSound(string name, AudioType type, AudioClip sound)
+    public static void StopSound(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.Stop();
     }
-    public AudioClip GetSound(string clipName, AudioType type)
+    public static AudioClip GetSound(string clipName, AudioType type)
     {
-        return audioClips[(type, clipName)];
+        return instance.audioClips[(type, clipName)];
     }
     #endregion
 }
