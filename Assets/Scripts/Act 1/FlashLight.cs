@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class FlashLight : MonoBehaviour
 {
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject cam;
     [SerializeField] private GameObject torchModel;
     
     public KeyCode F = KeyCode.F;
@@ -16,11 +16,6 @@ public class FlashLight : MonoBehaviour
     
     [SerializeField] private List<GameObject> positions;
     
-
-    [SerializeField] private AudioSource turnOn;
-    [SerializeField] private AudioSource turnOff;
-    [SerializeField] private AudioSource grabbedLight;
-
     void Start()
     {
         int randomId = Random.Range(0, positions.Count - 1);
@@ -38,22 +33,31 @@ public class FlashLight : MonoBehaviour
             if (!played)
             {
                 played = true;
-                grabbedLight.Play();
+
+                AudioClip clip = AudioSystem.GetSound("FlashLightPickUp", AudioType.Tools);
+
+                AudioSystem.PlaySoundOnce("FlashlightPickable", AudioType.Tools, clip);
             }
             transform.GetChild(1).gameObject.SetActive(true);
-            transform.rotation = Quaternion.Lerp(transform.rotation, camera.transform.rotation, 1 * speed);
-            transform.position = camera.transform.position;
+            transform.rotation = Quaternion.Lerp(transform.rotation, cam.transform.rotation, 1 * speed);
+            transform.position = cam.transform.position;
             if(Input.GetKeyDown(F))
             {
                 if(active)
                 {
-                    turnOn.Play();
+                    AudioClip clip = AudioSystem.GetSound("FlashLightTurnOn", AudioType.Tools);
+
+                    AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
+
                     transform.GetChild(0).gameObject.SetActive(false);
                     active = false;
                 }
                 else
                 {
-                    turnOff.Play();
+                    AudioClip clip = AudioSystem.GetSound("FlashLightTurnOff", AudioType.Tools);
+
+                    AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
+
                     transform.GetChild(0).gameObject.SetActive(true);
                     active = true;
                 }

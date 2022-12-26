@@ -14,12 +14,6 @@ public class DoorStages : MonoBehaviour
     private bool playedSound2 = false;
     private bool playedSound3 = false;
 
-    private AudioSystem audioSystem;
-
-    private void Start()
-    {
-        audioSystem = AudioSystem.instance;
-    }
     private void Update()
     {
         TryResetSounds();
@@ -66,9 +60,9 @@ public class DoorStages : MonoBehaviour
             case 1:
                 if(!playedSound1)
                 {
-                    AudioClip clip = audioSystem.GetSound("Knock1", AudioType.Monsters);
+                    AudioClip clip = AudioSystem.GetSound("Knock1", AudioType.Monsters);
 
-                    audioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
+                    AudioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
 
                     playedSound1 = true;
                 }
@@ -76,9 +70,9 @@ public class DoorStages : MonoBehaviour
             case 2:
                 if (!playedSound2)
                 {
-                    AudioClip clip = audioSystem.GetSound("Knock2", AudioType.Monsters);
+                    AudioClip clip = AudioSystem.GetSound("Knock2", AudioType.Monsters);
 
-                    audioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
+                    AudioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
 
                     playedSound2 = true;
                 }
@@ -86,9 +80,9 @@ public class DoorStages : MonoBehaviour
             case 3:
                 if (!playedSound3)
                 {
-                    AudioClip clip = audioSystem.GetSound("Knock3", AudioType.Monsters);
+                    AudioClip clip = AudioSystem.GetSound("Knock3", AudioType.Monsters);
 
-                    audioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
+                    AudioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
 
                     playedSound3 = true;
                 }
