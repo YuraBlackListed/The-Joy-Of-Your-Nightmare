@@ -5,6 +5,8 @@ public class FlashLight : MonoBehaviour
 {
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject torchModel;
+
+    [SerializeField] private LayerMask BedMonsterLayer;
     
     public KeyCode F = KeyCode.F;
     
@@ -16,7 +18,7 @@ public class FlashLight : MonoBehaviour
     
     [SerializeField] private List<GameObject> positions;
     
-    void Start()
+    private void Start()
     {
         int randomId = Random.Range(0, positions.Count - 1);
         
@@ -26,41 +28,76 @@ public class FlashLight : MonoBehaviour
         FlashLightPickScript lighter = spawned.GetComponent<FlashLightPickScript>();
         lighter.flashlight = this;
     }
-    void Update()
+    private void Update()
     {
         if (picked)
         {
             if (!played)
             {
-                played = true;
-
-                AudioClip clip = AudioSystem.GetSound("FlashLightPickUp", AudioType.Tools);
-
-                AudioSystem.PlaySoundOnce("FlashlightPickable", AudioType.Tools, clip);
+                PlayPickUpSound();
             }
-            transform.GetChild(1).gameObject.SetActive(true);
-            transform.rotation = Quaternion.Lerp(transform.rotation, cam.transform.rotation, 1 * speed);
-            transform.position = cam.transform.position;
-            if(Input.GetKeyDown(F))
+
+            MoveFlashlight();
+
+            UseFlashlight();
+
+            if(active)
             {
-                if(active)
-                {
-                    AudioClip clip = AudioSystem.GetSound("FlashLightTurnOn", AudioType.Tools);
+                LightLogic();
+            }
+        }
+    }
+    private void LightLogic()
+    {
+        RaycastHit flashlight;
 
-                    AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out flashlight, 1.5f, BedMonsterLayer))
+        {
+            GameObject monster = flashlight.collider.gameObject;
 
-                    transform.GetChild(0).gameObject.SetActive(false);
-                    active = false;
-                }
-                else
-                {
-                    AudioClip clip = AudioSystem.GetSound("FlashLightTurnOff", AudioType.Tools);
+            if(monster.tag == "BedMonster")
+            {
+                var AI = monster.GetComponent<BedMonsterAI>();
 
-                    AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
+                AI.GetOut();
+            }
+        }
+    }
+    private void PlayPickUpSound()
+    {
+        played = true;
 
-                    transform.GetChild(0).gameObject.SetActive(true);
-                    active = true;
-                }
+        AudioClip clip = AudioSystem.GetSound("FlashLightPickUp", AudioType.Tools);
+
+        AudioSystem.PlaySoundOnce("FlashlightPickable", AudioType.Tools, clip);
+    }
+    private void MoveFlashlight()
+    {
+        transform.GetChild(1).gameObject.SetActive(true);
+        transform.rotation = Quaternion.Lerp(transform.rotation, cam.transform.rotation, 1 * speed);
+        transform.position = cam.transform.position;
+    }
+    private void UseFlashlight()
+    {
+        if (Input.GetKeyDown(F))
+        {
+            if (active)
+            {
+                AudioClip clip = AudioSystem.GetSound("FlashLightTurnOn", AudioType.Tools);
+
+                AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
+
+                transform.GetChild(0).gameObject.SetActive(false);
+                active = false;
+            }
+            else
+            {
+                AudioClip clip = AudioSystem.GetSound("FlashLightTurnOff", AudioType.Tools);
+
+                AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
+
+                transform.GetChild(0).gameObject.SetActive(true);
+                active = true;
             }
         }
     }
