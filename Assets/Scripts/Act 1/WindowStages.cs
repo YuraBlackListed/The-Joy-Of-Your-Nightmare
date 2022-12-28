@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WindowStages : MonoBehaviour
 {
-    [SerializeField] private MyhtmareAI AI;
+    [SerializeField] private WindowMonsterAI AI;
 
     [SerializeField] private Transform Stage0;
     [SerializeField] private Transform Stage1;

@@ -12,7 +12,6 @@ public class WindowMonsterAI : MonoBehaviour
 
     private int randomRageMod;
 
-    private bool windowTimerIsActive = false;
     private bool windowDelayed = false;
     private bool doTimerCountdown = false;
 
@@ -21,13 +20,11 @@ public class WindowMonsterAI : MonoBehaviour
         TryBlock();
 
         ResetRageModifier();
+
+        InvokeRepeating(nameof(TryIncrease), 0f, 0.75f);
     }
     private void Update()
     {
-        TryIncrease();
-
-        WindowProgress = Mathf.Clamp(WindowProgress, 0f, 100f);
-
         CheckProgress();
 
         TryCountdown();
@@ -37,6 +34,8 @@ public class WindowMonsterAI : MonoBehaviour
         if (!windowDelayed)
         {
             WindowProgress += RandomIncreasement();
+
+            WindowProgress = Mathf.Clamp(WindowProgress, 0f, 100f);
         }
     }
     private void ResetRageModifier()
@@ -50,7 +49,7 @@ public class WindowMonsterAI : MonoBehaviour
         if (chance <= chanceToDelay)
         {
             windowDelayed = true;
-            Invoke(nameof(ResetDoor), Random.Range(1, 10));
+            Invoke(nameof(ResetWindow), Random.Range(1, 10));
         }
     }
     private void TryCountdown()
@@ -65,8 +64,6 @@ public class WindowMonsterAI : MonoBehaviour
         if (WindowProgress >= 100f)
         {
             doTimerCountdown = true;
-
-
         }
     }
     private void TryDoWindowJumpscare()
@@ -86,13 +83,13 @@ public class WindowMonsterAI : MonoBehaviour
             windowCalmMod -= 1f;
         }
     }
-    private void ResetDoor()
+    private void ResetWindow()
     {
         windowDelayed = false;
     }
     private float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / windowCalmMod) * randomRageMod;
+        return ((Time.deltaTime * Random.value * 10f) / windowCalmMod) * randomRageMod + Random.Range(0f, 6f);
     }
 
 }
