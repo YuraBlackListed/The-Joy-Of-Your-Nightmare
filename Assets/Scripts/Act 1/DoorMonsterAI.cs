@@ -77,7 +77,7 @@ public class DoorMonsterAI : MonoBehaviour
         {
             //Jumpscare here (needed)
         }
-        else if (inRoomTimeLeft <= 0f && !Lamp.active);
+        else if (inRoomTimeLeft <= 0f && !Lamp.active)
         {
             DoorProgress = 0f;
 

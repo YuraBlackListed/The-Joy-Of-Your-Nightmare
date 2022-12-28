@@ -5,7 +5,8 @@ public enum AudioType
 { 
     Music,
     Ambience,
-    Monsters
+    Monsters,
+    Tools
 }
 
 public class AudioSystem : MonoBehaviour
