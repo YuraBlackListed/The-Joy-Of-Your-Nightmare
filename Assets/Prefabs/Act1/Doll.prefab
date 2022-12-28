@@ -1607,7 +1607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6332105465106311832}
   - component: {fileID: 4848084632546496185}
-  - component: {fileID: 5794603446415155782}
+  - component: {fileID: 6011751684571985205}
   - component: {fileID: 3320803616968820495}
   m_Layer: 0
   m_Name: Doll
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sceneFade: {fileID: 0}
   screamer: {fileID: 4158349189554932665}
---- !u!114 &5794603446415155782
+--- !u!114 &6011751684571985205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1660,11 +1660,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6677704597303783458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b260ed49f6e11a94495ed41f4a5f43d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 29e374e9e92a7a543a4baba55bc374d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Window: {fileID: 0}
-  screamerScript: {fileID: 0}
 --- !u!82 &3320803616968820495
 AudioSource:
   m_ObjectHideFlags: 0

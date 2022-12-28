@@ -164,17 +164,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6487547789252237299, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
   m_PrefabInstance: {fileID: 6487547789867580578}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &667054362 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5794603446415155782, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
-  m_PrefabInstance: {fileID: 5794603445815481180}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147600515966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b260ed49f6e11a94495ed41f4a5f43d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &809464287 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5926981154992464832, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
@@ -782,7 +771,7 @@ PrefabInstance:
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: AI
       value: 
-      objectReference: {fileID: 667054362}
+      objectReference: {fileID: 0}
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: Animator
       value: 
@@ -1350,11 +1339,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5794603446415155782, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+    - target: {fileID: 6011751684571985205, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: Window
       value: 
       objectReference: {fileID: 809464287}
-    - target: {fileID: 5794603446415155782, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Window
+      value: 
+      objectReference: {fileID: 809464287}
+    - target: {fileID: 0}
       propertyPath: screamerScript
       value: 
       objectReference: {fileID: 5794603445815481181}
