@@ -6,13 +6,16 @@ public class WindowScript : MonoBehaviour
     public bool IsClosed = false;
     private bool openPlayed = false;
     private bool closePlayed = true;
-    
-    [SerializeField] private AudioSource CurtainOpenSound;
-    [SerializeField] private AudioSource CurtainCloseSound;
-    
+        
     [SerializeField] private Animator leftCurtain;
     [SerializeField] private Animator rightCurtain;
 
+    private AudioClip curtainSound;
+
+    private void Start()
+    {
+        curtainSound = AudioSystem.GetSound("Curtain", AudioType.Tools);
+    }
     private void Update()
     {
         if (IsUsed) Close();
@@ -26,7 +29,7 @@ public class WindowScript : MonoBehaviour
         {
             openPlayed = true;
             closePlayed = false;
-            CurtainOpenSound.Play();
+            AudioSystem.PlaySoundOnce("Curtain", AudioType.Tools, curtainSound);
         }
         leftCurtain.SetBool("Opened", true);
         rightCurtain.SetBool("Opened", true);
@@ -39,7 +42,7 @@ public class WindowScript : MonoBehaviour
         {
             closePlayed = true;
             openPlayed = false;
-            CurtainCloseSound.Play();
+            AudioSystem.PlaySoundOnce("Curtain", AudioType.Tools, curtainSound);
         }
         leftCurtain.SetBool("Opened", false);
         rightCurtain.SetBool("Opened", false);
