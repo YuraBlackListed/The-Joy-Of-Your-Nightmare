@@ -1,10 +1,10 @@
-using UnityEngine;
 
-public class FlashLightPickScript : MonoBehaviour
+public class FlashLightPickScript : Interactable
 {
     public bool active;
     public FlashLight flashlight;
-    void Update()
+
+    public override void Interact()
     {
         if (!active)
         {

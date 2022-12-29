@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5395991130353135442}
   - component: {fileID: 5395991130353135443}
+  - component: {fileID: 2267414319273165398}
   m_Layer: 0
   m_Name: turnOffSound
   m_TagString: Untagged
@@ -282,6 +283,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2267414319273165398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395991130353135445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462ab2c344ee86f4393dbcd17557a450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  SourceName: FlashlightTurnOff
 --- !u!1 &5395991130765882155
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +462,6 @@ MonoBehaviour:
   InteractableLayer:
     serializedVersion: 2
     m_Bits: 8
-  Window: {fileID: 0}
   crosshair: {fileID: 0}
 --- !u!1 &5395991130907823438
 GameObject:
@@ -628,6 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5395991131778544950}
   - component: {fileID: 5395991131778544951}
+  - component: {fileID: 1347902037460061953}
   m_Layer: 0
   m_Name: turnOnSound
   m_TagString: Untagged
@@ -746,6 +761,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1347902037460061953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395991131778544953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462ab2c344ee86f4393dbcd17557a450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  SourceName: FlashlightTurnOn
 --- !u!1 &5395991132015186976
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5395991132021571564}
   - component: {fileID: 5395991132021571565}
+  - component: {fileID: 6812882716811885716}
   m_Layer: 0
   m_Name: Grabbed
   m_TagString: Untagged
@@ -922,6 +952,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6812882716811885716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395991132021571567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462ab2c344ee86f4393dbcd17557a450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  SourceName: FlashlightPickable
 --- !u!1 &6176146523800945494
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,8 +1015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5450bfaa736bb540b32b1935399f65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 5395991130765882155}
+  cam: {fileID: 0}
   torchModel: {fileID: 1947306183105246431, guid: b90c49a31a10d8c47a443400b4e86e69, type: 3}
+  BedMonsterLayer:
+    serializedVersion: 2
+    m_Bits: 0
   F: 102
   speed: 0.07
   picked: 0
@@ -980,6 +1027,3 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  turnOn: {fileID: 5395991131778544951}
-  turnOff: {fileID: 5395991130353135443}
-  grabbedLight: {fileID: 5395991132021571565}

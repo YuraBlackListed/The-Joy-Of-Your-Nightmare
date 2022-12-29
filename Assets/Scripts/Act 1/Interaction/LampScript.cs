@@ -1,32 +1,31 @@
 using UnityEngine;
 
-public class LampScript : MonoBehaviour
+public class LampScript : Interactable
 {
     [SerializeField] private GameObject lightning;
-    [SerializeField] private AudioSource onSound;
     
     public bool active;
     private bool played = true;
 
-    private void Update()
+    public override void Interact()
     {
-        if (active) 
+        if (active)
         {
             TurnOff();
         }
-        else 
+        else
         {
             TurnOn();
         }
     }
-
     public void TurnOn()
     {
         if(!played)
         {
             played = true;
-            onSound.Play();
+            AudioSystem.PlaySetSoundAt("Lamp", AudioType.Furniture);
         }
+
         lightning.SetActive(false);
     }
 
@@ -35,8 +34,9 @@ public class LampScript : MonoBehaviour
         if(played)
         {
             played = false;
-            onSound.Play();
+            AudioSystem.PlaySetSoundAt("Lamp", AudioType.Furniture);
         }
+
         lightning.SetActive(true);
     }
 }

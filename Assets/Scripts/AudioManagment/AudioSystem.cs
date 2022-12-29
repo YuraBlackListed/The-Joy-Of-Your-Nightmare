@@ -6,7 +6,9 @@ public enum AudioType
     Music,
     Ambience,
     Monsters,
-    Tools
+    Tools,
+    Enviroment,
+    Furniture
 }
 
 public class AudioSystem : MonoBehaviour
@@ -42,7 +44,7 @@ public class AudioSystem : MonoBehaviour
     {
         AudioSource[] sources = FindObjectsOfType<AudioSource>();
 
-        for (int i = 0; i < sources.Length; i++)
+        for (int i = 0; i < sources.Length - 1; i++)
         {
             GameObject sourceGameObject = sources[i].gameObject;
 
@@ -78,6 +80,12 @@ public class AudioSystem : MonoBehaviour
         AudioSource source = instance.audioSources[(type, name)];
 
         source.Stop();
+    }
+    public static void PlaySetSoundAt(string name, AudioType type)
+    {
+        AudioSource source = instance.audioSources[(type, name)];
+
+        source.Play();
     }
     public static AudioClip GetSound(string clipName, AudioType type)
     {

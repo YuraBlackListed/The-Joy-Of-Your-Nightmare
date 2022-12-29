@@ -67,9 +67,7 @@ public class FlashLight : MonoBehaviour
     {
         played = true;
 
-        AudioClip clip = AudioSystem.GetSound("FlashLightPickUp", AudioType.Tools);
-
-        AudioSystem.PlaySoundOnce("FlashlightPickable", AudioType.Tools, clip);
+        AudioSystem.PlaySetSoundAt("FlashlightPickable", AudioType.Tools);
     }
     private void MoveFlashlight()
     {
@@ -83,7 +81,7 @@ public class FlashLight : MonoBehaviour
         {
             if (active)
             {
-                AudioClip clip = AudioSystem.GetSound("FlashLightTurnOn", AudioType.Tools);
+                AudioClip clip = AudioSystem.GetSound("FlashlightTurnOff", AudioType.Tools);
 
                 AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
 
@@ -92,7 +90,7 @@ public class FlashLight : MonoBehaviour
             }
             else
             {
-                AudioClip clip = AudioSystem.GetSound("FlashLightTurnOff", AudioType.Tools);
+                AudioClip clip = AudioSystem.GetSound("FlashlightTurnOn", AudioType.Tools);
 
                 AudioSystem.PlaySoundOnce("Flashlight", AudioType.Tools, clip);
 

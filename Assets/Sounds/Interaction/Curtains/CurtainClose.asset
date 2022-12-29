@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90b8f9b33c862845a1b06f1e8ac59ec, type: 3}
   m_Name: CurtainClose
   m_EditorClassIdentifier: 
-  Clip: {fileID: 0}
-  ClipName: 
-  ClipType: 0
+  Clip: {fileID: 8300000, guid: 0c6b2f13b50f6c4459a3b8ad32f1ebf0, type: 3}
+  ClipName: CurtainClose
+  ClipType: 5

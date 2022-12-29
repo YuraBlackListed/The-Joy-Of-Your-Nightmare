@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c90b8f9b33c862845a1b06f1e8ac59ec, type: 3}
-  m_Name: CurtainOpen
+  m_Name: Drawer4
   m_EditorClassIdentifier: 
-  Clip: {fileID: 8300000, guid: 19f25c5421d7bf540bb47c15e846312c, type: 3}
-  ClipName: CurtainOpen
-  ClipType: 5
+  Clip: {fileID: 8300000, guid: 8bed49b970fe77e488769629eca78086, type: 3}
+  ClipName: Drawer4
+  ClipType: 0

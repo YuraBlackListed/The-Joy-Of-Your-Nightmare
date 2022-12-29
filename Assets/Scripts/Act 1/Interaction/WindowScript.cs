@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WindowScript : MonoBehaviour
+public class WindowScript : Interactable
 {
     public bool IsUsed;
     public bool IsClosed = false;
@@ -10,18 +10,11 @@ public class WindowScript : MonoBehaviour
     [SerializeField] private Animator leftCurtain;
     [SerializeField] private Animator rightCurtain;
 
-    private AudioClip curtainSound;
-
-    private void Start()
-    {
-        curtainSound = AudioSystem.GetSound("Curtain", AudioType.Tools);
-    }
-    private void Update()
+    public override void Interact()
     {
         if (IsUsed) Close();
         else Open();
     }
-
     public void Open()
     {
         IsClosed = false;
@@ -29,7 +22,10 @@ public class WindowScript : MonoBehaviour
         {
             openPlayed = true;
             closePlayed = false;
-            AudioSystem.PlaySoundOnce("Curtain", AudioType.Tools, curtainSound);
+
+            AudioClip clip = AudioSystem.GetSound("CurtainClose", AudioType.Furniture);
+
+            AudioSystem.PlaySoundOnce("Curtain", AudioType.Furniture, clip);
         }
         leftCurtain.SetBool("Opened", true);
         rightCurtain.SetBool("Opened", true);
@@ -42,7 +38,10 @@ public class WindowScript : MonoBehaviour
         {
             closePlayed = true;
             openPlayed = false;
-            AudioSystem.PlaySoundOnce("Curtain", AudioType.Tools, curtainSound);
+
+            AudioClip clip = AudioSystem.GetSound("CurtainOpen", AudioType.Furniture);
+
+            AudioSystem.PlaySoundOnce("Curtain", AudioType.Furniture, clip);
         }
         leftCurtain.SetBool("Opened", false);
         rightCurtain.SetBool("Opened", false);

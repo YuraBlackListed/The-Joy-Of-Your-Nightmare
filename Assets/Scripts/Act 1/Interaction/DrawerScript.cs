@@ -1,32 +1,37 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawerScript : MonoBehaviour
+public class DrawerScript : Interactable
 {
-    [SerializeField] private List<AudioSource> sounds;
+    [SerializeField] private List<string> soundNames;
+
     public bool active;
     private bool played = true;
+
     [SerializeField] private Animator animator;
-    private void Update()
+
+    public override void Interact()
     {
-        if (active) 
+        if (active)
         {
             Close();
         }
-        else 
+        else
         {
             Open();
         }
     }
-
     public void Open()
     {
         if(!played)
         {
-            int random = Random.Range(1, 5);
+            int random = Random.Range(0, 3);
             played = true;
-            sounds[random].Play();
+
+            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Enviroment);
+
+            AudioSystem.PlaySoundOnce("Drawer", AudioType.Furniture, clip);
+
             animator.SetInteger("OpenIndex", random);
         }
     }
@@ -36,8 +41,12 @@ public class DrawerScript : MonoBehaviour
         if(played)
         {
             played = false;
-            int random = Random.Range(1, 5);
-            sounds[random].Play();
+            int random = Random.Range(0, 3);
+
+            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Enviroment);
+
+            AudioSystem.PlaySoundOnce("Drawer", AudioType.Furniture, clip);
+
             animator.SetInteger("OpenIndex", 0);
         }
     }
