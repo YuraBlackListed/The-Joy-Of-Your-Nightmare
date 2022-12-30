@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1730158771181180593, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
+      propertyPath: ErrorSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 44a9be434bf8cd440b8b493284707cf5, type: 3}
     - target: {fileID: 1776917421165371783, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -763,25 +767,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrawerSoundSource
       objectReference: {fileID: 0}
-    - target: {fileID: 2964532799675326411, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: soundNames.Array.size
-      value: 4
+    - target: {fileID: 3174681036925799710, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2964532799675326411, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: soundNames.Array.data[0]
-      value: Drawer1
+    - target: {fileID: 3434149755362482562, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2964532799675326411, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: soundNames.Array.data[1]
-      value: Drawer2
+    - target: {fileID: 3756520425545756985, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2964532799675326411, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: soundNames.Array.data[2]
-      value: Drawer3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2964532799675326411, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: soundNames.Array.data[3]
-      value: Drawer4
+    - target: {fileID: 4655943470916422834, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5160308967215205813, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: InitialModule.maxNumParticles
@@ -790,6 +790,10 @@ PrefabInstance:
     - target: {fileID: 5160308967215205813, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449858415249694090, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5926981154992464832, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: CurtainOpenSound
@@ -834,6 +838,10 @@ PrefabInstance:
     - target: {fileID: 8164663586355524565, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Name
       value: room
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388767363290635341, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8664673258473851798, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Layer

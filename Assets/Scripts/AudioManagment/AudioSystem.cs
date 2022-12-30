@@ -10,6 +10,13 @@ public enum AudioType
     Enviroment,
     Furniture
 }
+public enum AudioState
+{ 
+    Close,
+    Open,
+    None
+}
+
 
 public class AudioSystem : MonoBehaviour
 {
@@ -17,34 +24,37 @@ public class AudioSystem : MonoBehaviour
 
     [SerializeField] private List<AudioClipID> AudioClipsList;
 
-    private Dictionary<(AudioType, string), AudioSource> audioSources;
-    private Dictionary<(AudioType, string), AudioClip> audioClips;
+    [SerializeField] private AudioClip ErrorSound;
+
+    private static Dictionary<(AudioType, string), AudioSource> audioSources = new Dictionary<(AudioType, string), AudioSource>();
+    private static Dictionary<(AudioType, string), AudioClip> audioClips = new Dictionary<(AudioType, string), AudioClip>();
 
     private void Awake()
     {
-        CreateAudioSourceLibrary();
+        instance = this;
+
         CreateAudioClipLibrary();
 
-        instance = this;
+        CreateAudioSourceLibrary();
     }
     private void CreateAudioClipLibrary()
     {
-        for (int i = 0; i < AudioClipsList.Count; i++)
+        foreach (var clip in AudioClipsList)
         {
-            string clipName = AudioClipsList[i].ClipName;
+            string name = clip.ClipName;
 
-            AudioType type = AudioClipsList[i].ClipType;
+            AudioType type = clip.ClipType;
 
-            AudioClip clip = AudioClipsList[i].Clip;
+            AudioClip Aclip = clip.Clip;
 
-            audioClips.Add((type, clipName), clip);
+            audioClips.Add((type, name), Aclip);
         }
     }
     private void CreateAudioSourceLibrary()
     {
         AudioSource[] sources = FindObjectsOfType<AudioSource>();
 
-        for (int i = 0; i < sources.Length - 1; i++)
+        for (int i = 0; i < sources.Length; i++)
         {
             GameObject sourceGameObject = sources[i].gameObject;
 
@@ -57,7 +67,7 @@ public class AudioSystem : MonoBehaviour
     #region ControlMethods
     public static void PlaySoundOnce(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = instance.audioSources[(type, name)];
+        AudioSource source = audioSources[(type, name)];
 
         source.loop = false;
 
@@ -67,7 +77,7 @@ public class AudioSystem : MonoBehaviour
     }
     public static void PlaySoundLooped(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = instance.audioSources[(type, name)];
+        AudioSource source = audioSources[(type, name)];
 
         source.loop = true;
 
@@ -77,19 +87,26 @@ public class AudioSystem : MonoBehaviour
     }
     public static void StopSound(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = instance.audioSources[(type, name)];
+        AudioSource source = audioSources[(type, name)];
 
         source.Stop();
     }
     public static void PlaySetSoundAt(string name, AudioType type)
     {
-        AudioSource source = instance.audioSources[(type, name)];
+        AudioSource source = audioSources[(type, name)];
 
         source.Play();
     }
     public static AudioClip GetSound(string clipName, AudioType type)
     {
-        return instance.audioClips[(type, clipName)];
+        if(!audioClips.ContainsKey((type, clipName)))
+        {
+            return instance.ErrorSound;
+        }
+
+        AudioClip clip = audioClips[(type, clipName)];
+
+        return clip;
     }
     #endregion
 }

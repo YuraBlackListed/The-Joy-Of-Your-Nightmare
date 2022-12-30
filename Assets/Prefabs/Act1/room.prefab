@@ -395,8 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c550682aa364e7244abc0a6542f3d95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyInteractable: {fileID: 0}
-  IsUsed: 0
   IsClosed: 0
   leftCurtain: {fileID: 8428815497182480898}
   rightCurtain: {fileID: 7542449235165274416}
@@ -513,7 +511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3dc3ffe05622746a712c65b56e1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyInteractable: {fileID: 0}
   lightning: {fileID: 7323433246607356439}
   active: 0
 --- !u!65 &7058982342572123838
@@ -24495,9 +24492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fad254467b3424e8cb059054b7ed14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyInteractable: {fileID: 0}
-  soundNames: []
-  active: 0
+  soundNames:
+  - Drawer1
+  - Drawer2
+  - Drawer3
+  - Drawer4
   animator: {fileID: 5841704280464015937}
 --- !u!65 &7284278853241161346
 BoxCollider:

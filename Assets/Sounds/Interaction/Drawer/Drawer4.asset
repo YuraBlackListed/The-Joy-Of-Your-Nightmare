@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 8bed49b970fe77e488769629eca78086, type: 3}
   ClipName: Drawer4
-  ClipType: 0
+  ClipType: 5

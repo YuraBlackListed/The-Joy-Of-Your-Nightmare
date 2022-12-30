@@ -67,7 +67,7 @@ public class FlashLight : MonoBehaviour
     {
         played = true;
 
-        AudioSystem.PlaySetSoundAt("FlashlightPickable", AudioType.Tools);
+        AudioSystem.PlaySetSoundAt("Flashlight", AudioType.Tools);
     }
     private void MoveFlashlight()
     {

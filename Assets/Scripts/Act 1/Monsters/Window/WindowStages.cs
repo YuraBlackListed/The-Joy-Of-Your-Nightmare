@@ -17,7 +17,7 @@ public class WindowStages : MonoBehaviour
 
     private void Update()
     {
-        GetLevel();
+        //GetLevel();
 
         SetPosition();
 

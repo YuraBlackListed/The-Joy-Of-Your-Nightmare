@@ -4,11 +4,13 @@ public class LampScript : Interactable
 {
     [SerializeField] private GameObject lightning;
     
-    public bool active;
+    public bool active = false;
     private bool played = true;
 
     public override void Interact()
     {
+        active = !active;
+
         if (active)
         {
             TurnOff();

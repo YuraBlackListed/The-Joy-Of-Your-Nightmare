@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class WindowScript : Interactable
 {
-    public bool IsUsed;
     public bool IsClosed = false;
     private bool openPlayed = false;
     private bool closePlayed = true;
@@ -12,18 +11,19 @@ public class WindowScript : Interactable
 
     public override void Interact()
     {
-        if (IsUsed) Close();
+        IsClosed = !IsClosed;
+
+        if (IsClosed) Close();
         else Open();
     }
     public void Open()
     {
-        IsClosed = false;
         if(!openPlayed)
         {
             openPlayed = true;
             closePlayed = false;
 
-            AudioClip clip = AudioSystem.GetSound("CurtainClose", AudioType.Furniture);
+            var clip = AudioSystem.GetSound("CurtainOpen", AudioType.Furniture);
 
             AudioSystem.PlaySoundOnce("Curtain", AudioType.Furniture, clip);
         }
@@ -33,13 +33,12 @@ public class WindowScript : Interactable
 
     public void Close()
     {
-        IsClosed = true;
         if(!closePlayed)
         {
             closePlayed = true;
             openPlayed = false;
 
-            AudioClip clip = AudioSystem.GetSound("CurtainOpen", AudioType.Furniture);
+            var clip = AudioSystem.GetSound("CurtainClose", AudioType.Furniture);
 
             AudioSystem.PlaySoundOnce("Curtain", AudioType.Furniture, clip);
         }

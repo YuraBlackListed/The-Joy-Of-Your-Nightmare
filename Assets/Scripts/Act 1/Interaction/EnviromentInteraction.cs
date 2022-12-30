@@ -12,8 +12,6 @@ namespace Act1
 
         [SerializeField] private Crosshair crosshair;
 
-
-
         void Update()
         {
             TryInteract();
@@ -36,21 +34,24 @@ namespace Act1
         }
         private void Use(GameObject target)
         {
-            target.GetComponent<Interactable>().DoInteraction();
+            if(Input.GetKeyDown(InteractButton))
+            {
+                target.GetComponent<Interactable>().Interact();
+            }
         }
         //This method \/ is currently inavailable, please dont use it
-        private void Interact(GameObject interactable)
+        /*private void Interact(GameObject interactable)
         {
             switch (interactable.tag)
             {
                 //This done
                 case "Window":
-                    interactable.GetComponent<WindowScript>().IsUsed = Input.GetKey(InteractButton);
+                    //interactable.GetComponent<WindowScript>().IsUsed = Input.GetKey(InteractButton);
                     break;
                 //There must be 2 diff objects with colliders. One of them with tag "Window" and second one with "WindowExit" which is child of "Window" tagged one
                 //Pretty questionable
                 case "WindowExit":
-                    interactable.GetComponentInParent<WindowScript>().IsUsed = false;
+                    //interactable.GetComponentInParent<WindowScript>().IsUsed = false;
                     break;
                 //This done
                 case "Lamp":
@@ -89,6 +90,6 @@ namespace Act1
                     break;
 
             }
-        }
+        }*/
     }
 }

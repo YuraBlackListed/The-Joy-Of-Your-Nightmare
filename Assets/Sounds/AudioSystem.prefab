@@ -59,3 +59,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 659af883e238b504c8cf5325018ec58d, type: 2}
   - {fileID: 11400000, guid: 4ca6dcfd8e3aa744095e01d228ad3a25, type: 2}
   - {fileID: 11400000, guid: 5276545aa12f44843a5a30290d8d369f, type: 2}
+  - {fileID: 11400000, guid: e430a174a34f55f46b9b5d4d11f42c04, type: 2}
+  - {fileID: 11400000, guid: 99694e0600f94d243aaa2b8454562a52, type: 2}
+  ErrorSound: {fileID: 8300000, guid: 19e99c11ba2ee5e4a964e62a90bcc006, type: 3}

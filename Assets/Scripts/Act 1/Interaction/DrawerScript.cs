@@ -5,13 +5,15 @@ public class DrawerScript : Interactable
 {
     [SerializeField] private List<string> soundNames;
 
-    public bool active;
+    private bool active = true;
     private bool played = true;
 
     [SerializeField] private Animator animator;
 
     public override void Interact()
     {
+        active = !active;
+
         if (active)
         {
             Close();
@@ -21,14 +23,14 @@ public class DrawerScript : Interactable
             Open();
         }
     }
-    public void Open()
+    private void Open()
     {
         if(!played)
         {
             int random = Random.Range(0, 3);
             played = true;
 
-            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Enviroment);
+            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Furniture);
 
             AudioSystem.PlaySoundOnce("Drawer", AudioType.Furniture, clip);
 
@@ -36,14 +38,14 @@ public class DrawerScript : Interactable
         }
     }
 
-    public void Close()
+    private void Close()
     {
         if(played)
         {
             played = false;
             int random = Random.Range(0, 3);
 
-            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Enviroment);
+            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Furniture);
 
             AudioSystem.PlaySoundOnce("Drawer", AudioType.Furniture, clip);
 
