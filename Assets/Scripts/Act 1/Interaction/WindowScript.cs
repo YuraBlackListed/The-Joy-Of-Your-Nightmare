@@ -9,12 +9,21 @@ public class WindowScript : Interactable
     [SerializeField] private Animator leftCurtain;
     [SerializeField] private Animator rightCurtain;
 
+    private void Start()
+    {
+        Open();
+    }
     public override void Interact()
     {
-        IsClosed = !IsClosed;
+        IsClosed = true;
 
-        if (IsClosed) Close();
-        else Open();
+        Close();
+    }
+    public override void StopInteract()
+    {
+        IsClosed = false;
+
+        Open();
     }
     public void Open()
     {
