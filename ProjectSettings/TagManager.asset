@@ -9,6 +9,7 @@ TagManager:
   - Drawer
   - WindowExit
   - FlashLight
+  - Ghost
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Usable
   - Water
   - UI
-  - 
-  - 
+  - BedMonsterLayer
+  - GhostMonsterLayer
   - 
   - 
   - 
