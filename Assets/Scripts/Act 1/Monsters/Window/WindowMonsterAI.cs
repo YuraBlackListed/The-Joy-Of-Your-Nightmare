@@ -64,6 +64,8 @@ public class WindowMonsterAI : MonoBehaviour
         if (WindowProgress >= 100f)
         {
             doTimerCountdown = true;
+
+            TryDoWindowJumpscare();
         }
     }
     private void TryDoWindowJumpscare()

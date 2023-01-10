@@ -6,6 +6,7 @@ public class TimeCounter : MonoBehaviour
     public float GameTime { get; private set; }
 
     [SerializeField] private LevelEndingScript EndingScript;
+    public KeyCode InteractButton = KeyCode.H;
 
     private void Awake()
     {
@@ -17,10 +18,9 @@ public class TimeCounter : MonoBehaviour
 
         GameTime += Time.deltaTime * 24f;
 
-        if(GameTime >= 21600)
+        if(GameTime >= 21600 || Input.GetKeyDown(InteractButton))
         {
             EndingScript.EndLevel();
-            Debug.Log("The night has ended");
         }
     }
     public void DeleteTime(float time)

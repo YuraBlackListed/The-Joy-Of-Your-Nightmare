@@ -1652,7 +1652,9 @@ MonoBehaviour:
   doll: {fileID: 0}
   player: {fileID: 0}
   sceneFade: {fileID: 0}
-  screamer: {fileID: 4158349189554932665}
+  lookScript: {fileID: 0}
+  screammerDoll: {fileID: 0}
+  deathScreen: {fileID: 0}
 --- !u!114 &6011751684571985205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Window: {fileID: 0}
+  screamer: {fileID: 0}
 --- !u!82 &3320803616968820495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1678,7 +1681,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5fbe2396d95acee4282cac63584f32dc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.118
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1687,7 +1690,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2655,6 +2658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7449799447500350023}
   - component: {fileID: 4158349189554932665}
+  - component: {fileID: 299546213520728081}
   m_Layer: 0
   m_Name: Screaming
   m_TagString: Untagged
@@ -2773,6 +2777,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &299546213520728081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692595831856831448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462ab2c344ee86f4393dbcd17557a450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  SourceName: Screamer1
 --- !u!1 &8703675532113307113
 GameObject:
   m_ObjectHideFlags: 0

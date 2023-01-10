@@ -61,4 +61,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5276545aa12f44843a5a30290d8d369f, type: 2}
   - {fileID: 11400000, guid: e430a174a34f55f46b9b5d4d11f42c04, type: 2}
   - {fileID: 11400000, guid: 99694e0600f94d243aaa2b8454562a52, type: 2}
+  - {fileID: 11400000, guid: 74f535b729ba59849b52e26d4db4fd01, type: 2}
+  - {fileID: 11400000, guid: 49c1ae7bd8ff60c42899bd4c2e23098c, type: 2}
+  - {fileID: 11400000, guid: 3df9ab499368eee49bf184aa6576e80a, type: 2}
   ErrorSound: {fileID: 8300000, guid: 19e99c11ba2ee5e4a964e62a90bcc006, type: 3}

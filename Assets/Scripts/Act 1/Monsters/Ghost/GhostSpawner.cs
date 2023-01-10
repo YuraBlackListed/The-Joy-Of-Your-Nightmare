@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class GhostSpawner : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class GhostSpawner : MonoBehaviour
 
     private float chanceToBlock = 0.8f;
     private float ghostDelay = 5f;
+
+    [SerializeField ]private Image fade;
 
     private void Start()
     {
@@ -42,18 +46,23 @@ public class GhostSpawner : MonoBehaviour
         if (GhostProgress >= 175f && !hasSpawned)
         {
             hasSpawned = true;
-
-            Spawn();
+            fade.DOFade(1f, 0.3f).OnComplete(()=>Spawn());
         }
     }
     private void Spawn()
     {
-        Transform ghostTransform = Positions[Random.Range(0, Positions.Length - 1)];
+        int randomPos = Random.Range(0, Positions.Length - 1);
+        Transform ghostTransform = Positions[randomPos];
 
         GameObject ghost = Instantiate(GhostPrefab, ghostTransform.position, ghostTransform.rotation, gameObject.transform);
+        ghost.transform.parent = ghostTransform;
+
+        ghost.GetComponent<GhostAI>().blackout = fade;
 
         ghost.GetComponent<GhostAI>().ParentScript = this;
         ghost.GetComponent<GhostAI>().InGameTime = time;
+
+        fade.DOFade(0f, 0.3f);
     }
     private void TryBlock()
     {
@@ -72,7 +81,7 @@ public class GhostSpawner : MonoBehaviour
     }
     private float GhostIncreasement()
     {
-        return (time.GameTime / 1500) * Time.deltaTime * Random.Range(1f, 15f);
+        return (time.GameTime / 1500) * Time.deltaTime * Random.Range(1f, 5f);
     }
     public void ResetGhost()
     {

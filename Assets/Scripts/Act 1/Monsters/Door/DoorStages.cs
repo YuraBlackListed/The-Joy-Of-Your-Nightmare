@@ -1,12 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DoorStages : MonoBehaviour
 {
     public bool DoResetDoorSounds = false;
 
     [SerializeField] private DoorMonsterAI AI;
-
-    [SerializeField] private AudioSourceID DoorSoundID;
 
     private int level;
 
@@ -62,7 +61,7 @@ public class DoorStages : MonoBehaviour
                 {
                     AudioClip clip = AudioSystem.GetSound("Knock1", AudioType.Monsters);
 
-                    AudioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
+                    AudioSystem.PlaySoundOnce("Knock1", AudioType.Monsters, clip);
 
                     playedSound1 = true;
                 }
@@ -72,7 +71,7 @@ public class DoorStages : MonoBehaviour
                 {
                     AudioClip clip = AudioSystem.GetSound("Knock2", AudioType.Monsters);
 
-                    AudioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
+                    AudioSystem.PlaySoundOnce("Knock2", AudioType.Monsters, clip);
 
                     playedSound2 = true;
                 }
@@ -82,7 +81,7 @@ public class DoorStages : MonoBehaviour
                 {
                     AudioClip clip = AudioSystem.GetSound("Knock3", AudioType.Monsters);
 
-                    AudioSystem.PlaySoundOnce(DoorSoundID.SourceName, DoorSoundID.Type, clip);
+                    AudioSystem.PlaySoundOnce("Knock3", AudioType.Monsters, clip);
 
                     playedSound3 = true;
                 }

@@ -6,8 +6,9 @@ public class DoorMonsterAI : MonoBehaviour
 
     [SerializeField] private LampScript Lamp;
     [SerializeField] private DoorStages DoorStages;
+    [SerializeField] private ScreamerScript screamer;
 
-    private float inRoomTimeLeft = 6.5f;
+    private float inRoomTimeLeft = 8f;
     private float chanceToDelay = 0.35f;
     private float roomEnterDelay = 2.25f;
     //The more it less it gets, the faster the progress increasing (this >= 0)
@@ -23,11 +24,11 @@ public class DoorMonsterAI : MonoBehaviour
         TryBlock();
 
         ResetRageModifier();
+
+        InvokeRepeating(nameof(TryIncrease), 0f, 1f);
     }
     private void Update()
     {
-        TryIncrease();
-
         DoorProgress = Mathf.Clamp(DoorProgress, 0f, 100f);
 
         CheckProgress();
@@ -64,10 +65,9 @@ public class DoorMonsterAI : MonoBehaviour
     }
     private void CheckProgress()
     {
-        if(DoorProgress >= 100f)
+        if(DoorProgress >= 85f)
         {
             doTimerCountdown = true;
-
             Invoke(nameof(EnterRoom), roomEnterDelay - 0.5f);
         }
     }
@@ -75,7 +75,7 @@ public class DoorMonsterAI : MonoBehaviour
     {
         if (Lamp.active && inRoomTimeLeft > 0f)
         {
-            //Jumpscare here (needed)
+            screamer.Scream();
         }
         else if (inRoomTimeLeft <= 0f && !Lamp.active)
         {

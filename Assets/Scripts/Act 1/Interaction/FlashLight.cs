@@ -7,6 +7,7 @@ public class FlashLight : MonoBehaviour
     [SerializeField] private GameObject torchModel;
 
     [SerializeField] private LayerMask BedMonsterLayer;
+    [SerializeField] private LayerMask GhostMonsterLayer;
     
     public KeyCode F = KeyCode.F;
     
@@ -51,7 +52,7 @@ public class FlashLight : MonoBehaviour
     {
         RaycastHit flashlight;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out flashlight, 1.5f, BedMonsterLayer))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out flashlight, 100f, BedMonsterLayer))
         {
             GameObject monster = flashlight.collider.gameObject;
 

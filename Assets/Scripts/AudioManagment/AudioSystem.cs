@@ -8,7 +8,8 @@ public enum AudioType
     Monsters,
     Tools,
     Enviroment,
-    Furniture
+    Furniture,
+    Effect
 }
 public enum AudioState
 { 
@@ -57,6 +58,10 @@ public class AudioSystem : MonoBehaviour
         for (int i = 0; i < sources.Length; i++)
         {
             GameObject sourceGameObject = sources[i].gameObject;
+            if(!sourceGameObject.GetComponent<AudioSourceID>())
+            {
+                return;
+            }
 
             AudioSourceID ID = sourceGameObject.GetComponent<AudioSourceID>();
 
