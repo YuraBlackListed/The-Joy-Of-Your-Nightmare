@@ -27,8 +27,8 @@ public class AudioSystem : MonoBehaviour
 
     [SerializeField] private AudioClip ErrorSound;
 
-    private static Dictionary<(AudioType, string), AudioSource> audioSources = new Dictionary<(AudioType, string), AudioSource>();
-    private static Dictionary<(AudioType, string), AudioClip> audioClips = new Dictionary<(AudioType, string), AudioClip>();
+    private Dictionary<(AudioType, string), AudioSource> audioSources = new Dictionary<(AudioType, string), AudioSource>();
+    private Dictionary<(AudioType, string), AudioClip> audioClips = new Dictionary<(AudioType, string), AudioClip>();
 
     private void Awake()
     {
@@ -68,48 +68,71 @@ public class AudioSystem : MonoBehaviour
             audioSources.Add((ID.Type, ID.SourceName), sources[i]);
         }
     }
+    private void DoLogicAt(AudioSource source, float radius)
+    {
+        GameObject sourceGameobject = source.gameObject;
+
+        SoundBait bait = sourceGameobject.GetComponent<SoundBait>();
+
+        bait.SearchForMonster(radius);
+    }
 
     #region ControlMethods
-    public static void PlaySoundOnce(string name, AudioType type, AudioClip sound)
+    public static void PlaySoundOnce(string name, AudioType type, AudioClip sound, bool doLogic = false, float radius = 0f)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.loop = false;
 
         source.clip = sound;
 
         source.Play();
+
+        if (doLogic)
+        {
+            instance.DoLogicAt(source, radius);
+        }
     }
-    public static void PlaySoundLooped(string name, AudioType type, AudioClip sound)
+    public static void PlaySoundLooped(string name, AudioType type, AudioClip sound, bool doLogic = false, float radius = 0f)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.loop = true;
 
         source.clip = sound;
 
         source.Play();
+
+        if (doLogic)
+        {
+            instance.DoLogicAt(source, radius);
+        }
     }
     public static void StopSound(string name, AudioType type, AudioClip sound)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.Stop();
     }
-    public static void PlaySetSoundAt(string name, AudioType type)
+    public static void PlaySetSoundAt(string name, AudioType type, bool doLogic = false, float radius = 0f)
     {
-        AudioSource source = audioSources[(type, name)];
+        AudioSource source = instance.audioSources[(type, name)];
 
         source.Play();
+
+        if (doLogic)
+        {
+            instance.DoLogicAt(source, radius);
+        }
     }
     public static AudioClip GetSound(string clipName, AudioType type)
     {
-        if(!audioClips.ContainsKey((type, clipName)))
+        if(!instance.audioClips.ContainsKey((type, clipName)))
         {
             return instance.ErrorSound;
         }
 
-        AudioClip clip = audioClips[(type, clipName)];
+        AudioClip clip = instance.audioClips[(type, clipName)];
 
         return clip;
     }

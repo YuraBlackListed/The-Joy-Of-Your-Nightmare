@@ -19,8 +19,6 @@ public class MovementScript : MonoBehaviour
 
     [Header("Crouch values")]
     [SerializeField] private float CrouchSpeedDecreasement;
-    [SerializeField] private Transform CrouchHeight;
-    [SerializeField] private Transform NormalHeight;
     [SerializeField] private bool IsCrouching;
 
     [Header ("Speed values")]

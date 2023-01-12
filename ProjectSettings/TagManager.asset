@@ -19,8 +19,8 @@ TagManager:
   - UI
   - BedMonsterLayer
   - GhostMonsterLayer
-  - 
-  - 
+  - Player
+  - Wall
   - 
   - 
   - 
