@@ -3,9 +3,12 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using System.Collections.Generic;
 
 public class LevelEndingScript : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> monsters;
+
     [SerializeField] private SceneFade sceneLoader;
 
     [SerializeField] private Image fade;
@@ -29,6 +32,10 @@ public class LevelEndingScript : MonoBehaviour
     }
     private void FadeScreen()
     {
+        for(int i = 0; i < monsters.Count; i++)
+        {
+            monsters[i].SetActive(false);
+        }
         AudioSystem.PlaySetSoundAt("LevelPast", AudioType.Effect);
         fade.DOFade(1f, 1f);
         Invoke(nameof(SwapToMenu), 1.5f);
