@@ -1654,8 +1654,6 @@ MonoBehaviour:
   sceneFade: {fileID: 0}
   lookScript: {fileID: 0}
   screammerDoll: {fileID: 0}
-  crosshair: {fileID: 0}
-  monsters: []
   deathScreen: {fileID: 0}
 --- !u!114 &6011751684571985205
 MonoBehaviour:
@@ -1670,7 +1668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Window: {fileID: 0}
-  animator: {fileID: 0}
+  screamer: {fileID: 0}
 --- !u!82 &3320803616968820495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1680,7 +1678,7 @@ AudioSource:
   m_GameObject: {fileID: 6677704597303783458}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7717912669623205672, guid: af03c28b715854346864c7efacfae6b9, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5fbe2396d95acee4282cac63584f32dc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.118
@@ -2692,7 +2690,7 @@ AudioSource:
   m_GameObject: {fileID: 8692595831856831448}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7717912669623205672, guid: af03c28b715854346864c7efacfae6b9, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 44a9be434bf8cd440b8b493284707cf5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

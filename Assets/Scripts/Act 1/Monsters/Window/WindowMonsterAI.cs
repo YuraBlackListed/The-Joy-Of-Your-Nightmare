@@ -5,7 +5,6 @@ public class WindowMonsterAI : MonoBehaviour
     public float WindowProgress { get; private set; }
 
     [SerializeField] private WindowScript Window;
-    [SerializeField] private Animator animator;
 
     private float windowTimeLeft = 2f;
     private float chanceToDelay = 0.35f;
@@ -73,13 +72,12 @@ public class WindowMonsterAI : MonoBehaviour
     {
         if (windowTimeLeft <= 0f && !Window.IsClosed)
         {
-            animator.SetBool("Fall", true);
+            //Jumpscare here (needed)
         }
         else if (windowTimeLeft <= 0f && Window.IsClosed)
         {
             WindowProgress = 0f;
-            doTimerCountdown = false;
-            
+
             ResetRageModifier();
 
             TryBlock();
