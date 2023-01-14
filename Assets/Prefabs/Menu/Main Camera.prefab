@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7770109138464609746}
   - component: {fileID: 7770109138464609758}
   - component: {fileID: 7770109138464609774}
+  - component: {fileID: 1219773250695744436}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -139,3 +140,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1219773250695744436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7770109138464609745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1e8f70e635a3c4bb714ce2f4b70159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
