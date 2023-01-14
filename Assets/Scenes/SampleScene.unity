@@ -1345,6 +1345,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 809464287}
     - target: {fileID: 6011751684571985205, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 919132147600515967}
+    - target: {fileID: 6011751684571985205, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: screamer
       value: 
       objectReference: {fileID: 919132147600515974}
