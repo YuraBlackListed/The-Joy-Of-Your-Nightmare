@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace Act1
-{
     public class EnviromentInteraction : MonoBehaviour
     {
         public KeyCode InteractButton;
+
+        [SerializeField] private float Distance;
 
         [SerializeField] private Transform MainCamera;
 
@@ -31,7 +31,7 @@ namespace Act1
         {
             RaycastHit interactRay;
 
-            if (Physics.Raycast(MainCamera.position, MainCamera.forward, out interactRay, 1.5f, InteractableLayer))
+            if (Physics.Raycast(MainCamera.position, MainCamera.forward, out interactRay, Distance, InteractableLayer))
             {
                 GameObject hittedGameobject = interactRay.collider.gameObject;
 
@@ -63,4 +63,3 @@ namespace Act1
             lastInteractable?.Interact();
         }
     }
-}

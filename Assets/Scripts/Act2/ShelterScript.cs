@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShelterScript : MonoBehaviour
+public class ShelterScript : Interactable
 {
     public bool PlayerIsInside { get; private set; }
 
@@ -14,9 +14,9 @@ public class ShelterScript : MonoBehaviour
 
     private float shelterCooldown = 1.5f; // Set it like get in/out animation lenght
 
-    public void Interact()
+    public override void Interact()
     {
-        if(PlayerIsInside && canInteract)
+        if (PlayerIsInside && canInteract)
         {
             GetOut();
         }
