@@ -1695,6 +1695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractButton: 101
+  Distance: 1.5
   MainCamera: {fileID: 5395991130765882151}
   InteractableLayer:
     serializedVersion: 2

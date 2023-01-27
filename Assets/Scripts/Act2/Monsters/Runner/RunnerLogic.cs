@@ -6,51 +6,96 @@ public class RunnerLogic : MonoBehaviour
 
     [SerializeField] private RunnerMovement MonsterMovement;
 
-    private bool startCountdown = false;
+    private bool stopAndThink = false;
+    private bool startedChase = false;
 
     private float timeBeforeLosingPlayer = 9f;
+    private float timeBeforeStartingChaseLeft = 2.5f;
+    private float timeBeforeStartaingChaseDefault = 2.5f;
+    private float timePenalty = 0.5f;
+    private float timeBeingCalm = 3.5f;
 
     private void Update()
     {
-        TryTurnOnTimer();
+        TryTurnOnExposureTimer();
 
-        TryDoCountdown();
+        TryTurnOnChaseTimer();
 
-        CheckTimer();
+        TryDoCountdowns();
+
+        CheckChaseTimer();
+
+        CheckStartTimer();
     }
-    private void CheckTimer()
+    private void CheckChaseTimer()
     {
         if(timeBeforeLosingPlayer <= 0f)
         {
             MonsterMovement.ResetTarget();
 
-            ResetTimer();
+            ResetLogic();
         }
     }
-    private void TryTurnOnTimer()
+    private void CheckStartTimer()
     {
-        if (!FOV.canSeePlayer)
+        if(timeBeforeStartingChaseLeft <= 0f)
         {
-            startCountdown = true;
-        }
-        else
-        {
-            MonsterMovement.StartChase();
+            startedChase = true;
 
-            ResetTimer();
+            MonsterMovement.StartChase();
         }
     }
-    private void ResetTimer()
+    private void TryTurnOnExposureTimer()
     {
-        startCountdown = false;
+        if (FOV.canSeePlayer)
+        {
+            stopAndThink = true;
+
+            MonsterMovement.StopAndThink();
+        }
+        else if (!startedChase && !FOV.canSeePlayer && stopAndThink)
+        {
+            MonsterMovement.Invoke("ContinuePatrolling", timeBeingCalm);
+
+            timeBeingCalm -= 0.1f;
+
+            timeBeingCalm = Mathf.Clamp(timeBeingCalm, 1f, 3.5f);
+
+            stopAndThink = false;
+        }
+    }
+    private void TryTurnOnChaseTimer()
+    {
+        if(FOV.canSeePlayer && startedChase)
+        {
+            timeBeforeLosingPlayer = 9f;
+        }
+    }
+    private void ResetLogic()
+    {
+        startedChase = false;
 
         timeBeforeLosingPlayer = 9f;
+
+        timeBeingCalm -= 0.25f;
+
+        timeBeingCalm = Mathf.Clamp(timeBeingCalm, 1f, 3.5f);
+
+        timeBeforeStartingChaseLeft = timeBeforeStartaingChaseDefault;
+        timeBeforeStartingChaseLeft -= timePenalty;
+        timeBeforeStartaingChaseDefault -= timePenalty;
+        timeBeforeStartingChaseLeft = Mathf.Clamp(timeBeforeStartingChaseLeft, 1f, 2.5f);
     }
-    private void TryDoCountdown()
+    private void TryDoCountdowns()
     {
-        if(startCountdown)
+        if(startedChase)
         {
             timeBeforeLosingPlayer -= Time.deltaTime;
+        }
+
+        if (stopAndThink)
+        {
+            timeBeforeStartingChaseLeft -= Time.deltaTime;
         }
     }
 }

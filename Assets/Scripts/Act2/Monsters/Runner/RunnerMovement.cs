@@ -17,9 +17,11 @@ public class RunnerMovement : MonoBehaviour
     [SerializeField] private float ChaseSpeed = 5.25f;
 
     private float toSoundPlaceSpeed;
+    private float exposure = 3f; //in seconds
 
     private bool chasingPlayer = false;
     private bool goingToSoundPlace = false;
+    private bool stopped = false;
 
     private int currentWaypointIndex = 0;
 
@@ -52,7 +54,19 @@ public class RunnerMovement : MonoBehaviour
     #region Public Methods
     public void StartChase()
     {
+        meshAgent.speed = ChaseSpeed;
+
         chasingPlayer = true;
+    }
+    public void StopAndThink()
+    {
+        stopped = true;
+
+        meshAgent.speed = 0f;
+    }
+    public void ContinuePatrolling()
+    {
+        stopped = false;
     }
     public void ResetTarget()
     {
@@ -115,7 +129,7 @@ public class RunnerMovement : MonoBehaviour
 
             meshAgent.speed = ChaseSpeed;
 
-            return;
+            ResetSoundPlace();
         }
         else if(goingToSoundPlace && SoundPlace != null)
         {
@@ -125,7 +139,10 @@ public class RunnerMovement : MonoBehaviour
         {
             CurrentTarget = Waypoints[currentWaypointIndex];
 
-            meshAgent.speed = NormalSpeed;
+            if(!stopped)
+            {
+                meshAgent.speed = NormalSpeed;
+            }
         }
     }
     private void Move()
