@@ -6,6 +6,7 @@ public class WindowMonsterAI : MonoBehaviour
 
     [SerializeField] private WindowScript Window;
     [SerializeField] private Animator animator;
+    [SerializeField] private LevelScriptableObject levelScrObj;
 
     private float windowTimeLeft = 2f;
     private float chanceToDelay = 0.35f;
@@ -93,7 +94,7 @@ public class WindowMonsterAI : MonoBehaviour
     }
     private float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f) / windowCalmMod) * randomRageMod + Random.Range(0f, 6f);
+        return ((Time.deltaTime * Random.value * 10f) / windowCalmMod * levelScrObj.EnemiesLevel) * randomRageMod + Random.Range(0f, 6f);
     }
 
 }

@@ -586,19 +586,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.4459217e+23
+      value: -1.529328e-11
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0.000000052012574
+      value: 1.02e-43
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 4.0080544e+24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 6.257085e+28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: AI
@@ -672,6 +672,10 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 653260036}
+    - target: {fileID: 5198743749912665020, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: levelScrObj
+      value: 
+      objectReference: {fileID: 11400000, guid: 89d3c91f8b4c1ea43a1b30e4b82bf4c2, type: 2}
     - target: {fileID: 5198743749912665020, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: sceneLoader
       value: 
@@ -1003,6 +1007,10 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 581044159199560919}
+    - target: {fileID: 9112512815918860283, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
 --- !u!1001 &5794603445815481180
@@ -1372,6 +1380,10 @@ PrefabInstance:
       propertyPath: screamer
       value: 
       objectReference: {fileID: 919132147600515974}
+    - target: {fileID: 6011751684571985205, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+      propertyPath: levelScrObj
+      value: 
+      objectReference: {fileID: 11400000, guid: 89d3c91f8b4c1ea43a1b30e4b82bf4c2, type: 2}
     - target: {fileID: 6332105465106311832, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1695,6 +1707,10 @@ PrefabInstance:
       propertyPath: DoorStages
       value: 
       objectReference: {fileID: 358841387}
+    - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
+      propertyPath: levelScrObj
+      value: 
+      objectReference: {fileID: 11400000, guid: 89d3c91f8b4c1ea43a1b30e4b82bf4c2, type: 2}
     - target: {fileID: 2647552891829685602, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: m_RootOrder
       value: 3

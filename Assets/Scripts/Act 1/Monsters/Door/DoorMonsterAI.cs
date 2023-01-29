@@ -7,6 +7,7 @@ public class DoorMonsterAI : MonoBehaviour
     [SerializeField] private LampScript Lamp;
     [SerializeField] private DoorStages DoorStages;
     [SerializeField] private ScreamerScript screamer;
+    [SerializeField] private LevelScriptableObject levelScrObj;
 
     private float inRoomTimeLeft = 6f;
     private float chanceToDelay = 0.35f;
@@ -97,6 +98,6 @@ public class DoorMonsterAI : MonoBehaviour
     }
     private float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / doorCalmMod) * randomRageMod;
+        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / doorCalmMod * levelScrObj.EnemiesLevel) * randomRageMod;
     }
 }

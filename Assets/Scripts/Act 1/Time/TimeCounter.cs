@@ -6,6 +6,7 @@ public class TimeCounter : MonoBehaviour
     public float GameTime { get; private set; }
 
     [SerializeField] private LevelEndingScript EndingScript;
+    [SerializeField] private LevelScriptableObject levelScrObj;
     [SerializeField] private GameObject[] mosters;
     public KeyCode InteractButton = KeyCode.H;
 
@@ -13,6 +14,7 @@ public class TimeCounter : MonoBehaviour
     {
         instance = this;
     }
+    
     private void Update()
     {
         GameTime = Mathf.Clamp(GameTime, 0f, 21600f);
@@ -28,7 +30,7 @@ public class TimeCounter : MonoBehaviour
         {
             mosters[0].SetActive(true);
         }
-        if(GameTime >= 12960)
+        if(GameTime >= 12960 || (levelScrObj.Night < 1 && GameTime >= 2320))
         {
             mosters[2].SetActive(true);
         }
