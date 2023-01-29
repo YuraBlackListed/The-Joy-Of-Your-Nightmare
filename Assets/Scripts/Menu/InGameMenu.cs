@@ -6,7 +6,7 @@ public class InGameMenu : MonoBehaviour
 {
     private KeyCode escapeKey = KeyCode.Escape;
     [SerializeField] private GameObject menu;
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(escapeKey))
         {
