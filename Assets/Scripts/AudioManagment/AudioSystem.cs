@@ -9,7 +9,7 @@ public enum AudioType
     Tools,
     Enviroment,
     Furniture,
-    Effect
+    Effect,
 }
 public enum AudioState
 { 
@@ -57,15 +57,18 @@ public class AudioSystem : MonoBehaviour
 
         for (int i = 0; i < sources.Length; i++)
         {
-            GameObject sourceGameObject = sources[i].gameObject;
-            if(!sourceGameObject.GetComponent<AudioSourceID>())
+            if (sources[i].GetComponent<AudioSourceID>() != null)
             {
-                return;
+                GameObject sourceGameObject = sources[i].gameObject;
+                if (!sourceGameObject.GetComponent<AudioSourceID>())
+                {
+                    return;
+                }
+
+                AudioSourceID ID = sourceGameObject.GetComponent<AudioSourceID>();
+
+                audioSources.Add((ID.Type, ID.SourceName), sources[i]);
             }
-
-            AudioSourceID ID = sourceGameObject.GetComponent<AudioSourceID>();
-
-            audioSources.Add((ID.Type, ID.SourceName), sources[i]);
         }
     }
     private void DoLogicAt(AudioSource source, float radius)

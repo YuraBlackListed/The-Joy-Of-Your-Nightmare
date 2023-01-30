@@ -13,6 +13,8 @@ public class LevelEndingScript : MonoBehaviour
     [SerializeField] private GameObject cursor;
 
     [SerializeField] private Volume volume;
+    
+    [SerializeField] private LevelScriptableObject levelScrObj;
 
     FilmGrain filmGrain;
     float strength = 1;
@@ -35,6 +37,8 @@ public class LevelEndingScript : MonoBehaviour
     }
     public void EndLevel()
     {
+        levelScrObj.Night++;
+        levelScrObj.EnemiesLevel = 1;
         cursor.SetActive(false);
         filmGrain.intensity.Override(strength);
         Invoke(nameof(FadeScreen), 0.5f);
