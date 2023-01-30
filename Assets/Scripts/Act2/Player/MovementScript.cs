@@ -13,6 +13,7 @@ public class MovementScript : MonoBehaviour
     public KeyCode SprintKey;
 
     [SerializeField] private Transform MainCamera;
+    [SerializeField] private Transform LastPosition;
 
     [SerializeField] private Animator CrouchAnimator;
     //[SerializeField] private Animator CharacterAnimator //for future
@@ -31,14 +32,12 @@ public class MovementScript : MonoBehaviour
     [SerializeField] private float GroundDrag; 
     [SerializeField] private LayerMask GroundLayer;
 
-    private bool isGrounded;
-
     private float verticalInput = 0;
     private float horizontalInput = 0;
     private float speedMod = 1.5f;
-    private float rbDrag;
     private float normalSpeed;
     private float normalMaxSpeed;
+    private float crouchSpeed;
 
     //Recommended mass = 17.5, recommended Drag = 3
     private Rigidbody rb;
@@ -49,20 +48,25 @@ public class MovementScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        rbDrag = rb.drag;
-
         normalSpeed = MoveSpeed;
         normalMaxSpeed = MaxSpeed;
+
+        InvokeRepeating(nameof(ResetLastPosition), 2f, 2f);
     }
     private void Update()
     {
-        CheckGround();
-
         GetInput();
 
         MovePlayer();
 
         SpeedControl();
+    }
+    private void ResetLastPosition()
+    {
+        if(Vector3.Distance(transform.position, LastPosition.position) > 5.5f)
+        {
+            LastPosition.position = transform.position;
+        }
     }
     private void GetInput()
     {
@@ -74,7 +78,7 @@ public class MovementScript : MonoBehaviour
 
         if(Input.GetKey(SprintKey) && !IsCrouching)
         {
-            SprintMod = 2.5f;
+            SprintMod = 4f;
         }
         else
         {
@@ -111,19 +115,19 @@ public class MovementScript : MonoBehaviour
         {
             CrouchAnimator.SetBool("Crouching", true);
 
-            CrouchSpeedDecreasement = 2.5f;
+            crouchSpeed = CrouchSpeedDecreasement;
         }
         else if (!IsCrouching)
         {
             CrouchAnimator.SetBool("Crouching", false);
 
-            CrouchSpeedDecreasement = 1f;
+            crouchSpeed = 1f;
         }
     }
     private void TryChangeSpeedValues()
     {
-        MoveSpeed = (normalSpeed * SprintMod) / CrouchSpeedDecreasement;
-        MaxSpeed = (normalMaxSpeed * SprintMod) / CrouchSpeedDecreasement;
+        MoveSpeed = (normalSpeed * SprintMod) / crouchSpeed;
+        MaxSpeed = (normalMaxSpeed * SprintMod) / crouchSpeed;
     }
     private void ClampValues()
     {
@@ -147,19 +151,6 @@ public class MovementScript : MonoBehaviour
         moveDirection = MainCamera.forward * verticalInput + MainCamera.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * MoveSpeed, ForceMode.Impulse);
-    }
-    private void CheckGround()
-    {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.5f + 0.1f, GroundLayer);
-
-        if(isGrounded)
-        {
-            rb.drag = Mathf.Lerp(rb.drag, rbDrag, Time.deltaTime * 5f);
-        }
-        else
-        {
-            rb.drag = Mathf.Lerp(rb.drag, 0f, Time.deltaTime * 5f);
-        }
     }
     private void SpeedControl()
     {

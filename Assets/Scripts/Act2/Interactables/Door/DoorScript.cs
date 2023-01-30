@@ -9,17 +9,32 @@ public class DoorScript : Interactable
 
     public override void Interact()
     {
-        IsOpened = !IsOpened;
+        if (IsOpened) 
+         {
+            Close();
+         }
+         else
+         {
+            Open();
+         }
+    }
+    public void Open()
+    {
+        IsOpened = true;
+    }
+    public void Close()
+    {
+        IsOpened = false;
     }
     private void Update()
     {
         if (IsOpened)
         {
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, OpenRotation, Time.deltaTime * 5f));
+            transform.localRotation = Quaternion.Euler(OpenRotation);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, ClosedRotation, Time.deltaTime * 5f));
+            transform.localRotation = Quaternion.Euler(ClosedRotation);
         }
     }
 }

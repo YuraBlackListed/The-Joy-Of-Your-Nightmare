@@ -9,16 +9,15 @@ public class FieldOfView : MonoBehaviour
     [Range(0,360)]
     public float angle;
 
-    public GameObject playerRef;
-
     public LayerMask targetMask;
     public LayerMask obstructionMask;
 
     public bool canSeePlayer;
 
+    [SerializeField] private float CanSeeDelay = 2f;
+
     private void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
 
@@ -49,12 +48,16 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                     canSeePlayer = true;
                 else
-                    canSeePlayer = false;
+                    Invoke(nameof(LosePlayer), CanSeeDelay);
             }
             else
-                canSeePlayer = false;
+                Invoke(nameof(LosePlayer), CanSeeDelay);
         }
         else if (canSeePlayer)
-            canSeePlayer = false;
+            Invoke(nameof(LosePlayer), CanSeeDelay);
+    }
+    private void LosePlayer()
+    {
+        canSeePlayer = false;
     }
 }

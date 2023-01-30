@@ -2,30 +2,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum MonsterState
+{ 
+    Chase,
+    Patrol,
+    Distraction,
+    Idle,
+    Checking,
+    PreparedToCheck,
+}
 public class RunnerMovement : MonoBehaviour
 {
     public Transform CurrentTarget;
     public Transform SoundPlace;
+    public Transform CheckingTarget;
+
+    public MonsterState State;
 
     [SerializeField] private List<Transform> Waypoints;
 
     [SerializeField] private FieldOfView FOV;
 
-    [SerializeField] private Transform Player;
+    [SerializeField] private Transform PlayerLastKnownPosition;
+    [SerializeField] private Transform PlayerPosition;
 
     [SerializeField] private float NormalSpeed = 3.5f;
     [SerializeField] private float ChaseSpeed = 5.25f;
 
     private float toSoundPlaceSpeed;
-    private float exposure = 3f; //in seconds
-
-    private bool chasingPlayer = false;
-    private bool goingToSoundPlace = false;
-    private bool stopped = false;
 
     private int currentWaypointIndex = 0;
 
     private NavMeshAgent meshAgent;
+
 
     private void Start()
     {
@@ -34,6 +43,8 @@ public class RunnerMovement : MonoBehaviour
         meshAgent = GetComponent<NavMeshAgent>();
 
         CurrentTarget = Waypoints[currentWaypointIndex];
+
+        CheckingTarget = transform;
     }
 
     private void Update()
@@ -46,7 +57,7 @@ public class RunnerMovement : MonoBehaviour
 
         Move();
 
-        if (goingToSoundPlace && SoundPlace != null)
+        if (State == MonsterState.Distraction && SoundPlace != null)
         {
             CheckForSoundplaceDistance();
         }
@@ -56,31 +67,41 @@ public class RunnerMovement : MonoBehaviour
     {
         meshAgent.speed = ChaseSpeed;
 
-        chasingPlayer = true;
+        State = MonsterState.Chase;
     }
-    public void StopAndThink()
+    public void PrepareToCheck()
     {
-        stopped = true;
-
-        meshAgent.speed = 0f;
+        State = MonsterState.PreparedToCheck;
+    }
+    public bool IsChecking()
+    {
+        return State is MonsterState.Checking or MonsterState.Checking;
+    }
+    public void StopMoving()
+    {
+        State = MonsterState.Idle;
+    }
+    public void ResetCheckingTarget()
+    {
+        CheckingTarget = transform;
     }
     public void ContinuePatrolling()
     {
-        stopped = false;
+        State = MonsterState.Patrol;
+    }
+    public void StartChecking()
+    {
+        State = MonsterState.Checking;
     }
     public void ResetTarget()
     {
-        chasingPlayer = false;
-
         float lowestDistance = float.MaxValue;
 
         Transform nearestPoint = Waypoints[0];
 
         foreach(var point in Waypoints)
         {
-            Vector3 offset = point.position - transform.position;
-
-            float distance = offset.sqrMagnitude;
+            float distance = FindDistanceToTarget(point);
 
             if(distance < lowestDistance)
             {
@@ -94,15 +115,79 @@ public class RunnerMovement : MonoBehaviour
     }
     public void SetSoundPlace(Transform soundPlace)
     {
+        if (State == MonsterState.Chase)
+        {
+            return;
+        }
+
         SoundPlace = soundPlace;
 
-        goingToSoundPlace = true;
+        State = MonsterState.Distraction;
+    }
+    public NavMeshPath FindPathToTarget(Transform target)
+    {
+        NavMeshPath Path = new NavMeshPath();
+
+        NavMeshPath ShortestPath = null;
+
+        float distance;
+
+        if (NavMesh.CalculatePath(transform.position, target.position, meshAgent.areaMask, Path))
+        {
+            distance = Vector3.Distance(transform.position, Path.corners[0]);
+        }
+        else
+        {
+            Debug.LogError("Path is unaccessable!");
+
+            return null;
+        }
+
+        for (int j = 1; j < Path.corners.Length; j++)
+        {
+            distance += Vector3.Distance(Path.corners[j - 1], Path.corners[j]);
+        }
+
+        if (ShortestPath != null)
+        {
+            return ShortestPath;
+        }
+        else
+        {
+            return Path;
+        }
+    }
+    public float FindDistanceToTarget(Transform target)
+    {
+        NavMeshPath Path = new NavMeshPath();
+
+        float distance;
+
+        if (NavMesh.CalculatePath(transform.position, target.position, meshAgent.areaMask, Path))
+        {
+            distance = Vector3.Distance(transform.position, Path.corners[0]);
+        }
+        else
+        {
+            Debug.LogError("Path is unaccessable!");
+
+            return float.MaxValue;
+        }
+
+        for (int j = 1; j < Path.corners.Length; j++)
+        {
+            distance += Vector3.Distance(Path.corners[j - 1], Path.corners[j]);
+        }
+
+
+        return distance;
     }
     #endregion
+
     #region PrivateMethods
     private void ResetSoundPlace()
     {
-        goingToSoundPlace = false;
+        State = MonsterState.Patrol;
 
         SoundPlace = null;
     }
@@ -123,26 +208,43 @@ public class RunnerMovement : MonoBehaviour
     }
     private void GetTarget()
     {
-        if (chasingPlayer)
+        switch (State)
         {
-            CurrentTarget = Player;
+            case MonsterState.Chase:
+                if(FOV.canSeePlayer)
+                {
+                    CurrentTarget = PlayerPosition;
 
-            meshAgent.speed = ChaseSpeed;
+                    meshAgent.speed = ChaseSpeed;
 
-            ResetSoundPlace();
-        }
-        else if(goingToSoundPlace && SoundPlace != null)
-        {
-            CurrentTarget = SoundPlace;
-        }
-        else
-        {
-            CurrentTarget = Waypoints[currentWaypointIndex];
+                    ResetSoundPlace();
+                }
+                else
+                {
+                    CurrentTarget = PlayerPosition;
 
-            if(!stopped)
-            {
+                    meshAgent.speed = ChaseSpeed;
+
+                    ResetSoundPlace();
+                }
+                break;
+            case MonsterState.Distraction:
+                if(SoundPlace != null)
+                {
+                    CurrentTarget = SoundPlace;
+                }
+                break;
+            case MonsterState.Patrol:
+                CurrentTarget = Waypoints[currentWaypointIndex];
+
                 meshAgent.speed = NormalSpeed;
-            }
+                break;
+            case MonsterState.Idle:
+                CurrentTarget = transform;
+                break;
+            case MonsterState.Checking:
+                CurrentTarget = CheckingTarget;
+                break;
         }
     }
     private void Move()
