@@ -1,21 +1,10 @@
 using UnityEngine;
 
-public class WindowMonsterAI : MonoBehaviour
+public class WindowMonsterAI : MonsterAI
 {
-    public float WindowProgress { get; private set; }
-
     [SerializeField] private WindowScript Window;
     [SerializeField] private Animator animator;
     [SerializeField] private LevelScriptableObject levelScrObj;
-
-    private float windowTimeLeft = 2f;
-    private float chanceToDelay = 0.35f;
-    private float windowCalmMod = 0.5f;
-
-    private int randomRageMod;
-
-    private bool windowDelayed = false;
-    private bool doTimerCountdown = false;
 
     private void Start()
     {
@@ -33,11 +22,11 @@ public class WindowMonsterAI : MonoBehaviour
     }
     private void TryIncrease()
     {
-        if (!windowDelayed)
+        if (!isDelayed)
         {
-            WindowProgress += RandomIncreasement();
+            Progress += RandomIncreasement();
 
-            WindowProgress = Mathf.Clamp(WindowProgress, 0f, 100f);
+            Progress = Mathf.Clamp(Progress, 0f, ProgressLimit);
         }
     }
     private void ResetRageModifier()
@@ -48,53 +37,55 @@ public class WindowMonsterAI : MonoBehaviour
     {
         float chance = Random.value;
 
-        if (chance <= chanceToDelay)
+        if (chance <= delayChance)
         {
-            windowDelayed = true;
+            isDelayed = true;
             Invoke(nameof(ResetWindow), Random.Range(1, 10));
         }
     }
     private void TryCountdown()
     {
-        if (doTimerCountdown)
+        if (doTimerCountDown)
         {
-            windowTimeLeft -= Time.deltaTime;
+            timeLeft -= Time.deltaTime;
         }
     }
     private void CheckProgress()
     {
-        if (WindowProgress >= 100f)
+        if (Progress >= ProgressLimit)
         {
-            doTimerCountdown = true;
+            doTimerCountDown = true;
 
-            TryDoWindowJumpscare();
+            if(canAttack) TryDoWindowJumpscare();
         }
     }
     private void TryDoWindowJumpscare()
     {
-        if (windowTimeLeft <= 0f && !Window.IsClosed)
+        if (timeLeft <= 0f && !Window.IsClosed)
         {
             animator.SetBool("Fall", true);
         }
-        else if (windowTimeLeft <= 0f && Window.IsClosed)
+        else if (timeLeft <= 0f && Window.IsClosed)
         {
-            WindowProgress = 0f;
-            doTimerCountdown = false;
+            Progress = 0f;
+            doTimerCountDown = false;
             
             ResetRageModifier();
 
             TryBlock();
 
-            windowCalmMod -= 1f;
+            timeLeft = timerTimeLimit;
+
+            calmMod -= 1f;
         }
     }
     private void ResetWindow()
     {
-        windowDelayed = false;
+        isDelayed = false;
     }
     private float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f) / windowCalmMod * levelScrObj.EnemiesLevel) * randomRageMod + Random.Range(0f, 6f);
+        return ((Time.deltaTime * Random.value * 10f) / calmMod * levelScrObj.EnemiesLevel) * randomRageMod + Random.Range(0f, 6f);
     }
 
 }

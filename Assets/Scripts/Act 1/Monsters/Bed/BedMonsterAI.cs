@@ -1,19 +1,8 @@
 using UnityEngine;
 
-public class BedMonsterAI : MonoBehaviour
+public class BedMonsterAI : MonsterAI
 {
-    public float BedProgress { get; private set; }
-
     [SerializeField] private BedStages Stages;
-
-    private float timeLeft = 5f;
-    private float chanceToDelay = 0.55f;
-    private float bedCalmMod = 10f;
-
-    private int randomRageMod;
-
-    private bool bedDelayed = false;
-    private bool doTimerCountdown = false;
 
     private void Start()
     {
@@ -25,7 +14,7 @@ public class BedMonsterAI : MonoBehaviour
     {
         TryIncrease();
 
-        BedProgress = Mathf.Clamp(BedProgress, 0f, 200f);
+        Progress = Mathf.Clamp(Progress, 0f, ProgressLimit);
 
         CheckProgress();
 
@@ -47,15 +36,15 @@ public class BedMonsterAI : MonoBehaviour
     {
         float chance = Random.value;
 
-        if(chance >= chanceToDelay)
+        if(chance >= delayChance)
         {
-            bedDelayed = true;
+            isDelayed = true;
             Invoke(nameof(ResetBed), Random.Range(1, 15));
         }
     }
     private void ResetBed()
     {
-        bedDelayed = false;
+        isDelayed = false;
     }
     private void ResetRageModifier()
     {
@@ -63,39 +52,39 @@ public class BedMonsterAI : MonoBehaviour
     }
     private void TryIncrease()
     {
-        if(!bedDelayed)
+        if(!isDelayed)
         {
-            BedProgress += RandomIncreasement();
+            Progress += RandomIncreasement();
         }
     }
     private void CheckProgress()
     {
-        if(BedProgress >= 200f)
+        if(Progress >= 200f)
         {
-            doTimerCountdown = true;
+            doTimerCountDown = true;
         }
     }
     private void TryCountdownTimer()
     {
-        if(doTimerCountdown)
+        if(doTimerCountDown)
         {
             timeLeft -= Time.deltaTime;
         }
     }
     private void CheckTimer()
     {
-        if(timeLeft <= 0)
+        if(timeLeft <= 0 && canAttack)
         {
             //do jumpscare
         }
     }
     private void ResetMonster()
     {
-        BedProgress = 0f;
+        Progress = 0f;
 
-        doTimerCountdown = false;
+        doTimerCountDown = false;
 
-        timeLeft = 5f;
+        timeLeft = timerTimeLimit;
 
         ResetRageModifier();
 
@@ -103,6 +92,6 @@ public class BedMonsterAI : MonoBehaviour
     }
     private float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 15.5f)) / bedCalmMod) * randomRageMod;
+        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 15.5f)) / calmMod) * randomRageMod;
     }
 }

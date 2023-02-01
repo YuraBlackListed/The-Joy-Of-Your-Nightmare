@@ -1,23 +1,13 @@
 using UnityEngine;
 
-public class DoorMonsterAI : MonoBehaviour
+public class DoorMonsterAI : MonsterAI
 {
-    public float DoorProgress { get; private set; }
-
     [SerializeField] private LampScript Lamp;
     [SerializeField] private DoorStages DoorStages;
     [SerializeField] private ScreamerScript screamer;
     [SerializeField] private LevelScriptableObject levelScrObj;
 
-    private float inRoomTimeLeft = 6f;
-    private float chanceToDelay = 0.35f;
     private float roomEnterDelay = 2.25f;
-    private float doorCalmMod = 5f;    //<--The less it gets, the faster the progress increasing (this >= 0)
-
-    private int randomRageMod;
-
-    private bool doorDelayed = false;
-    private bool doTimerCountdown = false;
 
     private void Start()
     {
@@ -29,7 +19,7 @@ public class DoorMonsterAI : MonoBehaviour
     }
     private void Update()
     {
-        DoorProgress = Mathf.Clamp(DoorProgress, 0f, 100f);
+        Progress = Mathf.Clamp(Progress, 0f, ProgressLimit);
 
         CheckProgress();
 
@@ -37,9 +27,9 @@ public class DoorMonsterAI : MonoBehaviour
     }
     private void TryIncrease()
     {
-        if(!doorDelayed)
+        if(!isDelayed)
         {
-            DoorProgress += RandomIncreasement();
+            Progress += RandomIncreasement();
         }
     }
     private void ResetRageModifier()
@@ -50,54 +40,57 @@ public class DoorMonsterAI : MonoBehaviour
     {
         float chance = Random.value;
 
-        if(chance <= chanceToDelay)
+        if(chance <= delayChance)
         {
-            doorDelayed = true;
+            isDelayed = true;
             Invoke(nameof(ResetDoor), Random.Range(1, 10));
         }
     }
     private void TryCountdown()
     {
-        if(doTimerCountdown)
+        if(doTimerCountDown)
         {
-            inRoomTimeLeft -= Time.deltaTime;
+            timeLeft -= Time.deltaTime;
         }
     }
     private void CheckProgress()
     {
-        if(DoorProgress >= 85f)
+        if(Progress >= 85f)
         {
-            doTimerCountdown = true;
-            Invoke(nameof(EnterRoom), roomEnterDelay);
+            doTimerCountDown = true;
+
+            if(canAttack) Invoke(nameof(EnterRoom), roomEnterDelay);
         }
     }
     private void EnterRoom()
     {
-        if (Lamp.active && inRoomTimeLeft > 0f)
+        if (Lamp.active && timeLeft > 0f)
         {
             screamer.Scream();
         }
-        else if (inRoomTimeLeft <= 0f && !Lamp.active)
+        else if (timeLeft <= 0f && !Lamp.active)
         {
-            DoorProgress = 0f;
-            inRoomTimeLeft = 6f;
+            Progress = 0f;
 
             ResetRageModifier();
 
             TryBlock();
 
-            doorCalmMod -= 1f;
+            calmMod -= 1f;
 
-            doTimerCountdown = false;
+            doTimerCountDown = false;
+
+            timeLeft = timerTimeLimit;
+
             DoorStages.DoResetDoorSounds = true;
         }
     }
     private void ResetDoor()
     {
-        doorDelayed = false;
+        isDelayed = false;
     }
     private float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / doorCalmMod * levelScrObj.EnemiesLevel) * randomRageMod;
+        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / calmMod * levelScrObj.EnemiesLevel) * randomRageMod;
     }
 }

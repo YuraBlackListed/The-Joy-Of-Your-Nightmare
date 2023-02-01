@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 316154158}
   - component: {fileID: 316154157}
   - component: {fileID: 316154156}
-  - component: {fileID: 316154155}
+  - component: {fileID: 316154166}
   - component: {fileID: 316154163}
   - component: {fileID: 316154165}
   - component: {fileID: 316154164}
@@ -1358,28 +1358,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &316154155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316154154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b7f07bdd478d244a97cdba822c0479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 17.5
-  angle: 127
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 1544
-  canSeePlayer: 0
-  CanSeeDelay: 2
 --- !u!114 &316154156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,7 +1373,7 @@ MonoBehaviour:
   CurrentTarget: {fileID: 0}
   SoundPlace: {fileID: 0}
   CheckingTarget: {fileID: 0}
-  State: 0
+  State: 3
   Waypoints:
   - {fileID: 580998557}
   - {fileID: 614707450}
@@ -1415,7 +1393,7 @@ MonoBehaviour:
   - {fileID: 351265125}
   - {fileID: 1823213235}
   - {fileID: 1711628869}
-  FOV: {fileID: 316154155}
+  FOV: {fileID: 316154166}
   PlayerLastKnownPosition: {fileID: 93489377}
   PlayerPosition: {fileID: 1649202166}
   NormalSpeed: 3.5
@@ -1432,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd136362ad12a3841a4edb31e907d4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FOV: {fileID: 316154155}
+  FOV: {fileID: 316154166}
   MonsterMovement: {fileID: 316154156}
   Player: {fileID: 1649202162}
   UsableLayer:
@@ -1582,6 +1560,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathPosition: {fileID: 937892602}
+--- !u!114 &316154166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316154154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f207d9e838ab5f6448c85b513801b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 15
+  angle: 146
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 1544
+  canSeePlayer: 0
+  CanSeeDelay: 2
 --- !u!1 &316617380
 GameObject:
   m_ObjectHideFlags: 0

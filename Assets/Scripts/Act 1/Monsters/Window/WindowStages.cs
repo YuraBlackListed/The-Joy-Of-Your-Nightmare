@@ -25,17 +25,17 @@ public class WindowStages : MonoBehaviour
     }
     private void GetLevel()
     {
-        if(AI.WindowProgress >= 85f)
+        if(AI.Progress >= AI.ProgressLimit * 0.9f)
         {
             level = 3;
             return;
         }
-        if(AI.WindowProgress >= 45.5f)
+        if(AI.Progress >= AI.ProgressLimit * 0.45f)
         {
             level = 2;
             return;
         }
-        if(AI.WindowProgress >= 12.5f)
+        if(AI.Progress >= AI.ProgressLimit * 0.175f)
         {
             level = 1;
             return;

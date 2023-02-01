@@ -35,22 +35,22 @@ public class BedStages : MonoBehaviour
     }
     private void GetLevel()
     {
-        if(AI.BedProgress >= 175f)
+        if(AI.Progress >= AI.ProgressLimit * 0.85f)
         {
             level = 4;
             return;
         }
-        if (AI.BedProgress >= 125f)
+        if (AI.Progress >= AI.ProgressLimit * 0.65f)
         {
             level = 3;
             return;
         }
-        if (AI.BedProgress >= 55f)
+        if (AI.Progress >= AI.ProgressLimit * 0.35f)
         {
             level = 2;
             return;
         }
-        if (AI.BedProgress >= 25f)
+        if (AI.Progress >= AI.ProgressLimit * 0.1f)
         {
             level = 1;
             return;

@@ -57,6 +57,8 @@ public class AudioSystem : MonoBehaviour
 
         for (int i = 0; i < sources.Length; i++)
         {
+
+
             if (sources[i].GetComponent<AudioSourceID>() != null)
             {
                 GameObject sourceGameObject = sources[i].gameObject;
@@ -66,6 +68,11 @@ public class AudioSystem : MonoBehaviour
                 }
 
                 AudioSourceID ID = sourceGameObject.GetComponent<AudioSourceID>();
+
+                if(audioSources.ContainsKey((ID.Type, ID.SourceName)))
+                {
+                    continue;
+                }
 
                 audioSources.Add((ID.Type, ID.SourceName), sources[i]);
             }
