@@ -20,44 +20,9 @@ public class WindowMonsterAI : MonsterAI
 
         TryCountdown();
     }
-    private void TryIncrease()
+    protected override void TryDoJumpscare()
     {
-        if (!isDelayed)
-        {
-            Progress += RandomIncreasement();
-
-            Progress = Mathf.Clamp(Progress, 0f, ProgressLimit);
-        }
-    }
-    private void ResetRageModifier()
-    {
-        randomRageMod = Random.Range(1, 3);
-    }
-    private void TryBlock()
-    {
-        float chance = Random.value;
-
-        if (chance <= delayChance)
-        {
-            isDelayed = true;
-            Invoke(nameof(ResetWindow), Random.Range(1, 10));
-        }
-    }
-    private void TryCountdown()
-    {
-        if (doTimerCountdown)
-        {
-            timeLeft -= Time.deltaTime;
-        }
-    }
-    private void CheckProgress()
-    {
-        if (Progress >= ProgressLimit)
-        {
-            doTimerCountdown = true;
-
-            if(canAttack) TryDoWindowJumpscare();
-        }
+        TryDoWindowJumpscare();
     }
     private void TryDoWindowJumpscare()
     {
@@ -69,6 +34,8 @@ public class WindowMonsterAI : MonsterAI
         {
             Progress = 0f;
             doTimerCountdown = false;
+
+            SetNewLimit(Random.Range(50f, 200f));
             
             ResetRageModifier();
 
@@ -79,13 +46,8 @@ public class WindowMonsterAI : MonsterAI
             calmMod -= 1f;
         }
     }
-    private void ResetWindow()
-    {
-        isDelayed = false;
-    }
-    private float RandomIncreasement()
+    protected override float RandomIncreasement()
     {
         return ((Time.deltaTime * Random.value * 10f) / calmMod * levelScrObj.EnemiesLevel) * randomRageMod + Random.Range(0f, 6f);
     }
-
 }

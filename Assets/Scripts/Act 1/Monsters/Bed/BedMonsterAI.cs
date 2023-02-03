@@ -18,7 +18,7 @@ public class BedMonsterAI : MonsterAI
 
         CheckProgress();
 
-        TryCountdownTimer();
+        TryCountdown();
 
         CheckTimer();
     }
@@ -30,46 +30,7 @@ public class BedMonsterAI : MonsterAI
 
         Stages.DoBedSoundReset = true;
 
-        ResetMonster();
-    }
-    private void TryBlock()
-    {
-        float chance = Random.value;
-
-        if(chance >= delayChance)
-        {
-            isDelayed = true;
-            Invoke(nameof(ResetBed), Random.Range(1, 15));
-        }
-    }
-    private void ResetBed()
-    {
-        isDelayed = false;
-    }
-    private void ResetRageModifier()
-    {
-        randomRageMod = Random.Range(1, 6);
-    }
-    private void TryIncrease()
-    {
-        if(!isDelayed)
-        {
-            Progress += RandomIncreasement();
-        }
-    }
-    private void CheckProgress()
-    {
-        if(Progress >= 200f)
-        {
-            doTimerCountdown = true;
-        }
-    }
-    private void TryCountdownTimer()
-    {
-        if(doTimerCountdown)
-        {
-            timeLeft -= Time.deltaTime;
-        }
+        ResetProgress();
     }
     private void CheckTimer()
     {
@@ -78,11 +39,13 @@ public class BedMonsterAI : MonsterAI
             //do jumpscare
         }
     }
-    private void ResetMonster()
+    private void ResetProgress()
     {
         Progress = 0f;
 
         doTimerCountdown = false;
+
+        SetNewLimit(Random.Range(50f, 250f));
 
         timeLeft = timerTimeLimit;
 
@@ -90,7 +53,7 @@ public class BedMonsterAI : MonsterAI
 
         TryBlock();
     }
-    private float RandomIncreasement()
+    protected override float RandomIncreasement()
     {
         return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 15.5f)) / calmMod) * randomRageMod;
     }

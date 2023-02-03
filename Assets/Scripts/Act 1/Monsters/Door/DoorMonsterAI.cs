@@ -25,37 +25,19 @@ public class DoorMonsterAI : MonsterAI
 
         TryCountdown();
     }
-    private void TryIncrease()
-    {
-        if(!isDelayed)
-        {
-            Progress += RandomIncreasement();
-        }
-    }
-    private void ResetRageModifier()
-    {
-        randomRageMod = Random.Range(1, 3);
-    }
-    private void TryBlock()
+    protected override void TryBlock()
     {
         float chance = Random.value;
 
         if(chance <= delayChance)
         {
             isDelayed = true;
-            Invoke(nameof(ResetDoor), Random.Range(1, 10));
+            Invoke(nameof(ResetMonster), Random.Range(1, 10));
         }
     }
-    private void TryCountdown()
+    protected override void CheckProgress()
     {
-        if(doTimerCountdown)
-        {
-            timeLeft -= Time.deltaTime;
-        }
-    }
-    private void CheckProgress()
-    {
-        if(Progress >= 85f)
+        if(Progress >= ProgressLimit)
         {
             doTimerCountdown = true;
 
@@ -85,11 +67,7 @@ public class DoorMonsterAI : MonsterAI
             DoorStages.DoResetDoorSounds = true;
         }
     }
-    private void ResetDoor()
-    {
-        isDelayed = false;
-    }
-    private float RandomIncreasement()
+    protected override float RandomIncreasement()
     {
         return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / calmMod * levelScrObj.EnemiesLevel) * randomRageMod;
     }

@@ -17,8 +17,59 @@ public class MonsterAI : MonoBehaviour
     protected bool isDelayed = false;
     protected bool doTimerCountdown = false;
 
-    public virtual void SetNewLimit(float limit)
+    protected virtual void TryIncrease()
+    {
+        if (!isDelayed)
+        {
+            Progress += RandomIncreasement();
+
+            Progress = Mathf.Clamp(Progress, 0f, ProgressLimit);
+        }
+    }
+    protected virtual void SetNewLimit(float limit)
     {
         ProgressLimit = limit;
+    }
+    protected virtual void ResetMonster()
+    {
+        isDelayed = false;
+    }
+    protected virtual void TryBlock()
+    {
+        float chance = Random.value;
+
+        if (chance <= delayChance)
+        {
+            isDelayed = true;
+            Invoke(nameof(ResetMonster), Random.Range(1, 10));
+        }
+    }
+    protected virtual void CheckProgress()
+    {
+        if (Progress >= ProgressLimit)
+        {
+            doTimerCountdown = true;
+
+            if (canAttack) TryDoJumpscare();
+        }
+    }
+    protected virtual void TryDoJumpscare()
+    {
+
+    }
+    protected virtual void TryCountdown()
+    {
+        if (doTimerCountdown)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+    }
+    protected void ResetRageModifier()
+    {
+        randomRageMod = Random.Range(1, 3);
+    }
+    protected virtual float RandomIncreasement()
+    {
+        return 0f;
     }
 }
