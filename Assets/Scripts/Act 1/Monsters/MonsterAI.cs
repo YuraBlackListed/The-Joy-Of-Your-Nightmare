@@ -15,7 +15,7 @@ public class MonsterAI : MonoBehaviour
     protected float randomRageMod = 0f;
 
     protected bool isDelayed = false;
-    protected bool doTimerCountDown = false;
+    protected bool doTimerCountdown = false;
 
     public virtual void SetNewLimit(float limit)
     {

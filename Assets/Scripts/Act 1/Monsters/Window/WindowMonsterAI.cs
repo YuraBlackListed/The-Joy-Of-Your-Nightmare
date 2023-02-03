@@ -45,7 +45,7 @@ public class WindowMonsterAI : MonsterAI
     }
     private void TryCountdown()
     {
-        if (doTimerCountDown)
+        if (doTimerCountdown)
         {
             timeLeft -= Time.deltaTime;
         }
@@ -54,7 +54,7 @@ public class WindowMonsterAI : MonsterAI
     {
         if (Progress >= ProgressLimit)
         {
-            doTimerCountDown = true;
+            doTimerCountdown = true;
 
             if(canAttack) TryDoWindowJumpscare();
         }
@@ -68,7 +68,7 @@ public class WindowMonsterAI : MonsterAI
         else if (timeLeft <= 0f && Window.IsClosed)
         {
             Progress = 0f;
-            doTimerCountDown = false;
+            doTimerCountdown = false;
             
             ResetRageModifier();
 

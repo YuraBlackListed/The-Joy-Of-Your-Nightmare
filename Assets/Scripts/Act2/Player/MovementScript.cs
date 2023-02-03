@@ -138,17 +138,17 @@ public class MovementScript : MonoBehaviour
     {
         if(!Input.GetKey(ForwardButton) || !Input.GetKey(BackwardButton))
         {
-            verticalInput = Mathf.Lerp(verticalInput, 0f, Time.deltaTime * speedMod * 1000000f);
+            verticalInput = 0f;
         }
 
         if(!Input.GetKey(RightButton) || !Input.GetKey(LeftButton))
         {
-            horizontalInput = Mathf.Lerp(horizontalInput, 0f, Time.deltaTime * speedMod * 1000000f);
+            horizontalInput = 0f;
         }
     }
     private void MovePlayer()
     {
-        moveDirection = MainCamera.forward * verticalInput + MainCamera.right * horizontalInput;
+        moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * MoveSpeed, ForceMode.Impulse);
     }

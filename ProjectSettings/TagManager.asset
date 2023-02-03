@@ -12,6 +12,7 @@ TagManager:
   - Ghost
   - Runner
   - Closet
+  - Cornerer
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Player
   - Wall
   - Closet
-  - 
+  - Cornerer
   - 
   - 
   - 

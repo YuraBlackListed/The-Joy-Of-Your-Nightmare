@@ -48,7 +48,7 @@ public class DoorMonsterAI : MonsterAI
     }
     private void TryCountdown()
     {
-        if(doTimerCountDown)
+        if(doTimerCountdown)
         {
             timeLeft -= Time.deltaTime;
         }
@@ -57,7 +57,7 @@ public class DoorMonsterAI : MonsterAI
     {
         if(Progress >= 85f)
         {
-            doTimerCountDown = true;
+            doTimerCountdown = true;
 
             if(canAttack) Invoke(nameof(EnterRoom), roomEnterDelay);
         }
@@ -78,7 +78,7 @@ public class DoorMonsterAI : MonsterAI
 
             calmMod -= 1f;
 
-            doTimerCountDown = false;
+            doTimerCountdown = false;
 
             timeLeft = timerTimeLimit;
 

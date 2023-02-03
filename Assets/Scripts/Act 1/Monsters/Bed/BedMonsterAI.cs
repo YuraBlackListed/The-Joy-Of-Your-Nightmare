@@ -61,12 +61,12 @@ public class BedMonsterAI : MonsterAI
     {
         if(Progress >= 200f)
         {
-            doTimerCountDown = true;
+            doTimerCountdown = true;
         }
     }
     private void TryCountdownTimer()
     {
-        if(doTimerCountDown)
+        if(doTimerCountdown)
         {
             timeLeft -= Time.deltaTime;
         }
@@ -82,7 +82,7 @@ public class BedMonsterAI : MonsterAI
     {
         Progress = 0f;
 
-        doTimerCountDown = false;
+        doTimerCountdown = false;
 
         timeLeft = timerTimeLimit;
 

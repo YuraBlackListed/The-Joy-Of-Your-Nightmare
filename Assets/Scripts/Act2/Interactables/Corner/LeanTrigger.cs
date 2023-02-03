@@ -8,9 +8,13 @@ public enum LeanSide
 }
 public class LeanTrigger : MonoBehaviour
 {
+    public Transform CornererSpawner;
+
+    public Transform PlayerInTransform;
+
     [SerializeField] private LeanSide Side;
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         GameObject incomingObject = col.gameObject;
 
@@ -19,6 +23,8 @@ public class LeanTrigger : MonoBehaviour
             var thisLeaningScript = incomingObject.GetComponent<LeaningScript>();
 
             thisLeaningScript.EnableLeaning(Side);
+
+            thisLeaningScript.CurrentLeanPlace = this;
         }
     }
     private void OnTriggerExit(Collider col)
@@ -30,6 +36,8 @@ public class LeanTrigger : MonoBehaviour
             var thisLeaningScript = incomingObject.GetComponent<LeaningScript>();
 
             thisLeaningScript.DisableLeaning();
+
+            thisLeaningScript.CurrentLeanPlace = null;
         }
     }
 }
