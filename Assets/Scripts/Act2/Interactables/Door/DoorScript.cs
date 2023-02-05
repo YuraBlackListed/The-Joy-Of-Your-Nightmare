@@ -2,21 +2,30 @@ using UnityEngine;
 
 public class DoorScript : Interactable
 {
-    public bool IsOpened { get; private set; } = false;
+    public bool IsOpened = false;
 
-    [SerializeField] private Vector3 OpenRotation;
-    [SerializeField] private Vector3 ClosedRotation;
+    public Vector3 OpenRotation;
+    public Vector3 ClosedRotation;
+
+    public bool IsLocked = false;
+
+    public string KeyName;
 
     public override void Interact()
     {
-        if (IsOpened) 
-         {
+        if(IsLocked)
+        {
+            return;
+        }
+
+        if (IsOpened)
+        {
             Close();
-         }
-         else
-         {
+        }
+        else
+        {
             Open();
-         }
+        }
     }
     public void Open()
     {
@@ -28,6 +37,11 @@ public class DoorScript : Interactable
     }
     private void Update()
     {
+        if(Inventory.ContainsItem(KeyName, ItemType.Key))
+        {
+            IsLocked = false;
+        }
+
         if (IsOpened)
         {
             transform.localRotation = Quaternion.Euler(OpenRotation);

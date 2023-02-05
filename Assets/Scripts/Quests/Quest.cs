@@ -8,32 +8,32 @@ public enum QuestType
 
 public class Quest
 {
-    public List<bool> Conditions = new List<bool>();
+    public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
     public bool IsDone { get; private set; }
     public string Title { get; private set; }
     public string Description { get; private set; }
     public QuestType Type { get; private set; }
 
-    public Quest(QuestType type, string title, string desc, int countOfConditions)
+    public Quest(QuestPrefab prefab)
     {
-        Title = title;
-        Description = desc;
-        Type = type;
+        Title = prefab.Title;
+        Description = prefab.Description;
+        Type = prefab.Type;
 
-        for(int i = 0; i < countOfConditions; i++)
+        foreach (var condition in prefab.ConditionNamesList)
         {
-            Conditions.Add(false);
+            Conditions.Add(condition, false);
         }
     }
     public void FinishQuest()
     {
         IsDone = true;
     }
-    public bool CheckConditions()
+    public bool CheckConditions(Quest quest)
     {
-        foreach(bool cond in Conditions)
+        foreach(var condition in quest.Conditions)
         {
-            if(!cond)
+            if(!condition.Value)
             {
                 return false;
             }

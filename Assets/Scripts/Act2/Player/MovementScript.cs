@@ -34,7 +34,7 @@ public class MovementScript : MonoBehaviour
 
     private float verticalInput = 0;
     private float horizontalInput = 0;
-    private float speedMod = 1.5f;
+    private float speedMod = 2f;
     private float normalSpeed;
     private float normalMaxSpeed;
     private float crouchSpeed;
@@ -78,7 +78,7 @@ public class MovementScript : MonoBehaviour
 
         if(Input.GetKey(SprintKey) && !IsCrouching)
         {
-            SprintMod = 4f;
+            SprintMod = 1.5f;
         }
         else
         {
@@ -109,6 +109,17 @@ public class MovementScript : MonoBehaviour
 
         ClampValues();
     }
+    private void TryDecreaseValues()
+    {
+        if(!Input.GetKey(ForwardButton) || !Input.GetKey(BackwardButton))
+        {
+            verticalInput = 0f;
+        }
+        if (!Input.GetKey(RightButton) || !Input.GetKey(LeftButton))
+        {
+            horizontalInput = 0f;
+        }
+    }
     private void TryCrouch()
     {
         if(IsCrouching)
@@ -133,18 +144,6 @@ public class MovementScript : MonoBehaviour
     {
         verticalInput = Mathf.Clamp(verticalInput, -1f, 1f);
         horizontalInput = Mathf.Clamp(horizontalInput, -1f, 1f);
-    }
-    private void TryDecreaseValues()
-    {
-        if(!Input.GetKey(ForwardButton) || !Input.GetKey(BackwardButton))
-        {
-            verticalInput = 0f;
-        }
-
-        if(!Input.GetKey(RightButton) || !Input.GetKey(LeftButton))
-        {
-            horizontalInput = 0f;
-        }
     }
     private void MovePlayer()
     {

@@ -67,11 +67,15 @@ public class RunnerMovement : MonoBehaviour
     {
         meshAgent.speed = ChaseSpeed;
 
-        State = MonsterState.Chase;
+        SetState(MonsterState.Chase);
     }
     public void PrepareToCheck()
     {
-        State = MonsterState.PreparedToCheck;
+        SetState(MonsterState.PreparedToCheck);
+    }
+    private void SetState(MonsterState newState)
+    {
+        State = newState;
     }
     public bool IsChecking()
     {
@@ -79,7 +83,7 @@ public class RunnerMovement : MonoBehaviour
     }
     public void StopMoving()
     {
-        State = MonsterState.Idle;
+        SetState(MonsterState.Idle);
     }
     public void ResetCheckingTarget()
     {
@@ -87,11 +91,11 @@ public class RunnerMovement : MonoBehaviour
     }
     public void ContinuePatrolling()
     {
-        State = MonsterState.Patrol;
+        SetState(MonsterState.Patrol);
     }
     public void StartChecking()
     {
-        State = MonsterState.Checking;
+        SetState(MonsterState.Checking);
     }
     public void ResetTarget()
     {
@@ -122,7 +126,7 @@ public class RunnerMovement : MonoBehaviour
 
         SoundPlace = soundPlace;
 
-        State = MonsterState.Distraction;
+        SetState(MonsterState.Distraction);
     }
     public NavMeshPath FindPathToTarget(Transform target)
     {
@@ -187,7 +191,7 @@ public class RunnerMovement : MonoBehaviour
     #region PrivateMethods
     private void ResetSoundPlace()
     {
-        State = MonsterState.Patrol;
+        SetState(MonsterState.Patrol);
 
         SoundPlace = null;
     }

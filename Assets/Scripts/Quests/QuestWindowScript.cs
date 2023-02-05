@@ -10,7 +10,7 @@ public class QuestWindowScript : MonoBehaviour
     [SerializeField] private GameObject SideQuestIcon;
     [SerializeField] private GameObject TipIcon;
 
-    public void CreateQuestWindow(string title, string desc, QuestType type)
+    public void InitQuestWindow(string title, string desc, QuestType type)
     {
         ThisTitle.text = title;
         ThisDescription.text = desc;
