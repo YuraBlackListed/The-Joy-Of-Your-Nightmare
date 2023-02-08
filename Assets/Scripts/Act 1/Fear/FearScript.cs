@@ -22,12 +22,13 @@ public class FearScript : MonoBehaviour
     private float deathStrength = 1.3f;
 
 
-    private void Start()
+    void Start()
     {
         volume.profile.TryGet<FilmGrain>(out filmGrain);
         filmGrain.intensity.Override(strength);
     }
-    private void FixedUpdate()
+
+    void FixedUpdate()
     {
         if(strength >= deathStrength)
         {
@@ -46,6 +47,7 @@ public class FearScript : MonoBehaviour
             SetOtherEffectStrenght(shakeStrength);
         }
     }
+
     private void SetHeartbeatVolume(float value)
     {
         mixer.SetFloat("HeartbeatVolume", Mathf.Log10(value) * 20);
@@ -58,11 +60,5 @@ public class FearScript : MonoBehaviour
 
         float value2 = 10000 * (value - 1f);
         mixer.SetFloat("OtherEffectStrenght2", value2);
-    }
-    public void DecreaseFear(float decreasement)
-    {
-        strength -= decreasement;
-
-        strength = Mathf.Clamp(strength, 0.03f, 1.5f);
     }
 }

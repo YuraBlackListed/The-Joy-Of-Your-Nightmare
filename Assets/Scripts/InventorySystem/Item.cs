@@ -33,16 +33,9 @@ public class Item : Interactable
     }
     private void PickUp()
     {
-        if (Type == ItemType.Pill)
-        {
-            Inventory.AddPill();
-        }
-        else
-        {
-            Inventory.AddItem(this);
-        }
+        Inventory.AddItem(this);
 
-        if (DoQuestLogic)
+        if(DoQuestLogic)
         {
             Debug.Log("Quest updated");
 

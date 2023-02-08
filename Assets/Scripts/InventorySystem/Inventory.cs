@@ -7,12 +7,11 @@ public class Inventory : MonoBehaviour
 
     public static Inventory instance;
 
-    public int PillsCount { get; private set; } = 0;
-
     private void Awake()
     {
         instance = this;
     }
+
     public static void AddItem(Item item)
     {
         if(instance.items.ContainsKey((item.Type, item.ItemName)))
@@ -43,20 +42,5 @@ public class Inventory : MonoBehaviour
         }
 
         return false;
-    }
-    public static void AddPill()
-    {
-        instance.PillsCount++;
-    }
-    public static bool CanUsePill()
-    {
-        if(instance.PillsCount > 0)
-        {
-            instance.PillsCount--;
-
-            return true;
-        }
-
-        return true;
     }
 }
