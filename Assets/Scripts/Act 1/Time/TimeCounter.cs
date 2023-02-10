@@ -10,35 +10,48 @@ public class TimeCounter : MonoBehaviour
     [SerializeField] private GameObject[] mosters;
     public KeyCode InteractButton = KeyCode.H;
 
+    private bool start = false;
+
     private void Awake()
     {
         instance = this;
     }
-    
+    private void Start() 
+    {
+        Invoke(nameof(StartCountdown), 96f); 
+    }
+    public void StartCountdown()
+    {
+        start = true;
+    }
     private void Update()
     {
-        GameTime = Mathf.Clamp(GameTime, 0f, 21600f);
+        if(start)
+        {
+            GameTime = Mathf.Clamp(GameTime, 0f, 21600f);
 
-        GameTime += Time.deltaTime * 72f;
+            GameTime += Time.deltaTime * 72f;
 
-        if(GameTime >= 21600 || Input.GetKeyDown(InteractButton))
-        {
-            EndingScript.EndLevel();
-        }
+            if(GameTime >= 21600 || Input.GetKeyDown(InteractButton))
+            {
+                EndingScript.EndLevel();
+            }
 
-        if(GameTime >= 4320)
-        {
-            mosters[0].SetActive(true);
-        }
-        if(GameTime >= 12960 || (levelScrObj.Night < 1 && GameTime >= 2320))
-        {
-            mosters[2].SetActive(true);
-        }
-        if(GameTime >= 6480)
-        {
-            mosters[1].SetActive(true);
+            if(GameTime >= 1200)
+            {
+                mosters[0].SetActive(true);
+            }
+            if(GameTime >= 6480)
+            {
+                mosters[1].SetActive(true);
+            }
+            if(GameTime >= 12960 || (levelScrObj.Night < 1 && GameTime >= 2320))
+            {
+                mosters[2].SetActive(true);
+            }
         }
     }
+    
     public void DeleteTime(float time)
     {
         GameTime -= time;

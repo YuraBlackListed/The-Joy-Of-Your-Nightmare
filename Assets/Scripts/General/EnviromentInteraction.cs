@@ -43,12 +43,12 @@ using UnityEngine;
 
                     lastInteractable.StartHover();
 
-                    //crosshair.Pointed();
+                    crosshair.Pointed();
                 }
             }
             else
             {
-                //crosshair.Unpointed();
+                crosshair.Unpointed();
 
                 if(lastInteractable)
                 {
