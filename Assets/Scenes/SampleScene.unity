@@ -599,19 +599,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 8.374654e-10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6.700624e-10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 2.0804323e+23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0.000010573629
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: AI
@@ -777,6 +777,10 @@ PrefabInstance:
       propertyPath: active
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7141686935272084177, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 6487547789867580579}
     - target: {fileID: 7171048279619016919, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -789,6 +793,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7600065660860449337, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 6487547789867580579}
     - target: {fileID: 7600065660860449337, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: levelScrObj
       value: 
@@ -1823,6 +1831,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 44532261657078201, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
+--- !u!1 &6487547789867580579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 661283742952357590, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
+  m_PrefabInstance: {fileID: 6487547789867580578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7311334864408819760
 PrefabInstance:
   m_ObjectHideFlags: 0

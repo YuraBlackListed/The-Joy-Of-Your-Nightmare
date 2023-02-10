@@ -8,7 +8,8 @@ public class Radio : Interactable
     
     private bool played = false;
     
-    public List<GameObject> lights;
+    [SerializeField] private  List<GameObject> lights;
+    
 
     [SerializeField] private BoxCollider collider;
 
@@ -24,7 +25,7 @@ public class Radio : Interactable
         }
     }
 
-    private void Close()
+    public void Close()
     {
         if(!played)
         {

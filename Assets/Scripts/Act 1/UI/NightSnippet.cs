@@ -9,13 +9,20 @@ public class NightSnippet : MonoBehaviour
 
     private void Start()
     {
-        nightText.SetText(levelScrObj.Night.ToString());
+        if(nightText != null)
+        {
+            nightText.SetText(levelScrObj.Night.ToString());
+        }
     }
 
     public void NewGame()
     {
-        levelScrObj.Night = 1;
-        levelScrObj.EnemiesLevel = 0.1f;
+        if(levelScrObj != null)
+        {
+            levelScrObj.Night = 1;
+            levelScrObj.EnemiesLevel = 0.1f;
+
+        }
     }
 
     private void SelfOff()

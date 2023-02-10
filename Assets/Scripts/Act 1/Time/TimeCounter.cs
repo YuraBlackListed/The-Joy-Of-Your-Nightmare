@@ -5,9 +5,11 @@ public class TimeCounter : MonoBehaviour
     public static TimeCounter instance;
     public float GameTime { get; private set; }
 
+    [SerializeField] private  GameObject text;
     [SerializeField] private LevelEndingScript EndingScript;
     [SerializeField] private LevelScriptableObject levelScrObj;
     [SerializeField] private GameObject[] mosters;
+
     public KeyCode InteractButton = KeyCode.H;
 
     private bool start = false;
@@ -22,6 +24,7 @@ public class TimeCounter : MonoBehaviour
     }
     public void StartCountdown()
     {
+        text.SetActive(true);
         start = true;
     }
     private void Update()
