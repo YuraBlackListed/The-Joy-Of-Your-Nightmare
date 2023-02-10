@@ -18,7 +18,7 @@ public class Radio : Interactable
     {
         active = !active;
 
-        if (active)
+        if (!active)
         {
             Close();
         }

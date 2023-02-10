@@ -203,6 +203,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 985363283001721223, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
   m_PrefabInstance: {fileID: 1287907587514175838}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &354860827 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5712936719733407916, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
+  m_PrefabInstance: {fileID: 6487547789867580578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &358841387 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5650428321262636383, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
@@ -594,19 +599,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -9
+      value: 8.374654e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: -1
+      value: 6.700624e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 8
+      value: 2.0804323e+23
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 7
+      value: 0.000010573629
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: AI
@@ -1040,6 +1045,10 @@ PrefabInstance:
       propertyPath: Window
       value: 
       objectReference: {fileID: 809464287}
+    - target: {fileID: 701681893732531888, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: uiHint
+      value: 
+      objectReference: {fileID: 354860827}
     - target: {fileID: 701681893732531888, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
       propertyPath: crosshair
       value: 
@@ -1811,7 +1820,8 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 16777215
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 44532261657078201, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 61d12089b0444f847a3299433874b7a2, type: 3}
 --- !u!1001 &7311334864408819760
 PrefabInstance:
