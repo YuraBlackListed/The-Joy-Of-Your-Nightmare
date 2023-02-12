@@ -12,6 +12,8 @@ using UnityEngine;
 
         [SerializeField] private Crosshair crosshair;
 
+        [SerializeField] private Animator uiHint;
+
         private Interactable lastInteractable;
 
         private void Update()
@@ -43,12 +45,14 @@ using UnityEngine;
 
                     lastInteractable.StartHover();
 
-                    //crosshair.Pointed();
+                    uiHint.SetBool("Pointed", true);
+                    crosshair.Pointed();
                 }
             }
             else
             {
-                //crosshair.Unpointed();
+                uiHint.SetBool("Pointed", false);
+                crosshair.Unpointed();
 
                 if(lastInteractable)
                 {
