@@ -28,7 +28,7 @@ public class MonstersController : MonoBehaviour
     {
         foreach (var ai in MonsterAIs)
         {
-            if(ai.Progress > supremeAI.Progress)
+            if(ai.Progress / ai.ProgressLimit > supremeAI.Progress / supremeAI.ProgressLimit)
             {
                 supremeAI.canAttack = false;
 

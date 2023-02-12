@@ -19,7 +19,7 @@ public class MonsterAI : MonoBehaviour
 
     protected virtual void TryIncrease()
     {
-        if (!isDelayed)
+        if (!isDelayed && !doTimerCountdown)
         {
             Progress += RandomIncreasement();
 
@@ -46,7 +46,7 @@ public class MonsterAI : MonoBehaviour
     }
     protected virtual void CheckProgress()
     {
-        if (Progress >= ProgressLimit)
+        if (Progress >= ProgressLimit - 2f)
         {
             doTimerCountdown = true;
 
