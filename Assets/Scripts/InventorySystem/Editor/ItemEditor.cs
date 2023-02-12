@@ -13,9 +13,13 @@ public class ItemEditor : Editor
 
         EditorGUILayout.Space(20f);
 
+        if (item.Type == ItemType.Note)
+        {
+            item.MyNotePrefab = (NotePrefab)EditorGUILayout.ObjectField(item.MyNotePrefab, typeof(NotePrefab), true);
+        }
 
         EditorGUILayout.Space(20f);
-
+        
         item.DoQuestLogic = GUILayout.Toggle(item.DoQuestLogic, "Do quest logic");
 
         if (item.DoQuestLogic)

@@ -15,6 +15,8 @@ public class Item : Interactable
     public bool DoQuestLogic;
     public bool IsPickable = true;
 
+    public NotePrefab MyNotePrefab;
+
     public string QuestName;
     public string ConditionName;
 
@@ -33,13 +35,17 @@ public class Item : Interactable
     }
     private void PickUp()
     {
-        if (Type == ItemType.Pill)
+        switch (Type)
         {
-            Inventory.AddPill();
-        }
-        else
-        {
-            Inventory.AddItem(this);
+            case ItemType.Pill:
+                Inventory.AddPill();
+                break;
+            case ItemType.Key:
+                Inventory.AddItem(this);
+                break;
+            case ItemType.Note:
+                QuestController.AddNote(MyNotePrefab);
+                break;
         }
 
         if (DoQuestLogic)
@@ -49,7 +55,7 @@ public class Item : Interactable
             QuestController.DoCondition(ConditionName, QuestName);
         }
 
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject);
     }
     private void TryChangePickUpAbilitiy()
     {

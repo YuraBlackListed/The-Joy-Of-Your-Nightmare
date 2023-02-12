@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class QuestController : MonoBehaviour
 {
-    public Dictionary<string, Quest> Quests = new Dictionary<string, Quest>();
+    public Dictionary<string, Quest> Quests { get; private set; } = new Dictionary<string, Quest>();
+
+    public Dictionary<string, NotePrefab> Notes { get; private set; } = new Dictionary<string, NotePrefab>();
 
     public static QuestController instance;
 
@@ -29,24 +31,22 @@ public class QuestController : MonoBehaviour
     }
     private void ClearJournal()
     {
-        Queue<string> questsFordeletion = new Queue<string>();
+        Dictionary<string, QuestType> questsForDeletion = new Dictionary<string, QuestType>();
 
         //Check for finished quests
         foreach(Quest quest in Quests.Values)
         {
             if(quest.IsDone && quest.Type != QuestType.Tip)
             {
-                questsFordeletion.Enqueue(quest.Title);
+                questsForDeletion.Add(quest.Title, quest.Type);
 
                 print("Quest is finished!");
             }
         }
-
-        //Delete them
-        for (int i = 0; i < questsFordeletion.Count; i++)
+        
+        //Delete quests
+        foreach(var title in questsForDeletion.Keys)
         {
-            string title = questsFordeletion.Dequeue();
-
             QuestBook.DeleteQuestWindow(title);
 
             Quests.Remove(title);
@@ -56,7 +56,7 @@ public class QuestController : MonoBehaviour
 
         QuestBook.ReorganizeQuestBook();
 
-        questsFordeletion.Clear();
+        questsForDeletion.Clear();
     }
     private void AddQuest(Quest quest)
     {
@@ -67,7 +67,7 @@ public class QuestController : MonoBehaviour
 
         Quests.Add(quest.Title, quest);
 
-        print("Quest added!");
+        print("Quest created!");
 
         QuestBook.ReorganizeQuestBook();
     }
@@ -78,6 +78,19 @@ public class QuestController : MonoBehaviour
         print("Quest created!");
 
         instance.AddQuest(quest);
+    }
+    public static void AddNote(NotePrefab prefab)
+    {
+        if(instance.Notes.ContainsKey(prefab.NoteName))
+        {
+            Debug.LogWarning("Already has such note (Possible double take bug)");
+
+            return;
+        }
+
+        instance.Notes.Add(prefab.NoteName, prefab);
+
+        QuestBook.ReorganizeQuestBook();
     }
     public static void DoCondition(string conditionName, string questName)
     {
