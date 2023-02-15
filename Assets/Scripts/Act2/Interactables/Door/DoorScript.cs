@@ -1,15 +1,11 @@
 using UnityEngine;
 
-public class DoorScript : Interactable
+public class DoorScript : Lockable
 {
     public bool IsOpened = false;
 
     public Vector3 OpenRotation;
     public Vector3 ClosedRotation;
-
-    public bool IsLocked = false;
-
-    public string KeyName;
 
     public override void Interact()
     {

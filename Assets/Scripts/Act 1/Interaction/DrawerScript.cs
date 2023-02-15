@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawerScript : Interactable
+public class DrawerScript : Lockable
 {
     [SerializeField] private List<string> soundNames;
 
@@ -10,8 +10,17 @@ public class DrawerScript : Interactable
 
     [SerializeField] private Animator animator;
 
+    private void Update()
+    {
+        if (Inventory.ContainsItem(KeyName, ItemType.Key))
+        {
+            IsLocked = false;
+        }
+    }
     public override void Interact()
     {
+        if (IsLocked) return;
+
         active = !active;
 
         if (active)
