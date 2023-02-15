@@ -14,6 +14,8 @@ public class FieldOfView : MonoBehaviour
 
     public bool canSeePlayer;
 
+    [SerializeField] private RunnerLogic RunnerAI;
+
     [SerializeField] private float CanSeeDelay = 2f;
 
     private void Start()
@@ -46,15 +48,23 @@ public class FieldOfView : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                {
                     canSeePlayer = true;
+                }
                 else
+                {
                     Invoke(nameof(LosePlayer), CanSeeDelay);
+                }
             }
             else
+            {
                 Invoke(nameof(LosePlayer), CanSeeDelay);
+            }
         }
         else if (canSeePlayer)
+        {
             Invoke(nameof(LosePlayer), CanSeeDelay);
+        }
     }
     private void LosePlayer()
     {
