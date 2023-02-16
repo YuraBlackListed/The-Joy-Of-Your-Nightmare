@@ -46,7 +46,6 @@ public class RunnerMovement : MonoBehaviour
 
         CheckingTarget = transform;
     }
-
     private void Update()
     {
         TryChangeWaypointIndex();
@@ -225,7 +224,7 @@ public class RunnerMovement : MonoBehaviour
                 }
                 else
                 {
-                    CurrentTarget = PlayerPosition;
+                    CurrentTarget = PlayerLastKnownPosition;
 
                     meshAgent.speed = ChaseSpeed;
 
@@ -271,7 +270,7 @@ public class RunnerMovement : MonoBehaviour
     }
     private bool IsNearPoint()
     {
-        return Mathf.Approximately(transform.position.x, Waypoints[currentWaypointIndex].position.x) && Mathf.Approximately(transform.position.z, Waypoints[currentWaypointIndex].position.z);
+        return transform.position.x - Waypoints[currentWaypointIndex].position.x < 2.5f && transform.position.z - Waypoints[currentWaypointIndex].position.z < 2.5f;
     }
     #endregion
 }

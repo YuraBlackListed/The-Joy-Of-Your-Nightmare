@@ -13,14 +13,19 @@ public class RunnerLogic : MonoBehaviour
 
     [SerializeField] private LayerMask UsableLayer;
 
-    private bool stopAndThink = false;
+    [SerializeField] private float MaxPlayerSoundExposure;
+
     [SerializeField] private bool startedChase = false;
+
+    private bool stopAndThink = false;
+    private bool heardPlayer = false;
 
     private float timeBeforeLosingPlayer = 9f;
     private float timeBeforeStartingChaseLeft = 2.5f;
     private float timeBeforeStartaingChaseDefault = 2.5f;
     private float timePenalty = 0.5f;
     private float timeBeingCalm = 3.5f;
+    private float playerSoundExposure = 0;
 
     private GameObject shelter;
 
@@ -40,7 +45,6 @@ public class RunnerLogic : MonoBehaviour
         {
             TryCheckShelter();
         }
-
     }
     private void CheckChaseTimer()
     {
@@ -61,8 +65,10 @@ public class RunnerLogic : MonoBehaviour
             return;
         }
 
-        if (timeBeforeStartingChaseLeft <= 0f)
+        if (timeBeforeStartingChaseLeft <= 0f || playerSoundExposure > MaxPlayerSoundExposure)
         {
+            heardPlayer = true;
+
             startedChase = true;
 
             MonsterMovement.StartChase();
@@ -70,7 +76,7 @@ public class RunnerLogic : MonoBehaviour
     }
     private void TryTurnOnExposureTimer()
     {
-        if (FOV.canSeePlayer)
+        if (FOV.canSeePlayer && !startedChase && !heardPlayer)
         {
             stopAndThink = true;
 
@@ -101,7 +107,11 @@ public class RunnerLogic : MonoBehaviour
             return;
         }
 
+        playerSoundExposure = 0f;
+
         startedChase = false;
+
+        heardPlayer = false;
 
         //Stop and go after 4 secs
         MonsterMovement.StopMoving();
@@ -283,5 +293,11 @@ public class RunnerLogic : MonoBehaviour
         {
             timeBeforeStartingChaseLeft -= Time.deltaTime;
         }
+    }
+    public void IncreaseExposure()
+    {
+        if (startedChase) return;
+
+        playerSoundExposure += (Random.value * 5f) * Time.deltaTime;
     }
 }

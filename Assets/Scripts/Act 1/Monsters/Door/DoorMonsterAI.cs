@@ -46,7 +46,7 @@ public class DoorMonsterAI : MonsterAI
     }
     private void EnterRoom()
     {
-        if (Lamp.active && timeLeft > 0f)
+        if (Lamp.active && timeLeft < 0f)
         {
             screamer.Scream();
         }

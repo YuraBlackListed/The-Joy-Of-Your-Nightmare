@@ -4,6 +4,8 @@ public class MovementScript : MonoBehaviour
 {
     //Adjust all of values like you need
 
+    public bool IsMoving = false;
+
     [Header ("Controls")]
     public KeyCode ForwardButton;
     public KeyCode BackwardButton;
@@ -20,12 +22,13 @@ public class MovementScript : MonoBehaviour
 
     [Header("Crouch values")]
     [SerializeField] private float CrouchSpeedDecreasement;
-    [SerializeField] private bool IsCrouching;
+    public bool IsCrouching;
 
     [Header ("Speed values")]
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float MaxSpeed;
     [SerializeField] private float SprintMod;
+    public bool IsRunning = false;
 
     [Header("Ground values")]
     [SerializeField] private float PlayerHeight;
@@ -72,16 +75,20 @@ public class MovementScript : MonoBehaviour
     {
         TryDecreaseValues();
 
-        IsCrouching = Input.GetKey(CrouchKey);
+        IsCrouching = Input.GetKey(CrouchKey) && !IsRunning;
 
         TryCrouch();
 
-        if(Input.GetKey(SprintKey) && !IsCrouching)
+        if(Input.GetKey(SprintKey) && !IsCrouching && IsMoving)
         {
-            SprintMod = 1.5f;
+            IsRunning = true;
+
+            SprintMod = 1.3f;
         }
         else
         {
+            IsRunning = false;
+
             SprintMod = 1f;
         }
 
@@ -147,6 +154,15 @@ public class MovementScript : MonoBehaviour
     }
     private void MovePlayer()
     {
+        if(Mathf.Approximately(verticalInput, 0f) && Mathf.Approximately(horizontalInput, 0f))
+        {
+            IsMoving = false;
+        }
+        else
+        {
+            IsMoving = true;
+        }
+
         moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * MoveSpeed, ForceMode.Impulse);

@@ -36,7 +36,7 @@ public class GhostSpawner : MonoBehaviour
     }
     private void TryIncreaseProgress()
     {
-        if(!ghostDelayed)
+        if(!ghostDelayed && !hasSpawned)
         {
             GhostProgress += GhostIncreasement();     
         }
@@ -62,6 +62,8 @@ public class GhostSpawner : MonoBehaviour
         ghost.GetComponent<GhostAI>().ParentScript = this;
         ghost.GetComponent<GhostAI>().InGameTime = time;
 
+        GhostProgress = 0f;
+
         fade.DOFade(0f, 0.3f);
     }
     private void TryBlock()
@@ -85,9 +87,9 @@ public class GhostSpawner : MonoBehaviour
     }
     public void ResetGhost()
     {
-        chanceToBlock -= 0.1f;
+        GhostProgress = 0;
 
-        GhostProgress = 0f;
+        chanceToBlock -= 0.1f;
 
         hasSpawned = false;
 

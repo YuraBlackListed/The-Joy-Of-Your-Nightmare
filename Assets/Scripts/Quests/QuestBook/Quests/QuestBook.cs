@@ -6,19 +6,22 @@ public class QuestBook : MonoBehaviour
 {
     public static QuestBook instance;
 
+    public Dictionary<string, GameObject> QuestWindows { get; private set; } = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> Notes { get; private set; } = new Dictionary<string, GameObject>();
+
     [SerializeField] private QuestController QuestController;
 
     [SerializeField] private GameObject QuestWindowPrefab;
+    [SerializeField] private GameObject NotePrefab;
     [SerializeField] private GameObject QuestBookGameObject;
 
     [SerializeField] private CameraXController CameraX;
     [SerializeField] private CameraYController CameraY;
 
     [SerializeField] private Transform QuestParent;
+    [SerializeField] private Transform NoteParent;
 
     [SerializeField] private KeyCode BookInteractionButton;
-
-    private Dictionary<string, GameObject> questWindows = new Dictionary<string, GameObject>();
 
     private bool bookIsOpened = false;
 
@@ -40,17 +43,25 @@ public class QuestBook : MonoBehaviour
     {
         foreach(Quest quest in instance.QuestController.Quests.Values)
         {
-            if (!instance.questWindows.ContainsKey(quest.Title))
+            if (!instance.QuestWindows.ContainsKey(quest.Title))
             {
                 instance.CreateNewQuestWindow(quest);
+            }
+        }
+
+        foreach(NotePrefab note in instance.QuestController.Notes.Values)
+        {
+            if(!instance.Notes.ContainsKey(note.NoteName))
+            {
+                instance.CreateNewNote(note);
             }
         }
     }
     public static void DeleteQuestWindow(string questName)
     {
-        Destroy(instance.questWindows[questName]);
+        Destroy(instance.QuestWindows[questName]);
 
-        instance.questWindows.Remove(questName);
+        instance.QuestWindows.Remove(questName);
     }
     private void BookInteract()
     {
@@ -82,11 +93,20 @@ public class QuestBook : MonoBehaviour
         //Use grid on QuestParent Gameobject
         GameObject newQuest = Instantiate(QuestWindowPrefab, QuestParent.position, QuestParent.rotation, QuestParent);
 
-        questWindows.Add(quest.Title, newQuest);
+        QuestWindows.Add(quest.Title, newQuest);
 
         var questWindowScript = newQuest.GetComponent<QuestWindowScript>();
 
         questWindowScript.InitQuestWindow(quest.Title, quest.Description, quest.Type);
     }
+    private void CreateNewNote(NotePrefab note)
+    {
+        GameObject newNote = Instantiate(NotePrefab, NoteParent.position, NoteParent.rotation, NoteParent);
 
+        Notes.Add(note.NoteName, newNote);
+
+        var noteWindowScript = newNote.GetComponent<NoteWindowScript>();
+
+        noteWindowScript.InitNoteWindow(note.NoteName, note.NoteText);
+    }
 }

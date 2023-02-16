@@ -10,14 +10,8 @@ public enum AudioType
     Enviroment,
     Furniture,
     Effect,
+    Player,
 }
-public enum AudioState
-{ 
-    Close,
-    Open,
-    None
-}
-
 
 public class AudioSystem : MonoBehaviour
 {
