@@ -1436,11 +1436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8459ae711ff097a44acd17a5ec682cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLocked: 0
+  KeyName: 
   IsOpened: 0
   OpenRotation: {x: 0, y: -105, z: 0}
   ClosedRotation: {x: 0, y: 0, z: 0}
-  IsLocked: 0
-  KeyName: 
 --- !u!65 &208761245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   UsableLayer:
     serializedVersion: 2
     m_Bits: 8
-  MaxExposure: 7.5
+  MaxPlayerSoundExposure: 0
   startedChase: 0
 --- !u!195 &316154158
 NavMeshAgent:
@@ -4809,11 +4809,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8459ae711ff097a44acd17a5ec682cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLocked: 0
+  KeyName: 
   IsOpened: 0
   OpenRotation: {x: 0, y: -105, z: 0}
   ClosedRotation: {x: 0, y: 0, z: 0}
-  IsLocked: 0
-  KeyName: 
 --- !u!1 &768320573
 GameObject:
   m_ObjectHideFlags: 0
@@ -7518,11 +7518,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8459ae711ff097a44acd17a5ec682cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLocked: 1
+  KeyName: RedKey
   IsOpened: 0
   OpenRotation: {x: 0, y: -105, z: 0}
   ClosedRotation: {x: 0, y: 0, z: 0}
-  IsLocked: 1
-  KeyName: RedKey
 --- !u!1 &1280954596
 GameObject:
   m_ObjectHideFlags: 0
@@ -12276,11 +12276,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8459ae711ff097a44acd17a5ec682cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLocked: 0
+  KeyName: 
   IsOpened: 0
   OpenRotation: {x: 0, y: -105, z: 0}
   ClosedRotation: {x: 0, y: 0, z: 0}
-  IsLocked: 0
-  KeyName: 
 --- !u!65 &2053802273
 BoxCollider:
   m_ObjectHideFlags: 0
