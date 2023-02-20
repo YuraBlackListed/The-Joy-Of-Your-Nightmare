@@ -64,14 +64,15 @@ MonoBehaviour:
   MainCamera: {fileID: 4860191511497142658}
   LastPosition: {fileID: 0}
   CrouchAnimator: {fileID: 4860191509869013001}
+  CharacterAnimator: {fileID: 0}
   CrouchSpeedDecreasement: 2
   IsCrouching: 0
-  MoveSpeed: 4
-  MaxSpeed: 8
+  MoveSpeed: 2
+  MaxSpeed: 4
   SprintMod: 1
   IsRunning: 0
   PlayerHeight: 1.5
-  GroundDrag: 3
+  GroundDrag: 5
   GroundLayer:
     serializedVersion: 2
     m_Bits: 2147483647

@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrawerSoundSource
       objectReference: {fileID: 0}
+    - target: {fileID: 2219405925755477485, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e2f3caed2d420c41b60b401814d6a47, type: 2}
     - target: {fileID: 2727718241248670586, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Type
       value: 0
