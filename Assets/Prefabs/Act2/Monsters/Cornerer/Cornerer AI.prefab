@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &192549538889308567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192549538889308565}
+  - component: {fileID: 192549538889308566}
+  m_Layer: 0
+  m_Name: Cornerer AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &192549538889308565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192549538889308567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192549538889308566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192549538889308567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fb43414402d1d47acb9a63aeb578e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Progress: 0
+  ProgressLimit: 10
+  PlayerLeaningScript: {fileID: 0}
+  CornererPrefab: {fileID: 2165301495697835718, guid: 0f49368dee666be419ad4435e3dc3c2c, type: 3}
+  MainCamera: {fileID: 0}
+  CornererLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  TimeLeftForAttack: 10
+  TimerAttackLimit: 1.5
+  TimeBeforeDissapearing: 4.5
+  TimerLimitForDissapearing: 4.5
+  calmMod: 2

@@ -15,10 +15,11 @@ public class MovementScript : MonoBehaviour
     public KeyCode SprintKey;
 
     [SerializeField] private Transform MainCamera;
+    [Tooltip("This is empty gameobject, player is not parent, just object on scene")]
     [SerializeField] private Transform LastPosition;
 
     [SerializeField] private Animator CrouchAnimator;
-    //[SerializeField] private Animator CharacterAnimator //for future
+    [SerializeField] private Animator CharacterAnimator;
 
     [Header("Crouch values")]
     [SerializeField] private float CrouchSpeedDecreasement;
