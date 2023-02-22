@@ -17,10 +17,12 @@ public class RunnerLogic : MonoBehaviour
 
     [SerializeField] private bool startedChase = false;
 
+    [SerializeField] private float ChaseLength;
+
     private bool stopAndThink = false;
     private bool heardPlayer = false;
 
-    private float timeBeforeLosingPlayer = 9f;
+    private float timeBeforeLosingPlayer;
     private float timeBeforeStartingChaseLeft = 2.5f;
     private float timeBeforeStartaingChaseDefault = 2.5f;
     private float timePenalty = 0.5f;
@@ -29,6 +31,10 @@ public class RunnerLogic : MonoBehaviour
 
     private GameObject shelter;
 
+    private void Start()
+    {
+        timeBeforeLosingPlayer = ChaseLength;
+    }
     private void Update()
     {
         TryTurnOnExposureTimer();
@@ -93,11 +99,11 @@ public class RunnerLogic : MonoBehaviour
             stopAndThink = false;
         }
     }
-    private void TryTurnOnChaseTimer()
+ private void TryTurnOnChaseTimer()
     {
         if(FOV.canSeePlayer && startedChase)
         {
-            timeBeforeLosingPlayer = 9f;
+            timeBeforeLosingPlayer = ChaseLength;
         }
     }
     private void DoChaseAftermath()
@@ -118,7 +124,7 @@ public class RunnerLogic : MonoBehaviour
         MonsterMovement.Invoke("ContinuePatrolling", 4f);
 
         //Reset timers
-        timeBeforeLosingPlayer = 9f;
+        timeBeforeLosingPlayer = ChaseLength;
 
         timeBeingCalm -= 0.25f;
 

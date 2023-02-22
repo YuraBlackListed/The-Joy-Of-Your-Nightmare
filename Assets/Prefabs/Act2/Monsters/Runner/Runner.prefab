@@ -147,6 +147,7 @@ MonoBehaviour:
     m_Bits: 8
   MaxPlayerSoundExposure: 0
   startedChase: 0
+  ChaseLength: 5.5
 --- !u!114 &1057875128437173044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f207d9e838ab5f6448c85b513801b1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 15
-  angle: 146
+  radius: 8
+  angle: 150
   targetMask:
     serializedVersion: 2
     m_Bits: 256
