@@ -11,8 +11,8 @@ TagManager:
   - FlashLight
   - Ghost
   - Runner
-  - Closet
   - Cornerer
+  - Shelter
   layers:
   - Default
   - TransparentFX
@@ -24,7 +24,7 @@ TagManager:
   - GhostMonsterLayer
   - Player
   - Wall
-  - Closet
+  - Shelter
   - Cornerer
   - Runner
   - 

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Progress: 0
-  ProgressLimit: 10
+  ProgressLimit: 50
   PlayerLeaningScript: {fileID: 0}
   CornererPrefab: {fileID: 2165301495697835718, guid: 0f49368dee666be419ad4435e3dc3c2c, type: 3}
   MainCamera: {fileID: 0}
@@ -56,4 +56,4 @@ MonoBehaviour:
   TimerAttackLimit: 1.5
   TimeBeforeDissapearing: 4.5
   TimerLimitForDissapearing: 4.5
-  calmMod: 2
+  calmMod: 7

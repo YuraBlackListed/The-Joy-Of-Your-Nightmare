@@ -14,6 +14,8 @@ public class DoorEditor : Editor
         door.OpenRotation = EditorGUILayout.Vector3Field("Open rotation", door.OpenRotation);
         door.ClosedRotation = EditorGUILayout.Vector3Field("Close rotation", door.ClosedRotation);
 
+        door.CanOpen = EditorGUILayout.Toggle("Can open", door.CanOpen);
+
         EditorGUILayout.Space(20f);
 
         door.IsLocked = EditorGUILayout.Toggle("Is locked", door.IsLocked);

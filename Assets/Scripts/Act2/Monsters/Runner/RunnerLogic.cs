@@ -191,7 +191,7 @@ public class RunnerLogic : MonoBehaviour
         //Sort shelters
         foreach(var interactable in nearestInteractables)
         {
-            if(interactable.gameObject.tag == "Closet")
+            if(interactable.gameObject.tag == "Shelter")
             {
                 var shelterScript = interactable.gameObject.GetComponent<ShelterScript>();
 
@@ -230,7 +230,9 @@ public class RunnerLogic : MonoBehaviour
                 {
                     MonsterMovement.StartChecking();
 
-                    if (MonsterMovement.FindDistanceToTarget(shelter.OutPosition) < 1f)
+                    print(MonsterMovement.FindDistanceToTarget(shelter.OutPosition));
+
+                    if (MonsterMovement.FindDistanceToTarget(shelter.OutPosition) <= 1f)
                     {
                         break;
                     }

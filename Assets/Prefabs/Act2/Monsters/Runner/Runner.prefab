@@ -145,7 +145,7 @@ MonoBehaviour:
   UsableLayer:
     serializedVersion: 2
     m_Bits: 8
-  MaxPlayerSoundExposure: 0
+  MaxPlayerSoundExposure: 4
   startedChase: 0
   ChaseLength: 5.5
 --- !u!114 &1057875128437173044
@@ -183,11 +183,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   FOV: {fileID: 1057875128437173038}
   PlayerLastKnownPosition: {fileID: 0}
   PlayerPosition: {fileID: 0}
-  NormalSpeed: 5
-  ChaseSpeed: 9
+  NormalSpeed: 2.5
+  ChaseSpeed: 6.5
 --- !u!114 &1057875128437173038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +216,7 @@ MonoBehaviour:
     m_Bits: 1544
   canSeePlayer: 0
   RunnerAI: {fileID: 1057875128437173045}
-  CanSeeDelay: 2
+  CanSeeDelay: 1.15
 --- !u!114 &1057875128437173035
 MonoBehaviour:
   m_ObjectHideFlags: 0

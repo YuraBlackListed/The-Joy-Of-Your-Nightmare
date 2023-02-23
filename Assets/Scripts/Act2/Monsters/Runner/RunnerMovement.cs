@@ -46,7 +46,7 @@ public class RunnerMovement : MonoBehaviour
 
         CheckingTarget = transform;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         TryChangeWaypointIndex();
 
@@ -270,7 +270,11 @@ public class RunnerMovement : MonoBehaviour
     }
     private bool IsNearPoint()
     {
-        return transform.position.x - Waypoints[currentWaypointIndex].position.x < 2.5f && transform.position.z - Waypoints[currentWaypointIndex].position.z < 2.5f;
+        Vector3 distance = Waypoints[currentWaypointIndex].position - transform.position;
+
+        float sqrDist = distance.sqrMagnitude;
+
+        return sqrDist < 4f;
     }
     #endregion
 }

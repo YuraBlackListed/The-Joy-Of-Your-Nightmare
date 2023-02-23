@@ -18,6 +18,6 @@ public class DoorTrigger : MonoBehaviour
             return;
         }
 
-        MyDoorScript.Open();
+        MyDoorScript.Interact();
     }
 }

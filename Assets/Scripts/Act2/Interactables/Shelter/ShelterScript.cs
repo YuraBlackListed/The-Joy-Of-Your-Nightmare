@@ -12,6 +12,7 @@ public class ShelterScript : Interactable
     [SerializeField] private Transform InPosition;
 
     private bool canInteract = true;
+    private bool hasExited = true;
 
     private float shelterCooldown = 1.5f; // Set it like get in/out animation lenght
 
@@ -45,14 +46,22 @@ public class ShelterScript : Interactable
     {
         if(PlayerIsInside)
         {
-            Player.transform.position = InPosition.position;
-            Player.transform.rotation = InPosition.rotation;
+            Player.transform.position = Vector3.Lerp(Player.transform.position, InPosition.position, Time.deltaTime * 5f);
+            Player.transform.rotation = Quaternion.Slerp(Player.transform.rotation, InPosition.rotation, Time.deltaTime * 3.5f);
+        }
+        else if(!PlayerIsInside && !hasExited)
+        {
+            Player.transform.position = Vector3.Lerp(Player.transform.position, OutPosition.position, Time.deltaTime * 5f);
+            Player.transform.rotation = Quaternion.Slerp(Player.transform.rotation, OutPosition.rotation, Time.deltaTime * 3.5f);
         }
 
         SafetyLevel = Mathf.Clamp(SafetyLevel, 0, 4);
     }
     private void GetIn()
     {
+        Player.GetComponent<CapsuleCollider>().enabled = false;
+        Player.GetComponent<Rigidbody>().useGravity = false;
+
         canInteract = false;
         PlayerIsInside = true;
 
@@ -62,8 +71,7 @@ public class ShelterScript : Interactable
 
         movement.enabled = false;
 
-        Player.transform.position = InPosition.position;
-        Player.transform.rotation = InPosition.rotation;
+        hasExited = false;
 
         Invoke(nameof(ResetInteraction), shelterCooldown);
     }
@@ -78,10 +86,16 @@ public class ShelterScript : Interactable
 
         movement.enabled = true;
 
-        Player.transform.position = OutPosition.position;
-        Player.transform.rotation = OutPosition.rotation;
+        Invoke(nameof(ResetExit), 1f);
 
         Invoke(nameof(ResetInteraction), shelterCooldown);
+    }
+    private void ResetExit()
+    {
+        Player.GetComponent<CapsuleCollider>().enabled = true;
+        Player.GetComponent<Rigidbody>().useGravity = true;
+
+        hasExited = true;
     }
     private void ResetInteraction()
     {

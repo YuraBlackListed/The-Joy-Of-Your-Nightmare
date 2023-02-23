@@ -28,7 +28,7 @@ public class MovementScript : MonoBehaviour
     [Header ("Speed values")]
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float MaxSpeed;
-    [SerializeField] private float SprintMod;
+    [SerializeField] private float SprintModifier;
     public bool IsRunning = false;
 
     [Header("Ground values")]
@@ -36,6 +36,7 @@ public class MovementScript : MonoBehaviour
     [SerializeField] private float GroundDrag; 
     [SerializeField] private LayerMask GroundLayer;
 
+    private float sprintMod = 1f;
     private float verticalInput = 0;
     private float horizontalInput = 0;
     private float speedMod = 2f;
@@ -57,7 +58,7 @@ public class MovementScript : MonoBehaviour
 
         InvokeRepeating(nameof(ResetLastPosition), 2f, 2f);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         GetInput();
 
@@ -84,13 +85,13 @@ public class MovementScript : MonoBehaviour
         {
             IsRunning = true;
 
-            SprintMod = 1.3f;
+            sprintMod = SprintModifier;
         }
         else
         {
             IsRunning = false;
 
-            SprintMod = 1f;
+            sprintMod = 1f;
         }
 
         TryChangeSpeedValues();
@@ -145,8 +146,8 @@ public class MovementScript : MonoBehaviour
     }
     private void TryChangeSpeedValues()
     {
-        MoveSpeed = (normalSpeed * SprintMod) / crouchSpeed;
-        MaxSpeed = (normalMaxSpeed * SprintMod) / crouchSpeed;
+        MoveSpeed = (normalSpeed * sprintMod) / crouchSpeed;
+        MaxSpeed = (normalMaxSpeed * sprintMod) / crouchSpeed;
     }
     private void ClampValues()
     {
