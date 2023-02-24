@@ -3053,6 +3053,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1057875128437173038, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
+      propertyPath: canSeePlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1057875128437173042, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
       propertyPath: m_Name
       value: Runner
