@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LockerScript : Lockable
 {
-    [SerializeField] private List<string> soundNames;
+    [SerializeField] private string soundName;
 
     [SerializeField]private bool active = true;
     private bool played = false;
@@ -37,15 +37,14 @@ public class LockerScript : Lockable
     {
         if(!played)
         {
-            int randomSound = Random.Range(0, 3);
             played = true;
 
-            AudioClip clip = AudioSystem.GetSound(soundNames[randomSound], AudioType.Furniture);
+            AudioClip clip = AudioSystem.GetSound(soundName, AudioType.Furniture);
 
             AudioSystem.PlaySoundOnce("Drawer", AudioType.Furniture, clip);
 
-            int randomCondition = Random.Range(1, 5);
-            animator.SetInteger("OpenIndex", randomCondition);
+            animator.SetBool("Open", true);
+            print("open");
         }
     }
 
@@ -54,13 +53,12 @@ public class LockerScript : Lockable
         if(played)
         {
             played = false;
-            int random = Random.Range(0, 3);
 
-            AudioClip clip = AudioSystem.GetSound(soundNames[random], AudioType.Furniture);
+            AudioClip clip = AudioSystem.GetSound(soundName, AudioType.Furniture);
 
             AudioSystem.PlaySoundOnce("Drawer", AudioType.Furniture, clip);
 
-            animator.SetInteger("OpenIndex", 0);
+            animator.SetBool("Open", false);
         }
     }
 }
