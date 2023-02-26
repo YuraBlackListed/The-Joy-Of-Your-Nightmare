@@ -232,7 +232,7 @@ public class RunnerLogic : MonoBehaviour
 
                     print(MonsterMovement.FindDistanceToTarget(shelter.OutPosition));
 
-                    if (MonsterMovement.FindDistanceToTarget(shelter.OutPosition) <= 1f)
+                    if (MonsterMovement.FindDistanceToTarget(shelter.OutPosition) <= 1.3f)
                     {
                         break;
                     }

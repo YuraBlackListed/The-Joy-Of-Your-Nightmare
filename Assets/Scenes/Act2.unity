@@ -2097,7 +2097,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110374364}
   m_LocalRotation: {x: -0.000000021073415, y: -0.75382525, z: -0.000000036500246, w: 0.65707505}
-  m_LocalPosition: {x: 22.18, y: 0.02, z: -30.5}
+  m_LocalPosition: {x: 22.448, y: 0.02, z: -30.189}
   m_LocalScale: {x: 100.000015, y: 100, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3039,7 +3039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1057875128437173042, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1057875128437173044, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
       propertyPath: ChaseSpeed
@@ -5280,7 +5280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4743083178507269693}
   m_LocalRotation: {x: 0.000000029802322, y: 0.43958133, z: -0.000000029802322, w: 0.8982028}
-  m_LocalPosition: {x: 2.4393468, y: 0.017440915, z: -0.24706277}
+  m_LocalPosition: {x: 2.822, y: 0.017440915, z: -0.476}
   m_LocalScale: {x: 100.000015, y: 100, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10904,7 +10904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &2783252189579219968
 GameObject:
   m_ObjectHideFlags: 0
@@ -11492,6 +11492,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1593887939}
     m_Modifications:
+    - target: {fileID: 941359222487929830, guid: 809360b2674b34146a517167e2f02cd7, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941359222487929830, guid: 809360b2674b34146a517167e2f02cd7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3773390721123870116, guid: 809360b2674b34146a517167e2f02cd7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -13194,7 +13202,7 @@ GameObject:
   - component: {fileID: 2442218668441152576}
   - component: {fileID: 3050771204239924989}
   - component: {fileID: 4727351803306659533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
