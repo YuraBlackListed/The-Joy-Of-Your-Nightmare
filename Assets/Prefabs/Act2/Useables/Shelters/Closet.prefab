@@ -101,7 +101,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5043189012231859881
 Transform:
@@ -179,8 +179,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.042567406, y: 0.30026296, z: 0.9969798}
-  m_Center: {x: 0.2738433, y: -0.000000035199598, z: 0.498969}
+  m_Size: {x: 0.042567383, y: 0.30026296, z: 1.0433546}
+  m_Center: {x: 0.2738433, y: -0.000000039897472, z: 0.4757817}
 --- !u!65 &5043189012231859880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -192,8 +192,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.030480383, y: 0.30026296, z: 0.9969798}
-  m_Center: {x: -0.2798867, y: -0.000000035199598, z: 0.498969}
+  m_Size: {x: 0.03048036, y: 0.30026296, z: 1.0395015}
+  m_Center: {x: -0.27988666, y: -0.000000037645332, z: 0.4777082}
 --- !u!1 &4545845556012367646
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ GameObject:
   m_TagString: Shelter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3773390721123870116
 Transform:
@@ -259,8 +259,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2604446, y: 2.312197, z: 0.09934807}
-  m_Center: {x: 0.020730019, y: 1.3850824, z: 0.43315458}
+  m_Size: {x: 1.2604446, y: 2.6817064, z: 0.16052729}
+  m_Center: {x: 0.020730019, y: 1.2498894, z: 0.40256497}
 --- !u!1 &6313633815475358110
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6313633815475358097
 Transform:
@@ -306,7 +306,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6313633815577990126
 Transform:
