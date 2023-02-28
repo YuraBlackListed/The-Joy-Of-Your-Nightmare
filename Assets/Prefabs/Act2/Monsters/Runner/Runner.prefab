@@ -192,8 +192,8 @@ MonoBehaviour:
   FOV: {fileID: 1057875128437173038}
   PlayerLastKnownPosition: {fileID: 0}
   PlayerPosition: {fileID: 0}
-  NormalSpeed: 2.5
-  ChaseSpeed: 6.5
+  NormalSpeed: 2
+  ChaseSpeed: 4
 --- !u!114 &1057875128437173038
 MonoBehaviour:
   m_ObjectHideFlags: 0
