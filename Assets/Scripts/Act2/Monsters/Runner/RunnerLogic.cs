@@ -171,6 +171,8 @@ public class RunnerLogic : MonoBehaviour
     {
         if(MonsterMovement.FindDistanceToTarget(Player.transform) <= 7.5f && !MonsterMovement.IsChecking())
         {
+            print("enter");
+
             MonsterMovement.StartChecking();
 
             InvesigateShelters();
@@ -178,13 +180,15 @@ public class RunnerLogic : MonoBehaviour
     }
     private void InvesigateShelters()
     {
+        print("started investigation");
+
         MonsterMovement.StopMoving();
 
         MonsterMovement.PrepareToCheck();
         
         //Get nearby interactables
 
-        Collider[] nearestInteractables = Physics.OverlapSphere(transform.position, 100f, UsableLayer);
+        Collider[] nearestInteractables = Physics.OverlapSphere(transform.position, FOV.radius * 1.15f, UsableLayer);
 
         List<ShelterScript> shelters = new List<ShelterScript>();
 
@@ -205,6 +209,8 @@ public class RunnerLogic : MonoBehaviour
     }
     private IEnumerator CheckShelters(List<ShelterScript> shelters)
     {
+        print("started coroutine");
+
         shelters = MixList(shelters);
 
         foreach(var shelter in shelters)
@@ -232,7 +238,7 @@ public class RunnerLogic : MonoBehaviour
 
                     print(MonsterMovement.FindDistanceToTarget(shelter.OutPosition));
 
-                    if (MonsterMovement.FindDistanceToTarget(shelter.OutPosition) <= 1.3f)
+                    if (MonsterMovement.FindDistanceToTarget(shelter.OutPosition) <= 1.5f)
                     {
                         break;
                     }
