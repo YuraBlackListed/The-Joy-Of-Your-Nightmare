@@ -46,7 +46,7 @@ public class PlayerState : MonoBehaviour
             MovementStatus = PlayerMovementState.Crouching;
             return;
         }
-        if(Movement.IsMoving)
+        if(Movement.IsMoving())
         {
             MovementStatus = PlayerMovementState.Walking;
             return;

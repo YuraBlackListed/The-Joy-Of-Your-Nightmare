@@ -216,7 +216,7 @@ MonoBehaviour:
     m_Bits: 1544
   canSeePlayer: 0
   RunnerAI: {fileID: 1057875128437173045}
-  CanSeeDelay: 1.15
+  CanSeeDelay: 1.5
 --- !u!114 &1057875128437173035
 MonoBehaviour:
   m_ObjectHideFlags: 0

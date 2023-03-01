@@ -1,4 +1,6 @@
 using UnityEditor;
+using UnityEngine.AI;
+
 
 [CustomEditor(typeof(DoorScript))]
 public class DoorEditor : Editor
@@ -6,6 +8,8 @@ public class DoorEditor : Editor
     public override void OnInspectorGUI()
     {
         var door = target as DoorScript;
+
+        door.MyObstacle = (NavMeshObstacle)EditorGUILayout.ObjectField(door.MyObstacle, typeof(NavMeshObstacle), true);
 
         door.IsOpened = EditorGUILayout.Toggle("Is opened", door.IsOpened);
 

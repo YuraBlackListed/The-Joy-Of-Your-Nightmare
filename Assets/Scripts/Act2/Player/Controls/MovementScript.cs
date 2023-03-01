@@ -4,8 +4,6 @@ public class MovementScript : MonoBehaviour
 {
     //Adjust all of values like you need
 
-    public bool IsMoving = false;
-
     [Header ("Controls")]
     public KeyCode ForwardButton;
     public KeyCode BackwardButton;
@@ -36,6 +34,9 @@ public class MovementScript : MonoBehaviour
     [SerializeField] private float GroundDrag; 
     [SerializeField] private LayerMask GroundLayer;
 
+    [Space]
+    [SerializeField] private PlayerSteps Steps;
+
     private float sprintMod = 1f;
     private float verticalInput = 0;
     private float horizontalInput = 0;
@@ -49,6 +50,10 @@ public class MovementScript : MonoBehaviour
 
     private Vector3 moveDirection;
 
+    public bool IsMoving()
+    {
+        return (Input.GetKey(ForwardButton) | Input.GetKey(BackwardButton) | Input.GetKey(LeftButton) | Input.GetKey(RightButton)) && PlayerState.instance.Status is not PlayerStatus.Hidden;
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -81,7 +86,7 @@ public class MovementScript : MonoBehaviour
 
         TryCrouch();
 
-        if(Input.GetKey(SprintKey) && !IsCrouching && IsMoving)
+        if(Input.GetKey(SprintKey) && !IsCrouching)
         {
             IsRunning = true;
 
@@ -101,19 +106,23 @@ public class MovementScript : MonoBehaviour
         if (Input.GetKey(ForwardButton))
         {
             verticalInput += Time.deltaTime * speedMod;
+            Steps.MakeStepSound();
         }
         else if(Input.GetKey(BackwardButton))
         {
             verticalInput -= Time.deltaTime * speedMod;
+            Steps.MakeStepSound();
         }
 
-        if(Input.GetKey(LeftButton))
+        if (Input.GetKey(LeftButton))
         {
             horizontalInput -= Time.deltaTime * speedMod;
+            Steps.MakeStepSound();
         }
         else if (Input.GetKey(RightButton))
         {
             horizontalInput += Time.deltaTime * speedMod;
+            Steps.MakeStepSound();
         }
 
         ClampValues();
@@ -156,15 +165,6 @@ public class MovementScript : MonoBehaviour
     }
     private void MovePlayer()
     {
-        if(Mathf.Approximately(verticalInput, 0f) && Mathf.Approximately(horizontalInput, 0f))
-        {
-            IsMoving = false;
-        }
-        else
-        {
-            IsMoving = true;
-        }
-
         moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * MoveSpeed, ForceMode.Impulse);

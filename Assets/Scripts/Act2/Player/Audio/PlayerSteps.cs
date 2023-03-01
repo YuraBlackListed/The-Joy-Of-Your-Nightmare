@@ -11,11 +11,6 @@ public class PlayerSteps : MonoBehaviour
     private void Update()
     {
         SetRangeMod();
-
-        if(PlayerMovement.IsMoving)
-        {
-            MakeStepSound();
-        }
     }
     private void SetRangeMod()
     {

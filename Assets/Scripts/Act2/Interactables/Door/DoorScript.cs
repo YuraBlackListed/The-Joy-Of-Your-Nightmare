@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DoorScript : Lockable
 {
@@ -8,6 +9,12 @@ public class DoorScript : Lockable
     public Vector3 OpenRotation;
     public Vector3 ClosedRotation;
 
+    public NavMeshObstacle MyObstacle;
+
+    private void Start()
+    {
+        MyObstacle = GetComponent<NavMeshObstacle>();
+    }
     public override void Interact()
     {
         if(!CanOpen)
@@ -50,11 +57,15 @@ public class DoorScript : Lockable
 
         if (IsOpened)
         {
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(OpenRotation), Time.deltaTime * 3.5f);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(OpenRotation), Time.deltaTime * 5f);
+
+            MyObstacle.enabled = true;
         }
         else
         {
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(ClosedRotation), Time.deltaTime * 3.5f);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(ClosedRotation), Time.deltaTime * 5f);
+
+            MyObstacle.enabled = false;
         }
     }
     private void ResetOpening()

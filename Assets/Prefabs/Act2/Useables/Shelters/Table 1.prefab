@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7096757173242662718}
   - component: {fileID: 5566268923530136065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 6423496729799912126}
   - component: {fileID: 5657778122012870167}
   - component: {fileID: 2857069204130317668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegsRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 4517269565107617738}
   - component: {fileID: 1865686343310629741}
   - component: {fileID: 1275406574391648070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegsLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

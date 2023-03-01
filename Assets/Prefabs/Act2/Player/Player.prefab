@@ -85,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5fee243373f9ca4b9b1cb63c85ace59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsMoving: 0
   ForwardButton: 119
   BackwardButton: 115
   LeftButton: 97
@@ -107,6 +106,7 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 2147483647
+  Steps: {fileID: 4860191509869012998}
 --- !u!114 &4860191509869012994
 MonoBehaviour:
   m_ObjectHideFlags: 0

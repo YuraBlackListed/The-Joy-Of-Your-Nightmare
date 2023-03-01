@@ -4569,14 +4569,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1057875128437173038, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
-      propertyPath: CanSeeDelay
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057875128437173038, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
-      propertyPath: canSeePlayer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1057875128437173042, guid: fb1595f55add6454baa7c7a64dae2c28, type: 3}
       propertyPath: m_Name
       value: Runner
@@ -7011,6 +7003,14 @@ PrefabInstance:
     - target: {fileID: 532162741498554779, guid: a056fd8c68b060e41825859be16a229f, type: 3}
       propertyPath: m_Name
       value: Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741850719719353147, guid: a056fd8c68b060e41825859be16a229f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741850719719353147, guid: a056fd8c68b060e41825859be16a229f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a056fd8c68b060e41825859be16a229f, type: 3}
@@ -16904,6 +16904,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5839419785477930216}
     m_Modifications:
+    - target: {fileID: 1320941572402075430, guid: 3589ca2cab28b7842aca2cf81153b18f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3400377793204045106, guid: 3589ca2cab28b7842aca2cf81153b18f, type: 3}
       propertyPath: Player
       value: 
@@ -16911,6 +16915,14 @@ PrefabInstance:
     - target: {fileID: 3400377793204045108, guid: 3589ca2cab28b7842aca2cf81153b18f, type: 3}
       propertyPath: m_Name
       value: Table 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168072200057529500, guid: 3589ca2cab28b7842aca2cf81153b18f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519590084816376055, guid: 3589ca2cab28b7842aca2cf81153b18f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8190711566239496535, guid: 3589ca2cab28b7842aca2cf81153b18f, type: 3}
       propertyPath: m_RootOrder
