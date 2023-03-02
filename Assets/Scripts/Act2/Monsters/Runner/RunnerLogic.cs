@@ -188,7 +188,7 @@ public class RunnerLogic : MonoBehaviour
         
         //Get nearby interactables
 
-        Collider[] nearestInteractables = Physics.OverlapSphere(transform.position, FOV.radius * 1.15f, UsableLayer);
+        Collider[] nearestInteractables = Physics.OverlapSphere(transform.position, FOV.radius * 1.05f, UsableLayer);
 
         List<ShelterScript> shelters = new List<ShelterScript>();
 
