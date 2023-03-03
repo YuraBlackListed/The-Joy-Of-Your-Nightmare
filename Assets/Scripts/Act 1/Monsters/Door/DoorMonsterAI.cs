@@ -37,6 +37,7 @@ public class DoorMonsterAI : MonsterAI
     }
     protected override void CheckProgress()
     {
+        //print(Progress);
         if(Progress >= ProgressLimit)
         {
             doTimerCountdown = true;

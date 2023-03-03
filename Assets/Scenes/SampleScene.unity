@@ -132,12 +132,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730158771181180593, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
       propertyPath: AudioClipsList.Array.size
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1730158771181180593, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
       propertyPath: AudioClipsList.Array.data[19]
       value: 
       objectReference: {fileID: 11400000, guid: 0d5c4f14cd6b7d6448ff972ad7ebb15c, type: 2}
+    - target: {fileID: 1730158771181180593, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
+      propertyPath: AudioClipsList.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: c4806e8f04c57574dbf4bf6b6113ad42, type: 2}
+    - target: {fileID: 1730158771181180593, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
+      propertyPath: AudioClipsList.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d61405a4e8494d4294411389bb6113f, type: 2}
     - target: {fileID: 1776917421165371783, guid: c7324bb36e2748f468ccc85efc851551, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -705,10 +713,6 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3843835608729079348, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3856519518690306954, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Volume
       value: 0
@@ -720,10 +724,6 @@ PrefabInstance:
     - target: {fileID: 5090446479750097449, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5090446479750097449, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5160308967215205813, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: InitialModule.maxNumParticles
@@ -801,6 +801,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 6487547789867580579}
+    - target: {fileID: 7141686935272084177, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7171048279619016919, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -823,20 +827,24 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 89d3c91f8b4c1ea43a1b30e4b82bf4c2, type: 2}
     - target: {fileID: 7600065660860449337, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: mosters.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7600065660860449337, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: mosters.Array.data[0]
       value: 
-      objectReference: {fileID: 5368637845020176360}
+      objectReference: {fileID: 919132147600515966}
     - target: {fileID: 7600065660860449337, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: mosters.Array.data[1]
       value: 
-      objectReference: {fileID: 919132147600515966}
+      objectReference: {fileID: 491833748}
     - target: {fileID: 7600065660860449337, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: mosters.Array.data[2]
       value: 
       objectReference: {fileID: 491833748}
+    - target: {fileID: 7722786356087091450, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8164663586355524565, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Name
       value: room
@@ -848,10 +856,6 @@ PrefabInstance:
     - target: {fileID: 8463413127945676656, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463413127945676656, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8646868941119884748, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1969,7 +1973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456002538248165336, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: player

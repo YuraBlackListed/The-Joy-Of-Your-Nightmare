@@ -7,7 +7,7 @@ public class MonsterAI : MonoBehaviour
 
     [SerializeField] protected float delayChance = 0;
     [SerializeField] protected float calmMod = 0f;
-    [SerializeField] protected float timerTimeLimit = 0f;
+    [SerializeField] protected float timerTimeLimit = 2f;
 
     [SerializeField] protected internal bool canAttack = false;
 

@@ -12,15 +12,11 @@ public class TimeCounter : MonoBehaviour
 
     public KeyCode InteractButton = KeyCode.H;
 
-    private bool start = false;
+    private bool start = true;
 
     private void Awake()
     {
         instance = this;
-    }
-    private void Start() 
-    {
-        Invoke(nameof(StartCountdown), 96f); 
     }
     public void StartCountdown()
     {

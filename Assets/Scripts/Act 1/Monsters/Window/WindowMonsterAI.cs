@@ -32,6 +32,7 @@ public class WindowMonsterAI : MonsterAI
         }
         else if (timeLeft <= 0f && Window.IsClosed)
         {
+            print(timeLeft);
             Progress = 0f;
             doTimerCountdown = false;
 
