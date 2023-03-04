@@ -11,7 +11,7 @@ public class MonsterAI : MonoBehaviour
 
     [SerializeField] protected internal bool canAttack = false;
 
-    protected float timeLeft = 0f;
+    protected float timeLeft = 2f;
     protected float randomRageMod = 0f;
 
     protected bool isDelayed = false;
@@ -66,6 +66,7 @@ public class MonsterAI : MonoBehaviour
     }
     protected void ResetRageModifier()
     {
+        timeLeft = 2f;
         randomRageMod = Random.Range(1, 3);
     }
     protected virtual float RandomIncreasement()
