@@ -13,6 +13,8 @@ public class WindowStages : MonoBehaviour
 
     [SerializeField] private Animator Animator;
 
+    private bool played = false;
+
     private int level;
 
     private void Update()
@@ -28,6 +30,13 @@ public class WindowStages : MonoBehaviour
         if(AI.Progress >= AI.ProgressLimit * 0.9f)
         {
             level = 3;
+            if(!played)
+            {
+                AudioClip clip = AudioSystem.GetSound("WindowKnock", AudioType.Enviroment);
+
+                AudioSystem.PlaySoundOnce("WindowKnock", AudioType.Enviroment, clip);
+                played = true;
+            }
             return;
         }
         if(AI.Progress >= AI.ProgressLimit * 0.45f)
@@ -40,7 +49,7 @@ public class WindowStages : MonoBehaviour
             level = 1;
             return;
         }
-
+        played = false;
         level = 0;
     }
     private void SetPosition()

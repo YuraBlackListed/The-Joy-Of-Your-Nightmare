@@ -128,7 +128,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 230dc94be1b15af4eb98b9b6de802abf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -173,7 +173,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   ProgressLimit: 100
   delayChance: 0.35
   calmMod: 3
-  timerTimeLimit: 2
+  timerTimeLimit: 4
   canAttack: 1
   Window: {fileID: 0}
   animator: {fileID: 8893315978093653738}
