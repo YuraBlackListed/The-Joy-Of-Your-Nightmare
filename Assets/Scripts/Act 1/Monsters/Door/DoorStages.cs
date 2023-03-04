@@ -71,7 +71,6 @@ public class DoorStages : MonoBehaviour
                     AudioClip clip = AudioSystem.GetSound("Knock2", AudioType.Monsters);
 
                     AudioSystem.PlaySoundOnce("Knock2", AudioType.Monsters, clip);
-
                     playedSound2 = true;
                 }
                 break;
@@ -81,7 +80,6 @@ public class DoorStages : MonoBehaviour
                     AudioClip clip = AudioSystem.GetSound("Knock3", AudioType.Monsters);
 
                     AudioSystem.PlaySoundOnce("Knock3", AudioType.Monsters, clip);
-
                     playedSound3 = true;
                 }
                 break;

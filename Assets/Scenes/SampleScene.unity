@@ -581,6 +581,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 459628833986924109, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459628833986924109, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: simulationSpeed
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 459628833986924109, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 883841907449783893, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 883841907449783893, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.992
+      objectReference: {fileID: 0}
     - target: {fileID: 1086959514778289928, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_RenderMode
       value: 0
@@ -615,15 +635,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0
+      value: 4.775446e-39
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -697,6 +717,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3365024850851634304, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365024850851634304, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.58
+      objectReference: {fileID: 0}
     - target: {fileID: 3394111752653772877, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_RenderMode
       value: 0
@@ -720,6 +748,10 @@ PrefabInstance:
     - target: {fileID: 4655943470916422834, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754660509886702854, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: simulationSpeed
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5090446479750097449, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_PlayOnAwake
@@ -841,9 +873,29 @@ PrefabInstance:
       propertyPath: mosters.Array.data[2]
       value: 
       objectReference: {fileID: 491833748}
+    - target: {fileID: 7620742406098109137, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620742406098109137, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: simulationSpeed
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620742406098109137, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7722786356087091450, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836565490765661216, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836565490765661216, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.613
       objectReference: {fileID: 0}
     - target: {fileID: 8164663586355524565, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_Name
@@ -933,6 +985,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9060070770970404065, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e7f590d44011bf4da0ee382cb4f8850, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
 --- !u!1001 &4406416673752440428
@@ -1494,6 +1550,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5509481228045462453, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509481228045462453, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5521727733862505446, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.52020484
@@ -1644,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677704597303783458, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7300734617741046263, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: player
