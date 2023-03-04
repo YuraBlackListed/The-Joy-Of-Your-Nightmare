@@ -28,7 +28,6 @@ using UnityEngine;
             {
                 lastInteractable?.StopInteract();
             }
-            Debug.DrawRay(MainCamera.position, MainCamera.forward, Color.green, Distance);
         }
         private void UpdateInteraction()
         {

@@ -499,11 +499,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractButton: 101
-  Distance: 10
+  Distance: 2.5
   MainCamera: {fileID: 4860191511497142658}
   InteractableLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   crosshair: {fileID: 4860191511497142663}
   uiHint: {fileID: 4860191509869013001}
 --- !u!114 &4860191511497142663
