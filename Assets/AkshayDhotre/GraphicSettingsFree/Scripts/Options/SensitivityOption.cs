@@ -11,27 +11,23 @@ namespace AkshayDhotre.GraphicSettingsMenu
         [SerializeField] private Slider slider;
         public override void Apply()
         {
-            GraphicSettingHelperMethods.ChangeQualitySettings(currentSubOption.integerValue);
+            
         }
 
-        /// <summary>
-        /// Goes through the list of the suboptions and then finds the suboption which has value equal to the input value
-        /// and assigns that sub option as the current sub option
-        /// </summary>
-        /// <param name="v"></param>
         public void SetCurrentsuboptionBySlider()
         {
             foreach (var t in subOptionList)
             {
-                if (t.integerValue == slider.value)
-                {
-                    currentSubOption = t;
-                    currentSubOptionIndex = t.indexInList;
-                    UpdateSuboptionText();
-                    return;
-                }
+                scriptableObj.sensitivity = (int)slider.value;
+                print(slider.value);
+                //print(scriptableObj.sensitivity);
+                currentSubOption = t;
+                currentSubOptionIndex = t.indexInList;
+                currentSubOption.integerValue = (int)slider.value;
+                UpdateSuboptionText();
+                return;
             }
-            currentSubOption.integerValue = (int)slider.value;
+            
         }
         public void SetCurrentsuboptionByValue(int v)
         {

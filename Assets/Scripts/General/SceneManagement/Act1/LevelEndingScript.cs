@@ -8,7 +8,7 @@ public class LevelEndingScript : MonoBehaviour
 {
     [SerializeField] private SceneFade sceneLoader;
 
-    [SerializeField] private Image fade;
+    [SerializeField] private RawImage fade;
 
     [SerializeField] private GameObject cursor;
 

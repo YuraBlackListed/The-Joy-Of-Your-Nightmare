@@ -1598,6 +1598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
+  crosshair: {fileID: 0}
+  lookObj: {fileID: 5395991132015186976}
 --- !u!114 &701681893732531888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,8 +1858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b290987bc9ebc0849a80dc49617db362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptableObj: {fileID: 11400000, guid: cc6c69c3d75db7840a37717e3b0262fc, type: 2}
   playerCamera: {fileID: 5395991130765882155}
-  smooth: 1
+  smooth: 0.373
   sensitivity: 5
   maxYAngle: 80
 --- !u!1 &5399688768218286124

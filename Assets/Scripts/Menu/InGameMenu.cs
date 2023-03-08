@@ -4,30 +4,47 @@ using UnityEngine;
 
 public class InGameMenu : MonoBehaviour
 {
-    private KeyCode escapeKey = KeyCode.Y;
+    private KeyCode escapeKey = KeyCode.Escape;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject crosshair;
-    [SerializeField] private CameraLook lookScript;
-    void Update()
+    [SerializeField] private GameObject lookObj;
+    [SerializeField] private OptionsScript settingObj;
+    private void Awake() 
     {
-        if (Input.GetKeyDown(escapeKey))
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    private void Update()
+    {
+        if(!settingObj.active)
         {
-            if (menu.activeSelf == true)
+            if (Input.GetKeyDown(escapeKey))
             {
-                crosshair.SetActive(true);
-                menu.SetActive(false);
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                lookScript.enabled = true;
+                if (menu.activeSelf == true)
+                {
+                    crosshair.SetActive(true);
+                    menu.SetActive(false);
+                    lookObj.SetActive(true);
+
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                else
+                {
+                    crosshair.SetActive(false);
+                    menu.SetActive(true);
+                    lookObj.SetActive(false);
+
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
             }
-            else
-            {
-                crosshair.SetActive(false);
-                menu.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                lookScript.enabled = true;
-            }
+        }
+        else if (Input.GetKeyDown(escapeKey))
+        {
+            crosshair.SetActive(false);
+            menu.SetActive(true);
+            settingObj.Click();
         }
     }
 }

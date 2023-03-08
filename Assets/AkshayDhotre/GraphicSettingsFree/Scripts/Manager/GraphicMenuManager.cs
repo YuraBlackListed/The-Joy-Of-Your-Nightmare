@@ -89,7 +89,7 @@ namespace AkshayDhotre.GraphicSettingsMenu
             dataToSave.screenWidth = (int)resolutionOption.currentSubOption.vector2Value.x;
             dataToSave.screenMode = screenmodeOption.currentSubOption.integerValue;
             dataToSave.qualityLevel = qualityLevelOption.currentSubOption.integerValue;
-            dataToSave.sensitivityLevel = sensitivityOption.currentSubOption.integerValue;
+            dataToSave.sensitivityLevel = (int)sensitivityOption.currentSubOption.integerValue;
 
             graphicSettingSaveManager.SaveSettings(dataToSave);
         }

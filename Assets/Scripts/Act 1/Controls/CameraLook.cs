@@ -9,12 +9,9 @@ public class CameraLook : MonoBehaviour
    public float maxYAngle = 80f;
    private Vector2 currentRotation;
 
-   void Start()
-   {
-      sensitivity = scriptableObj.sensitivity;
-   }
    void Update()
    {
+      sensitivity = scriptableObj.sensitivity;
       currentRotation.x += Input.GetAxis("Mouse X") * sensitivity / 10;
       currentRotation.y -= Input.GetAxis("Mouse Y") * sensitivity / 10;
       currentRotation.x = Mathf.Repeat(currentRotation.x, 360);

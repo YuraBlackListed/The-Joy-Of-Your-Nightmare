@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9cc351949e18b4bbbe3836d48054e2, type: 3}
   m_Name: Sensitivity
   m_EditorClassIdentifier: 
-  sensitivity: 1
+  sensitivity: 15
