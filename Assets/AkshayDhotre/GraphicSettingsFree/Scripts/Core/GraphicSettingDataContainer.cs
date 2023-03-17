@@ -23,6 +23,10 @@ namespace AkshayDhotre.GraphicSettingsMenu
         public int qualityLevel = -1;
 
         public int sensitivityLevel = 1;
+
+        public int masterVolume = 0;
+        public int musicVolume = 0;
+        public int otherSoundsVolume = 0;
        
     }
 }

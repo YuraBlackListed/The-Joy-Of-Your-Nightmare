@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace AkshayDhotre.GraphicSettingsMenu
 {
-    public class SensitivityOption : Option
+    public class OtherAudioOptions : Option
     {
         [SerializeField] private SettingsScrObj scriptableObj;
         [SerializeField] private Slider slider;
@@ -18,7 +18,7 @@ namespace AkshayDhotre.GraphicSettingsMenu
         {
             foreach (var t in subOptionList)
             {
-                scriptableObj.sensitivity = (int)slider.value;
+                scriptableObj.otherVolume = (int)slider.value;
                 currentSubOption = t;
                 currentSubOptionIndex = t.indexInList;
                 currentSubOption.integerValue = (int)slider.value;
@@ -35,7 +35,7 @@ namespace AkshayDhotre.GraphicSettingsMenu
                 foreach (var t in subOptionList)
                 {
                     slider.value = v;
-                    scriptableObj.sensitivity = v;
+                    scriptableObj.otherVolume = v;
                     currentSubOption = t;
                     currentSubOptionIndex = t.indexInList;
                     t.integerValue = v;
@@ -55,5 +55,6 @@ namespace AkshayDhotre.GraphicSettingsMenu
             }
         }
     }
+
 }
 

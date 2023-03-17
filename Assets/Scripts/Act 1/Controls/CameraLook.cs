@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
-   [SerializeField] private ControllsValue scriptableObj;
+   [SerializeField] private SettingsScrObj scriptableObj;
    [SerializeField] private GameObject playerCamera;
    [Range(0.1f, 1f)] public float smooth = 0.1f;
    public float sensitivity = 10f;

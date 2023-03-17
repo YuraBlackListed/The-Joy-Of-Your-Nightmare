@@ -15,6 +15,9 @@ namespace AkshayDhotre.GraphicSettingsMenu
         public ScreenmodeOption screenmodeOption;
         public QualityLevelOption qualityLevelOption;
         public SensitivityOption sensitivityOption;
+        public MasterAudioOptions masterAudioOptions;
+        public OtherAudioOptions otherAudioOptions;
+        public MusicAudioOptions musicAudioOptions;
 
         [Tooltip("The button on keyboard which when pressed will apply the graphic settings")]
         public KeyCode keyboardApplySettingsKey = KeyCode.Return;
@@ -90,6 +93,9 @@ namespace AkshayDhotre.GraphicSettingsMenu
             dataToSave.screenMode = screenmodeOption.currentSubOption.integerValue;
             dataToSave.qualityLevel = qualityLevelOption.currentSubOption.integerValue;
             dataToSave.sensitivityLevel = (int)sensitivityOption.currentSubOption.integerValue;
+            dataToSave.masterVolume = (int)masterAudioOptions.currentSubOption.integerValue;
+            dataToSave.otherSoundsVolume = (int)otherAudioOptions.currentSubOption.integerValue;
+            dataToSave.musicVolume = (int)musicAudioOptions.currentSubOption.integerValue;
 
             graphicSettingSaveManager.SaveSettings(dataToSave);
         }
@@ -112,6 +118,9 @@ namespace AkshayDhotre.GraphicSettingsMenu
             screenmodeOption.SetCurrentsuboptionByValue(dataToLoad.screenMode);
             qualityLevelOption.SetCurrentsuboptionByValue(dataToLoad.qualityLevel);
             sensitivityOption.SetCurrentsuboptionByValue(dataToLoad.sensitivityLevel);
+            masterAudioOptions.SetCurrentsuboptionByValue(dataToLoad.masterVolume);
+            otherAudioOptions.SetCurrentsuboptionByValue(dataToLoad.otherSoundsVolume);
+            musicAudioOptions.SetCurrentsuboptionByValue(dataToLoad.musicVolume);
             
         }
     }
