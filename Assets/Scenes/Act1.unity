@@ -4081,19 +4081,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 8.9226
+      value: 9.403955e-38
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0.060964238
+      value: 8e-43
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0.06010903
+      value: 0.000000009997045
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0.05925383
+      value: 8e-43
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: AI
@@ -8431,6 +8431,14 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1063966148}
+    - target: {fileID: 1700311903474194874, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 133.33334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700311903474194874, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -11.111113
+      objectReference: {fileID: 0}
     - target: {fileID: 3931605325471597605, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
       propertyPath: menu
       value: 
@@ -8447,6 +8455,10 @@ PrefabInstance:
       propertyPath: settingObj
       value: 
       objectReference: {fileID: 4686858731879025064}
+    - target: {fileID: 5123627298870773228, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5395991130765882146, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
       propertyPath: lamp
       value: 
@@ -8507,6 +8519,14 @@ PrefabInstance:
       propertyPath: scriptableObj
       value: 
       objectReference: {fileID: 11400000, guid: f4ec7e50e8f0e18498eeeb6ed62c675d, type: 2}
+    - target: {fileID: 5851376194732127931, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -5.253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851376194732127931, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 182.075
+      objectReference: {fileID: 0}
     - target: {fileID: 6176146523800945495, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
       propertyPath: BedMonsterLayer.m_Bits
       value: 64
@@ -8535,6 +8555,10 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 581044159199560919}
+    - target: {fileID: 7522822913387549645, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 133.33334
+      objectReference: {fileID: 0}
     - target: {fileID: 9112512815918860283, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
       propertyPath: m_IsActive
       value: 1

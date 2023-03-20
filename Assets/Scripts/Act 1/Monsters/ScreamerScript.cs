@@ -46,9 +46,14 @@ public class ScreamerScript : MonoBehaviour
 
             AudioSystem.PlaySoundOnce("Screamer1", AudioType.Monsters, clip);
 
-            deathScreen.DOFade(1f, 1.2f);
+            Invoke(nameof(ShutOff), 0.7f);
         }
         
+    }
+    
+    void ShutOff()
+    {
+        deathScreen.DOFade(1f, 0.2f);
     }
     private void MenuScene()
     {
