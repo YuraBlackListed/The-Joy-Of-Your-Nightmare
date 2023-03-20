@@ -8929,6 +8929,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6011751684571985205, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+      propertyPath: info
+      value: 
+      objectReference: {fileID: 11400000, guid: 6df9ddca73f08c3469493e948ab7ecc2, type: 2}
+    - target: {fileID: 6011751684571985205, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: Window
       value: 
       objectReference: {fileID: 809464287}
@@ -9452,6 +9456,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8082019777433057247}
     - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
+      propertyPath: info
+      value: 
+      objectReference: {fileID: 11400000, guid: 6df9ddca73f08c3469493e948ab7ecc2, type: 2}
+    - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: DoorStages
       value: 
       objectReference: {fileID: 358841387}
@@ -9514,7 +9522,7 @@ PrefabInstance:
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: crosshair
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1063966146}
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: sceneFade
       value: 
@@ -9526,7 +9534,7 @@ PrefabInstance:
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: deathScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4686858731762432529}
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: screammerDoll
       value: 

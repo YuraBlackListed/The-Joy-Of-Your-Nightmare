@@ -3,6 +3,7 @@ using UnityEngine;
 public class WindowMonsterAI : MonsterAI
 {
     [SerializeField] private WindowScript Window;
+    [SerializeField] private KillerInfo info;
     [SerializeField] private Animator animator;
     [SerializeField] private LevelScriptableObject levelScrObj;
 
@@ -29,6 +30,7 @@ public class WindowMonsterAI : MonsterAI
         if (timeLeft <= 0f && !Window.IsClosed)
         {
             animator.SetBool("Fall", true);
+            info.killerID = 1;
         }
         else if (timeLeft <= 0f && Window.IsClosed)
         {

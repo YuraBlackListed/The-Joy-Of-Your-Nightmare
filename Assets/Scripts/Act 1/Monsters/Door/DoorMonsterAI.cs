@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoorMonsterAI : MonsterAI
 {
     [SerializeField] private LampScript Lamp;
+    [SerializeField] private KillerInfo info;
     [SerializeField] private DoorStages DoorStages;
     [SerializeField] private ScreamerScript screamer;
     [SerializeField] private LevelScriptableObject levelScrObj;
@@ -50,6 +51,7 @@ public class DoorMonsterAI : MonsterAI
         if (Lamp.active && timeLeft < 0f)
         {
             screamer.Scream();
+            info.killerID = 2;
         }
         else if (timeLeft <= 0f && !Lamp.active)
         {

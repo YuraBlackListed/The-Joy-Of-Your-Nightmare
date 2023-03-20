@@ -57,14 +57,14 @@ public class ScreamerScript : MonoBehaviour
     }
     private void MenuScene()
     {
-        sceneFade.ActivateFade(0);
+        sceneFade.ActivateFade(3);
         Cursor.visible = true;
     }
     void Update()
     {
         if(played)
         {
-            Invoke(nameof(MenuScene), 15f);
+            Invoke(nameof(MenuScene), 4f);
         }
     }
 }
