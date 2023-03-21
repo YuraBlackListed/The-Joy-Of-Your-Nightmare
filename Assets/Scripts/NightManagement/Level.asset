@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25be3043f6bc5a409c09a3543e7dd32, type: 3}
   m_Name: Level
   m_EditorClassIdentifier: 
-  Night: 1
-  EnemiesLevel: 0.2
+  Night: 2
+  EnemiesLevel: 1

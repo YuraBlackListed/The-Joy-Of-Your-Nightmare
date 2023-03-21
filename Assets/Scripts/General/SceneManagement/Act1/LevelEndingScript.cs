@@ -17,6 +17,8 @@ public class LevelEndingScript : MonoBehaviour
     [SerializeField] private LevelScriptableObject levelScrObj;
 
     FilmGrain filmGrain;
+
+    private bool ended = false;
     float strength = 1;
 
     void Start()
@@ -37,10 +39,14 @@ public class LevelEndingScript : MonoBehaviour
     }
     public void EndLevel()
     {
-        levelScrObj.Night++;
-        levelScrObj.EnemiesLevel = 1;
-        cursor.SetActive(false);
-        filmGrain.intensity.Override(strength);
-        Invoke(nameof(FadeScreen), 0.5f);
+        if(!ended)
+        {
+            levelScrObj.Night++;
+            levelScrObj.EnemiesLevel = 1;
+            cursor.SetActive(false);
+            filmGrain.intensity.Override(strength);
+            Invoke(nameof(FadeScreen), 0.5f);
+            ended = true;
+        }
     }
 }

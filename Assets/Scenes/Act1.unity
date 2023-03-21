@@ -8989,7 +8989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677704597303783458, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7300734617741046263, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: player
@@ -9460,7 +9460,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6df9ddca73f08c3469493e948ab7ecc2, type: 2}
     - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: Progress
-      value: 98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: DoorStages

@@ -35,7 +35,6 @@ public class FearScript : MonoBehaviour
         Vector3 startPos = transform.position;
         float shakeStrength = curve.Evaluate(strength);
         transform.position = startPos + Random.insideUnitSphere * shakeStrength / 500;
-        print(strength);
         if(lamp.active == false)
         {
             strength+=0.0005f;
