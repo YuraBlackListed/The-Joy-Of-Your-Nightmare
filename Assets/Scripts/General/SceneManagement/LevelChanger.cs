@@ -8,8 +8,6 @@ public class LevelChanger : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
-        LoadingScreen.ChooseLoadingBackground(sceneIndex);
-
         StartCoroutine(LoadSceneAsync(sceneIndex));
     }
     
@@ -22,8 +20,6 @@ public class LevelChanger : MonoBehaviour
         while(!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-
-            LoadingScreen.UpdateProgress(progress);
 
             yield return null;
         }

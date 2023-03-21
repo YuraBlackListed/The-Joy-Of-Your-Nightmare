@@ -4081,19 +4081,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 9.403955e-38
+      value: 8.526417e+11
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 8e-43
+      value: 1.02e-43
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0.000000009997045
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589071942094, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 8e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287907589265696151, guid: 3b7c5101c4705a444add15f0a0a794db, type: 3}
       propertyPath: AI
@@ -5920,11 +5920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6dd22e5a7e130499d7b6829113a493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingScreenMainMenu: {fileID: 4686858732189389403}
-  LoadingScreenAct1: {fileID: 4686858731552158953}
-  LoadingScreenAct2: {fileID: 4686858731694112443}
-  LoadingScreenAct3: {fileID: 4686858731302181899}
-  LoadingBarGameObject: {fileID: 4686858731552158953}
 --- !u!114 &4686858731762432543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8797,6 +8792,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 631760180}
     - target: {fileID: 4848084632546496185, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
+      propertyPath: MyAudioSourceName
+      value: Screamer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848084632546496185, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: monsters.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -8990,7 +8989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677704597303783458, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7300734617741046263, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: player
@@ -9460,6 +9459,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6df9ddca73f08c3469493e948ab7ecc2, type: 2}
     - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
+      propertyPath: Progress
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 591854806633171217, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: DoorStages
       value: 
       objectReference: {fileID: 358841387}
@@ -9513,7 +9516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456002538248165336, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: player
@@ -9540,6 +9543,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 631760180}
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
+      propertyPath: MyAudioSourceName
+      value: Screamer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: monsters.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -9551,6 +9558,14 @@ PrefabInstance:
       propertyPath: monsters.Array.data[1]
       value: 
       objectReference: {fileID: 491833748}
+    - target: {fileID: 7113110357654170171, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
+      propertyPath: Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113110357654170171, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
+      propertyPath: SourceName
+      value: Screamer2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
 --- !u!224 &7460486470281735494

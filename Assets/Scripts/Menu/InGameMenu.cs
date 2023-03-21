@@ -22,6 +22,10 @@ public class InGameMenu : MonoBehaviour
             {
                 if (menu.activeSelf == true)
                 {
+                    Time.timeScale = 1f;
+
+                    AudioListener.pause = false;
+
                     crosshair.SetActive(true);
                     menu.SetActive(false);
                     lookObj.SetActive(true);
@@ -31,6 +35,10 @@ public class InGameMenu : MonoBehaviour
                 }
                 else
                 {
+                    Time.timeScale = 0f;
+
+                    AudioListener.pause = true;
+
                     crosshair.SetActive(false);
                     menu.SetActive(true);
                     lookObj.SetActive(false);
@@ -42,6 +50,10 @@ public class InGameMenu : MonoBehaviour
         }
         else if (Input.GetKeyDown(escapeKey))
         {
+            Time.timeScale = 0f;
+
+            AudioListener.pause = true;
+
             crosshair.SetActive(false);
             menu.SetActive(true);
             settingObj.Click();

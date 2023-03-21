@@ -17,8 +17,10 @@ public class ScreamerScript : MonoBehaviour
 
     [SerializeField] private List<GameObject> monsters;
 
-    [SerializeField]private Image deathScreen;
-    
+    [SerializeField] private Image deathScreen;
+
+    [SerializeField] private string MyAudioSourceName;
+     
 
     bool played = false;
 
@@ -44,7 +46,7 @@ public class ScreamerScript : MonoBehaviour
 
             AudioClip clip = AudioSystem.GetSound("Screamer1", AudioType.Monsters);
 
-            AudioSystem.PlaySoundOnce("Screamer1", AudioType.Monsters, clip);
+            AudioSystem.PlaySoundOnce(MyAudioSourceName, AudioType.Monsters, clip);
 
             Invoke(nameof(ShutOff), 0.7f);
         }
@@ -57,7 +59,7 @@ public class ScreamerScript : MonoBehaviour
     }
     private void MenuScene()
     {
-        sceneFade.ActivateFade(3);
+        sceneFade.ActivateFade(2);
         Cursor.visible = true;
     }
     void Update()
