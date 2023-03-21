@@ -8547,6 +8547,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4686858731762432529}
     - target: {fileID: 6852118479321382622, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
+      propertyPath: info
+      value: 
+      objectReference: {fileID: 11400000, guid: 6df9ddca73f08c3469493e948ab7ecc2, type: 2}
+    - target: {fileID: 6852118479321382622, guid: 2f6e938ed4e80ff4795d42abd6cb0c90, type: 3}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 581044159199560919}
@@ -8989,7 +8993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677704597303783458, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7300734617741046263, guid: 4340a496341fe0841904bed25d7074e0, type: 3}
       propertyPath: player
@@ -9516,7 +9520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456002538248165336, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3466096356083329347, guid: 40ca4d6a311abd745b01b138fe2c8ade, type: 3}
       propertyPath: player

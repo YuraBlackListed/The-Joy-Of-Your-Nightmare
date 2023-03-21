@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathScreen : MonoBehaviour
@@ -7,6 +5,7 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] private KillerInfo info;
     [SerializeField] private GameObject WindowScreen;
     [SerializeField] private GameObject DoorScreen;
+    [SerializeField] private GameObject FearDeathScreen;
 
     [SerializeField] SceneFade fader;
 
@@ -19,6 +18,10 @@ public class DeathScreen : MonoBehaviour
         else if(info.killerID == 2)
         {
             DoorScreen.SetActive(true);
+        }
+        else
+        {
+            FearDeathScreen.SetActive(true);
         }
     }
 
