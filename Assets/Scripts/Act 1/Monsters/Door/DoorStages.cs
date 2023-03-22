@@ -33,7 +33,7 @@ public class DoorStages : MonoBehaviour
     }    
     private void GetLevel()
     {
-        if (AI.Progress >= AI.ProgressLimit * 0.85f)
+        if (AI.Progress >= AI.ProgressLimit * 0.975f)
         {
             level = 3;
             return;

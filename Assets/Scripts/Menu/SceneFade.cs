@@ -15,6 +15,10 @@ public class SceneFade : MonoBehaviour
     }
     public void ActivateFade(int id)
     {
+        Time.timeScale = 1f;
+
+        AudioListener.pause = false;
+
         fade.DOFade(1f, 0.7f).OnComplete(()=>levelManager.LoadLevel(id));
     }
 }
