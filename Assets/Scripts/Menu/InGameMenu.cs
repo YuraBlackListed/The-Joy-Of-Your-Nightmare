@@ -59,4 +59,8 @@ public class InGameMenu : MonoBehaviour
             settingObj.Click();
         }
     }
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+    }
 }

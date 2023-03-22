@@ -42,11 +42,11 @@ public class TimeCounter : MonoBehaviour
             }
             if(GameTime >= 6480)
             {
-                //mosters[1].SetActive(true);
+                mosters[1].SetActive(true);
             }
-            if(GameTime >= 12960 || (levelScrObj.Night > 1 && GameTime >= 2320))
+            if(GameTime >= 12960 || (levelScrObj.Night > 1 && GameTime >= 6480))
             {
-                //mosters[2].SetActive(true);
+                mosters[2].SetActive(true);
             }
         }
     }

@@ -33,6 +33,7 @@ public class GhostAI : MonoBehaviour
         if (ghostTimer <= 0f)
         {
             ReverseTime();
+            blackout.DOFade(1f, 0.3f).OnComplete(()=>ReverseTime());
         }
 
         if (timeLeftToWatch <= 0f)
@@ -51,6 +52,7 @@ public class GhostAI : MonoBehaviour
         InGameTime.DeleteTime(3600f);
 
         ParentScript.ResetGhost();
+        blackout.DOFade(0f, 0.3f);
         Destroy(gameObject);
     }
 }
