@@ -72,6 +72,6 @@ public class DoorMonsterAI : MonsterAI
     }
     protected override float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / calmMod * levelScrObj.EnemiesLevel) * randomRageMod;
+        return ((Time.deltaTime * Random.value * 10f + Random.Range(0f, 5.5f)) / calmMod) * randomRageMod;
     }
 }
