@@ -19,6 +19,7 @@ public class NightSnippet : MonoBehaviour
         {
             PlayerPrefs.SetInt("NightNumber", 1);
             PlayerPrefs.SetFloat("MonstersLevel", 0.1f);
+            PlayerPrefs.Save();
         }
     }
 

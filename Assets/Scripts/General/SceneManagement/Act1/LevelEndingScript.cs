@@ -48,6 +48,8 @@ public class LevelEndingScript : MonoBehaviour
                 PlayerPrefs.SetInt("NightNumber", PlayerPrefs.GetInt("NightNumber") + 1);
             }
 
+            PlayerPrefs.Save();
+
             PlayerPrefs.SetFloat("MonstersLevel", 1f);
             cursor.SetActive(false);
             filmGrain.intensity.Override(strength);
