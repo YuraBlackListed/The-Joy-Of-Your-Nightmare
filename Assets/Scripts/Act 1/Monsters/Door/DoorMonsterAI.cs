@@ -6,7 +6,6 @@ public class DoorMonsterAI : MonsterAI
     [SerializeField] private KillerInfo info;
     [SerializeField] private DoorStages DoorStages;
     [SerializeField] private ScreamerScript screamer;
-    [SerializeField] private LevelScriptableObject levelScrObj;
 
     private float roomEnterDelay = 2.25f;
 

@@ -6,6 +6,17 @@ public class LevelChanger : MonoBehaviour
 {
     [SerializeField] private LoadingScreenScript LoadingScreen;
 
+    private void Start()
+    {
+        if(!PlayerPrefs.HasKey("NightNumber"))
+        {
+            PlayerPrefs.SetInt("NightNumber", 1);
+        }
+        if(!PlayerPrefs.HasKey("MonstersLevel"))
+        {
+            PlayerPrefs.SetFloat("MonstersLevel", 0.1f);
+        }
+    }
     public void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadSceneAsync(sceneIndex));

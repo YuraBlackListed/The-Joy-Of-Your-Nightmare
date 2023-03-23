@@ -3464,6 +3464,7 @@ GameObject:
   - component: {fileID: 6634266700618849340}
   - component: {fileID: 6634266700618849343}
   - component: {fileID: 6634266700618849342}
+  - component: {fileID: 2436487151389427711}
   m_Layer: 5
   m_Name: New Game
   m_TagString: Untagged
@@ -3598,6 +3599,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2436487151389427711}
+        m_TargetAssemblyTypeName: NightResetter, Assembly-CSharp
+        m_MethodName: ResetNight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &2436487151389427711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634266700618849336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904f6bbb7820ae04db9e17ec13ed942f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6634266700638808243
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,7 +5083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43f1046945b95e4f9a8e1e4f183227f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScrObj: {fileID: 11400000, guid: 89d3c91f8b4c1ea43a1b30e4b82bf4c2, type: 2}
   nightText: {fileID: 6634266700382951035}
 --- !u!1 &6634266701216363765
 GameObject:
@@ -6705,11 +6729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6dd22e5a7e130499d7b6829113a493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingScreenMainMenu: {fileID: 6634266700660422574}
-  LoadingScreenAct1: {fileID: 6634266702104072476}
-  LoadingScreenAct2: {fileID: 6634266702263065422}
-  LoadingScreenAct3: {fileID: 6634266701853850110}
-  LoadingBarGameObject: {fileID: 6634266702104072476}
 --- !u!114 &6634266702330994666
 MonoBehaviour:
   m_ObjectHideFlags: 0

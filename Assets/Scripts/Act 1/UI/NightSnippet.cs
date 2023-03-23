@@ -3,25 +3,22 @@ using TMPro;
 
 public class NightSnippet : MonoBehaviour
 {
-    [SerializeField] private LevelScriptableObject levelScrObj;
-
     [SerializeField] private TMP_Text nightText;
 
     private void Start()
     {
         if(nightText != null)
         {
-            nightText.SetText(levelScrObj.Night.ToString());
+            nightText.SetText(PlayerPrefs.GetInt("NightNumber").ToString());
         }
     }
 
     public void NewGame()
     {
-        if(levelScrObj != null)
+        if(!PlayerPrefs.HasKey("NightNumber"))
         {
-            levelScrObj.Night = 1;
-            levelScrObj.EnemiesLevel = 0.1f;
-
+            PlayerPrefs.SetInt("NightNumber", 1);
+            PlayerPrefs.SetFloat("MonstersLevel", 0.1f);
         }
     }
 

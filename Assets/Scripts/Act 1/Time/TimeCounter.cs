@@ -7,7 +7,6 @@ public class TimeCounter : MonoBehaviour
 
     [SerializeField] private  GameObject text;
     [SerializeField] private LevelEndingScript EndingScript;
-    [SerializeField] private LevelScriptableObject levelScrObj;
     [SerializeField] private GameObject[] mosters;
 
     public KeyCode InteractButton = KeyCode.H;
@@ -31,7 +30,7 @@ public class TimeCounter : MonoBehaviour
 
             GameTime += Time.deltaTime * 72f;
 
-            if(GameTime >= 21600 || Input.GetKeyDown(InteractButton))
+            if(GameTime >= 21600 /*|| Input.GetKeyDown(InteractButton)*/)
             {
                 EndingScript.EndLevel();
             }
@@ -44,7 +43,7 @@ public class TimeCounter : MonoBehaviour
             {
                 mosters[1].SetActive(true);
             }
-            if(GameTime >= 12960 || (levelScrObj.Night > 1 && GameTime >= 6480))
+            if(GameTime >= 12960 || (PlayerPrefs.GetFloat("MonstersLevel") >= 1 && GameTime >= 6480))
             {
                 mosters[2].SetActive(true);
             }

@@ -5,7 +5,6 @@ public class WindowMonsterAI : MonsterAI
     [SerializeField] private WindowScript Window;
     [SerializeField] private KillerInfo info;
     [SerializeField] private Animator animator;
-    [SerializeField] private LevelScriptableObject levelScrObj;
 
     private void Start()
     {
@@ -51,6 +50,6 @@ public class WindowMonsterAI : MonsterAI
     }
     protected override float RandomIncreasement()
     {
-        return ((Time.deltaTime * Random.value * 10f) / calmMod * levelScrObj.EnemiesLevel) * randomRageMod + Random.Range(0f, 6f);
+        return ((Time.deltaTime * Random.value * 10f) / calmMod * PlayerPrefs.GetFloat("MonstersLevel")) * randomRageMod + Random.Range(0f, 6f);
     }
 }

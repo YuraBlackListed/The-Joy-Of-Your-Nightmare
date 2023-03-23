@@ -14,8 +14,6 @@ public class LevelEndingScript : MonoBehaviour
 
     [SerializeField] private Volume volume;
     
-    [SerializeField] private LevelScriptableObject levelScrObj;
-
     FilmGrain filmGrain;
 
     private bool ended = false;
@@ -41,8 +39,16 @@ public class LevelEndingScript : MonoBehaviour
     {
         if(!ended)
         {
-            levelScrObj.Night++;
-            levelScrObj.EnemiesLevel = 1;
+            if (!PlayerPrefs.HasKey("NightNumber"))
+            {
+                PlayerPrefs.SetInt("NightNumber", 2);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("NightNumber", PlayerPrefs.GetInt("NightNumber") + 1);
+            }
+
+            PlayerPrefs.SetFloat("MonstersLevel", 1f);
             cursor.SetActive(false);
             filmGrain.intensity.Override(strength);
             Invoke(nameof(FadeScreen), 0.5f);
