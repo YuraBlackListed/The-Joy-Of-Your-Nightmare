@@ -35,7 +35,7 @@ namespace AkshayDhotre.GraphicSettingsMenu
         /// <param name="qualityLevelIndex"></param>
         public static void ChangeQualitySettings(int qualityLevelIndex)
         {
-            QualitySettings.SetQualityLevel(qualityLevelIndex);
+            QualitySettings.SetQualityLevel(qualityLevelIndex + 1);
         }
     }
 }

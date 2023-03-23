@@ -83,7 +83,7 @@ public class GhostSpawner : MonoBehaviour
     }
     private float GhostIncreasement()
     {
-        return (time.GameTime / 1500) * Time.deltaTime * Random.Range(1f, 5f);
+        return (time.GameTime / 1500) * Time.deltaTime * Random.Range(1f, 5f) * PlayerPrefs.GetFloat("MonstersLevel");
     }
     public void ResetGhost()
     {
